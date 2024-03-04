@@ -50,7 +50,7 @@
           <div class="card card-lg mb-5">
             <div class="card-body">
               <!-- Form -->
-              <form class="js-validate">
+              <form class="js-validate" action="<?=base_url('/sign-in')?>" method="POST">
                 <div class="text-center">
                   <div class="mb-5">
                     <h1 class="display-4">Sign in</h1>
@@ -69,9 +69,9 @@
 
                 <!-- Form Group -->
                 <div class="js-form-message form-group">
-                  <label class="input-label" for="signinSrEmail">Your email</label>
+                  <label class="input-label" for="username">Your Username</label>
 
-                  <input type="email" class="form-control form-control-lg" name="email" id="signinSrEmail" tabindex="1" placeholder="email@address.com" aria-label="email@address.com" required data-msg="Please enter a valid email address.">
+                  <input type="text" class="form-control form-control-lg" name="username" id="username" tabindex="1" placeholder="username" aria-label="username" required data-msg="Please enter a valid username">
                 </div>
                 <!-- End Form Group -->
 
@@ -85,7 +85,7 @@
                   </label>
 
                   <div class="input-group input-group-merge">
-                    <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="signupSrPassword" placeholder="8+ characters required" aria-label="8+ characters required" required data-msg="Your password is invalid. Please try again." data-hs-toggle-password-options='{
+                    <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="password" placeholder="8+ characters required" aria-label="8+ characters required" required data-msg="Your password is invalid. Please try again." data-hs-toggle-password-options='{
                                  "target": "#changePassTarget",
                                  "defaultClass": "tio-hidden-outlined",
                                  "showClass": "tio-visible-outlined",

@@ -1,5 +1,5 @@
-<!-- <?= $this->extend('templates/main') ?>
-<?= $this->section('content') ?> -->
+<?= $this->extend('templates/main') ?>
+<?= $this->section('content') ?>
 <main id="content" role="main" class="main">
     <!-- Content -->
     <div class="content container-fluid">
