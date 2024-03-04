@@ -10,6 +10,10 @@ class Auth extends BaseController
         return view('sign-in');
     }
 
+    public function __construct()
+    {
+        $this->Users = new \App\Models\Users();
+    }
     // public $authModel;
 
 	// public function __construct()
@@ -19,29 +23,36 @@ class Auth extends BaseController
 
     public function auth_signin()
     {
-    $session = \Config\Services::session();
-    $message = $session->getFlashdata('message');
+        $input = array(  'username' => $this->request->getPost('username'),
+                        'password' => $this->request->getPost('password')                
+                );
 
-    // Check if the form is submitted
-    if ($this->request->getMethod() === 'post') {
-        $username = $this->request->getPost('username');
-        $password = $this->request->getPost('password');
+            $userdetails = $this->Users->get_single_data_where('tbluseraccount',array('username' => $input['username']));
+            
 
-        // Assuming you have a database table called 'users' with 'username' and 'password' columns
-        $userModel = new Users();
-        $user = $userModel->where('username', $username)->first();
+            if ($userdetails != null ){
+                if ($userdetails['is_active'] == 1) {
+                    $verifyuser = password_verify($input['password'],$userdetails['password']);
+                        if($verifyuser) {   
+                            unset($userdetails['password']);
+                            $userdetails['logged_in'] = true;
 
-        if ($user && password_verify($password, $user['password'])) {
-            // Login successful, set user session and redirect
-            $session->set('useraccountid', $user['useraccountid']);
-            return redirect()->to('/dashboard'); // Redirect to dashboard or any other page
-        } else {
-            $message = 'Invalid username or password';
-        }
-    }
-
-    $data['message'] = $message;
-    return redirect()->to(base_url('/dashboard')); // Assuming you have a view file called 'login'
+                            $this->session->set($userdetails);
+                            return redirect()->to(base_url('/dashboard'));
+                        }
+                        else {
+                        //if incorrect password
+                            echo "ERROR - Wrong password";
+                            exit();
+                        }
+                }else{
+                //if account is inactive
+                    echo "ERROR-Account Inactive";
+                    exit();
+                }
+            }else{
+                echo "wala";
+            }
         }
     
 

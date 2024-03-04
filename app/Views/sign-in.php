@@ -77,7 +77,7 @@
 
                 <!-- Form Group -->
                 <div class="js-form-message form-group">
-                  <label class="input-label" for="signupSrPassword" tabindex="0">
+                  <label class="input-label" for="password" tabindex="0">
                     <span class="d-flex justify-content-between align-items-center">
                       Password
                       <a class="input-label-secondary" href="authentication-reset-password-basic.html">Forgot Password?</a>

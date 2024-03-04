@@ -116,3 +116,165 @@ in APPPATH\Views\templates\main.php on line 12.
 10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
 INFO - 2024-03-04 03:35:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-03-04 03:36:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 03:43:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 03:43:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 03:43:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-04 03:45:56 --> ErrorException: Undefined property: App\Controllers\Auth::$credentialsModel
+in APPPATH\Controllers\Auth.php on line 26.
+ 1 APPPATH\Controllers\Auth.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Auth::$credentialsModel', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Auth.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-04 03:46:21 --> ErrorException: Undefined property: App\Controllers\Auth::$Users
+in APPPATH\Controllers\Auth.php on line 26.
+ 1 APPPATH\Controllers\Auth.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Auth::$Users', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Auth.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-04 03:55:34 --> ErrorException: Undefined property: App\Controllers\Auth::$Users
+in APPPATH\Controllers\Auth.php on line 26.
+ 1 APPPATH\Controllers\Auth.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Auth::$Users', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Auth.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-04 03:55:38 --> ErrorException: Undefined property: App\Controllers\Auth::$Users
+in APPPATH\Controllers\Auth.php on line 26.
+ 1 APPPATH\Controllers\Auth.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Auth::$Users', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Auth.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-04 03:56:49 --> ErrorException: Undefined property: App\Controllers\Auth::$Users
+in APPPATH\Controllers\Auth.php on line 26.
+ 1 APPPATH\Controllers\Auth.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Auth::$Users', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Auth.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-04 03:58:36 --> BadMethodCallException: Call to undefined method App\Models\Users::get_single_data_where
+in SYSTEMPATH\Model.php on line 874.
+ 1 APPPATH\Controllers\Auth.php(30): CodeIgniter\Model->__call('get_single_data_where', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-04 03:58:51 --> Error: Cannot use object of type App\Models\Users as array
+in APPPATH\Controllers\Auth.php on line 32.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-04 07:17:14 --> Error: Cannot use object of type App\Models\Users as array
+in APPPATH\Controllers\Auth.php on line 32.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-04 07:18:31 --> ErrorException: Undefined array key "is_active"
+in APPPATH\Controllers\Auth.php on line 32.
+ 1 APPPATH\Controllers\Auth.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "is_active"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Auth.php', 32)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-04 07:39:28 --> ErrorException: Undefined property: App\Controllers\Auth::$session
+in APPPATH\Controllers\Auth.php on line 38.
+ 1 APPPATH\Controllers\Auth.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Auth::$session', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Auth.php', 38)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-04 07:42:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:42:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:43:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:43:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:43:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:43:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:43:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-04 07:43:17 --> ErrorException: Trying to access array offset on value of type null
+in APPPATH\Controllers\Auth.php on line 32.
+ 1 APPPATH\Controllers\Auth.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Auth.php', 32)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-04 07:43:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:43:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-04 07:43:31 --> ErrorException: Trying to access array offset on value of type null
+in APPPATH\Controllers\Auth.php on line 32.
+ 1 APPPATH\Controllers\Auth.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Auth.php', 32)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-04 07:43:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:44:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-04 07:44:23 --> ErrorException: Trying to access array offset on value of type null
+in APPPATH\Controllers\Auth.php on line 32.
+ 1 APPPATH\Controllers\Auth.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Auth.php', 32)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-04 07:45:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:45:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:46:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:46:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-04 07:46:24 --> ErrorException: Trying to access array offset on value of type null
+in APPPATH\Controllers\Auth.php on line 34.
+ 1 APPPATH\Controllers\Auth.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Auth.php', 34)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-04 07:47:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:47:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:57:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:57:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:57:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:58:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:58:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:59:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:59:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 07:59:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 08:00:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-04 08:00:12 --> TypeError: sizeof(): Argument #1 ($value) must be of type Countable|array, null given
+in APPPATH\Controllers\Auth.php on line 33.
+ 1 APPPATH\Controllers\Auth.php(33): sizeof(null)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-04 08:00:44 --> ParseError: Unclosed '{' on line 7
+in APPPATH\Controllers\Auth.php on line 94.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Auth.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Auth')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Auth')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\Auth', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-04 08:01:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 08:01:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-04 08:01:18 --> TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given
+in APPPATH\Controllers\Auth.php on line 32.
+ 1 APPPATH\Controllers\Auth.php(32): count(null)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Auth->auth_signin()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-04 08:01:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 08:02:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 08:02:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 08:02:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 08:02:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 08:02:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 08:04:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 08:04:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 08:04:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 08:07:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-04 08:07:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

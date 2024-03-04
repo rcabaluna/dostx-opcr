@@ -1,14 +1,34 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
+
 use CodeIgniter\Model;
 
 class Users extends Model
 {
-   protected $DBGroup = 'default';
+    // GET ALL DETAILS WITHOUT CONDITION 
+    public function get_all($tablename){
+        $builder = $this->db->table($tablename);
+        $builder = $builder->get();
 
-   protected $table = 'tbluseraccount';
-   protected $primaryKey = 'useraccountid';
-   protected $returnType = 'array';
-   protected $useTimestamps = true;
-   protected $allowedFields = ['password','date_created'];
+        return $builder->getResultArray();
+    }
+
+    public function get_all_where($tablename,$param){
+        $builder = $this->db->table($tablename);
+        $builder->where($param);
+        $builder = $builder->get();
+
+        return $builder->getResultArray();
+    }
+    
+    public function get_single_data_where($tablename,$param){
+        $builder = $this->db->table($tablename);
+        $builder->where($param);
+        $builder = $builder->get();
+
+        return $builder->getRowArray();
+    }
+    
 
 }
