@@ -86,11 +86,11 @@
 
                   <div class="input-group input-group-merge">
                     <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="password" placeholder="8+ characters required" aria-label="8+ characters required" required data-msg="Your password is invalid. Please try again." data-hs-toggle-password-options='{
-                                 "target": "#changePassTarget",
-                                 "defaultClass": "tio-hidden-outlined",
-                                 "showClass": "tio-visible-outlined",
-                                 "classChangeTarget": "#changePassIcon"
-                               }'>
+                                "target": "#changePassTarget",
+                                "defaultClass": "tio-hidden-outlined",
+                                "showClass": "tio-visible-outlined",
+                                "classChangeTarget": "#changePassIcon"
+                              }'>
                     <div id="changePassTarget" class="input-group-append">
                       <a class="input-group-text" href="javascript:;">
                         <i id="changePassIcon" class="tio-visible-outlined"></i>
