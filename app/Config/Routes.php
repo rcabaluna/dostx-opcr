@@ -13,3 +13,7 @@ $routes->get('/projects', 'Dashboard::projects');
 $routes->get('/registry', 'Dashboard::registry');
 // $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
 
+
+
+//REGISTRY ROUTES
+$routes->get('/registry/perspective', 'Registry::perspective');
