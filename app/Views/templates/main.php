@@ -370,7 +370,8 @@
                     </div>
 
                     <!-- Content -->
-                    <div class="navbar-vertical-content">
+                                        <!-- Content -->
+                                        <div class="navbar-vertical-content">
                         <ul class="navbar-nav navbar-nav-lg nav-tabs">
                             <!-- Dashboards -->
                             <li class="navbar-vertical-aside-has-menu ">
@@ -381,10 +382,24 @@
 
                                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                                     <li class="nav-item">
-                                        <a class="nav-link " href="index.html" title="Default">
+                                        <a class="nav-link " href="<?=base_url('registry')?>">
                                             <span class="tio-circle nav-indicator-icon"></span>
                                             <span class="text-truncate">Registry</span>
                                         </a>
+                                        <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                                            <li class="nav-item">
+                                                <a class="nav-link " href="#">
+                                                    <span class="tio-circle nav-indicator-icon"></span>
+                                                    <span class="text-truncate">Perspective</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link " href="#">
+                                                    <span class="tio-circle nav-indicator-icon"></span>
+                                                    <span class="text-truncate">Indicators</span>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link " href="dashboard-alternative.html" title="Alternative">
@@ -392,8 +407,18 @@
                                             <span class="text-truncate">Modules</span>
                                         </a>
                                     </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="dashboard-alternative.html" title="Alternative">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">Reports</span>
+                                        </a>
+                                    </li>
+
                                 </ul>
                             </li>
+                        </ul>
+                    </div>
                             <!-- End Dashboards -->
 
 
