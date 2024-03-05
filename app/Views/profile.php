@@ -11,7 +11,7 @@
             <!-- Profile Cover -->
             <div class="profile-cover">
               <div class="profile-cover-img-wrapper">
-                <img id="profileCoverImg" class="profile-cover-img" src="assets/img/1920x400/img2.jpg" alt="Image Description">
+                <img id="profileCoverImg" class="profile-cover-img" src="assets/img/1920x400/img2.jpg]" alt="Image Description">
 
                 <!-- Custom File Cover -->
                 <div class="profile-cover-content profile-cover-btn">
@@ -38,7 +38,7 @@
             <div class="text-center mb-5">
               <!-- Avatar -->
               <label class="avatar avatar-xxl avatar-circle avatar-border-lg avatar-uploader profile-cover-avatar" for="avatarUploader">
-                <img id="avatarImg" class="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description">
+                <img id="avatarImg" class="avatar-img" src="sir.jpg" alt="Image Description">
 
                 <input type="file" class="js-file-attach avatar-uploader-input" id="avatarUploader"
                        data-hs-file-attach-options='{
@@ -54,24 +54,24 @@
               </label>
               <!-- End Avatar -->
 
-              <h1 class="page-header-title">Mark Williams <i class="tio-verified tio-lg text-primary" data-toggle="tooltip" data-placement="top" title="Top endorsed"></i></h1>
+              <h1 class="page-header-title">Ruel Cabaluna <i class="tio-verified tio-lg text-primary" data-toggle="tooltip" data-placement="top" title="Top endorsed"></i></h1>
 
               <!-- List -->
               <ul class="list-inline list-inline-m-1">
                 <li class="list-inline-item">
                   <i class="tio-city mr-1"></i>
-                  <span>Pixeel Ltd.</span>
+                  <span>Cagayan De Oro City.</span>
                 </li>
 
                 <li class="list-inline-item">
                   <i class="tio-poi-outlined mr-1"></i>
-                  <a href="#">London,</a>
-                  <a href="#">UK</a>
+                  <a href="#">Philippines,</a>
+                  <a href="#">Misamis Oriental</a>
                 </li>
 
                 <li class="list-inline-item">
                   <i class="tio-date-range mr-1"></i>
-                  <span>Joined March 2013</span>
+                  <span>Joined March 2024</span>
                 </li>
               </ul>
               <!-- End List -->
@@ -194,15 +194,15 @@
 
                       <li>
                         <i class="tio-user-outlined nav-icon"></i>
-                        Mark Williams
+                        Ruel Cabaluna
                       </li>
                       <li>
                         <i class="tio-briefcase-outlined nav-icon"></i>
-                        No department title
+                        Department of Science and Technology
                       </li>
                       <li>
                         <i class="tio-city nav-icon"></i>
-                        Pixeel Ltd.
+                        Cagayan De Oro City
                       </li>
 
                       <li class="pt-2 pb-0">
@@ -211,7 +211,7 @@
 
                       <li>
                         <i class="tio-online nav-icon"></i>
-                        mark@example.com
+                        rcabaluna@gmail.com
                       </li>
                       <li>
                         <i class="tio-android-phone-vs nav-icon"></i>
@@ -224,11 +224,11 @@
 
                       <li class="font-size-sm text-body">
                         <i class="tio-group-equal nav-icon"></i>
-                        You are not a member of any teams
+                        Team MIS
                       </li>
                       <li class="font-size-sm text-body">
                         <i class="tio-briefcase-outlined nav-icon"></i>
-                        You are not working on any projects
+                        DOST Region X
                       </li>
                     </ul>
                   </div>
@@ -239,18 +239,7 @@
                 <!-- Card -->
                 <div class="card card-lg mb-3 mb-lg-5">
                   <!-- Body -->
-                  <div class="card-body text-center">
-                    <div class="w-50 mx-auto mb-4">
-                      <img class="img-fluid" src="assets/svg/illustrations/unlock.svg" alt="Image Description">
-                    </div>
-
-                    <div class="mb-3">
-                      <h3>2-step verification</h3>
-                      <p>Protect your account now and enable 2-step verification in the settings.</p>
-                    </div>
-
-                    <a class="btn btn-primary" href="account-settings.html#twoStepVerificationSection">Enable Now</a>
-                  </div>
+                  
                   <!-- End Body -->
                 </div>
                 <!-- End Card -->

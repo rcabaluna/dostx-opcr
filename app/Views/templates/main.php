@@ -97,7 +97,7 @@
                                             </div>
                                             <div class="media-body">
                                                 <span class="card-title h5">Ruel Cabaluna</span>
-                                                <span class="card-text">rcabaluna@example.com</span>
+                                                <span class="card-text">rcabaluna@gmail.com</span>
                                             </div>
                                         </div>
                                     </div>
