@@ -21,4 +21,10 @@ class Dashboard extends BaseController
         $data['title'] = "Registry";
         return view('registry', $data);
     }
+
+    public function add_registry()
+    {
+        $data['title'] = "Registry";
+        return view('add-registry', $data);
+    }
 }
