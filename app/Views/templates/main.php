@@ -1,612 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from htmlstream.com/front-dashboard/welcome-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Jan 2022 03:34:16 GMT -->
-
 <head>
-    <!-- Required Meta Tags Always Come First -->
+
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <!-- Title -->
-    <title><?= $title ?></title>
+    <title>SB Admin 2 - Blank</title>
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico">
+    <!-- Custom fonts for this template-->
+    <link href="<?= base_url('assets/vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="<?= base_url('assets/css/sb-admin-2.min.css') ?>" rel="stylesheet">
 
-    <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="assets/css/vendor.min.css">
-    <link rel="stylesheet" href="assets/vendor/icon-set/style.css">
-
-
-
-    <!-- CSS Front Template -->
-    <link rel="stylesheet" href="assets/css/theme.minc619.css?v=1.0">
 </head>
 
-<body class="   footer-offset">
+<body id="page-top">
 
-    <script src="assets/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-    <!-- ONLY DEV -->
-    <!-- JS Preview mode only -->
-    <div id="headerMain" class="d-none">
-        <header id="header" class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-flush navbar-container navbar-bordered">
-            <div class="navbar-nav-wrap">
-                <div class="navbar-brand-wrapper">
-                    <!-- Logo -->
-                    <a class="navbar-brand" href="index.html" aria-label="Front">
-                        <img class="navbar-brand-logo" src="assets/svg/logos/logo.svg" alt="Logo">
-                        <img class="navbar-brand-logo-mini" src="assets/svg/logos/logo-short.svg" alt="Logo">
-                    </a>
-                    <!-- End Logo -->
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
                 </div>
+                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            </a>
 
-                <div class="navbar-nav-wrap-content-left">
-                    <!-- Navbar Vertical Toggle -->
-                    <button type="button" class="js-navbar-vertical-aside-toggle-invoker close mr-3">
-                        <i class="tio-first-page navbar-vertical-aside-toggle-short-align" data-toggle="tooltip" data-placement="right" title="Collapse"></i>
-                        <i class="tio-last-page navbar-vertical-aside-toggle-full-align" data-template='<div class="tooltip d-none d-sm-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>' data-toggle="tooltip" data-placement="right" title="Expand"></i>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Registry</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="<?= base_url('registry/perspective') ?>">Perspective</a>
+                        <a class="collapse-item" href="cards.html">Indicators</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
                     </button>
-                    <!-- End Navbar Vertical Toggle -->
 
-                </div>
-
-                <!-- Secondary Content -->
-                <div class="navbar-nav-wrap-content-right">
-                    <!-- Navbar -->
-                    <ul class="navbar-nav align-items-center flex-row">
-                        <li class="nav-item d-md-none">
-                            <!-- Search Trigger -->
-                            <div class="hs-unfold">
-                                <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle" href="javascript:;" data-hs-unfold-options='{
-                 "target": "#searchDropdown",
-                 "type": "css-animation",
-                 "animationIn": "fadeIn",
-                 "hasOverlay": "rgba(46, 52, 81, 0.1)",
-                 "closeBreakpoint": "md"
-               }'>
-                                    <i class="tio-search"></i>
-                                </a>
+                    <!-- Topbar Search -->
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
                             </div>
-                            <!-- End Search Trigger -->
-                        </li>
+                        </div>
+                    </form>
 
-                        <li class="nav-item">
-                            <!-- Account -->
-                            <div class="hs-unfold">
-                                <a class="js-hs-unfold-invoker navbar-dropdown-account-wrapper" href="javascript:;" data-hs-unfold-options='{
-                 "target": "#accountNavbarDropdown",
-                 "type": "css-animation"
-               }'>
-                                    <div class="avatar avatar-sm avatar-circle">
-                                        <img class="avatar-img" src="sir.jpg" alt="Image Description">
-                                        <span class="avatar-status avatar-sm-status avatar-status-success"></span>
-                                    </div>
-                                </a>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
 
-                                <div id="accountNavbarDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu navbar-dropdown-account" style="width: 16rem;">
-                                    <div class="dropdown-item-text">
-                                        <div class="media align-items-center">
-                                            <div class="avatar avatar-sm avatar-circle mr-2">
-                                                <img class="avatar-img" src="sir.jpg" alt="Image Description">
-                                            </div>
-                                            <div class="media-body">
-                                                <span class="card-title h5">Ruel Cabaluna</span>
-                                                <span class="card-text">rcabaluna@example.com</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="<?=base_url('profile')?>">
-                                        <span class="text-truncate pr-2" title="Profile &amp; account">Profile &amp; account</span>
-                                    </a>
-
-                                    <div class="dropdown-divider"></div>
-
-                                    <a class="dropdown-item" href="<?=base_url('sign-out')?>">
-                                        <span class="text-truncate pr-2" title="Sign out">Sign out</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- End Account -->
-                        </li>
-                    </ul>
-                    <!-- End Navbar -->
-                </div>
-                <!-- End Secondary Content -->
-            </div>
-        </header>
-    </div>
-    <div id="headerFluid" class="d-none">
-        <header id="header" class="navbar navbar-expand-xl navbar-fixed navbar-height navbar-flush navbar-container navbar-bordered  ">
-            <div class="js-mega-menu navbar-nav-wrap">
-                <div class="navbar-brand-wrapper">
-                    <!-- Logo -->
-
-
-                    <a class="navbar-brand" href="index.html" aria-label="Front">
-<img class="navbar-brand-logo" src="logo.jpg" alt="Logo" style="width: 50%;"/>                    </a>
-
-                    <!-- End Logo -->
-                </div>
-
-                <!-- Secondary Content -->
-                <div class="navbar-nav-wrap-content-right">
-                    <!-- Navbar -->
-                    <ul class="navbar-nav align-items-center flex-row">
-                        <li class="nav-item">
-                            <!-- Account -->
-                            <div class="hs-unfold">
-                                <a class="js-hs-unfold-invoker navbar-dropdown-account-wrapper" href="javascript:;" data-hs-unfold-options='{
-                 "target": "#accountNavbarDropdown",
-                 "type": "css-animation"
-               }'>
-                                    <div class="avatar avatar-sm avatar-circle">
-                                        <img class="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description">
-                                        <span class="avatar-status avatar-sm-status avatar-status-success"></span>
-                                    </div>
-                                </a>
-
-                                <div id="accountNavbarDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu navbar-dropdown-account" style="width: 16rem;">
-                                    <div class="dropdown-item-text">
-                                        <div class="media align-items-center">
-                                            <div class="avatar avatar-sm avatar-circle mr-2">
-                                                <img class="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description">
-                                            </div>
-                                            <div class="media-body">
-                                                <span class="card-title h5">Mark Williams</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="dropdown-divider"></div>
-
-                                    <a class="dropdown-item" href="#">
-                                        <span class="text-truncate pr-2" title="Sign out">Sign out</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- End Account -->
-                        </li>
-
-                        <li class="nav-item">
-                            <!-- Toggle -->
-                            <button type="button" class="navbar-toggler btn btn-ghost-secondary rounded-circle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarNavMenu" data-toggle="collapse" data-target="#navbarNavMenu">
-                                <i class="tio-menu-hamburger"></i>
-                            </button>
-                            <!-- End Toggle -->
-                        </li>
-                    </ul>
-                    <!-- End Navbar -->
-                </div>
-                <!-- End Secondary Content -->
-
-                <!-- Navbar -->
-                <div class="navbar-nav-wrap-content-left collapse navbar-collapse" id="navbarNavMenu">
-                    <div class="navbar-body">
-                        <ul class="navbar-nav flex-grow-1">
-                            <!-- Dashboards -->
-                            <li class="hs-has-sub-menu">
-                                <a id="dashboardsDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkDashboardsDropdown">
-                                    <i class="tio-home-vs-1-outlined nav-icon"></i> Dashboards
-                                </a>
-
-                                <!-- Dropdown -->
-                                <ul id="navLinkDashboardsDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="dashboardsDropdown" style="min-width: 16rem;">
-                                    <li>
-                                        <a class="dropdown-item" href="index.html">
-                                            <span class="tio-circle nav-indicator-icon"></span> Registry
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="dashboard-alternative.html">
-                                            <span class="tio-circle nav-indicator-icon"></span> Modules
-                                        </a>
-                                    </li>
-                                </ul>
-                                <!-- End Dropdown -->
-                            </li>
-                            <!-- End Dashboards -->
-                        </ul>
-
-                    </div>
-                </div>
-                <!-- End Navbar -->
-            </div>
-        </header>
-    </div>
-    <div id="headerDouble" class="d-none">
-        <header id="header" class="navbar navbar-expand-lg navbar-bordered flex-lg-column px-0">
-            <div class="navbar-dark w-100">
-                <div class="container-fluid">
-                    <div class="navbar-nav-wrap">
-                        <div class="navbar-brand-wrapper">
-                            <!-- Logo -->
-                            <a class="navbar-brand" href="index.html" aria-label="Front">
-                            <img class="navbar-brand-logo" src="logo.jpg" alt="Logo" style="width: 50%;"/>
-                                
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
                             </a>
-                            <!-- End Logo -->
-                        </div>
-
-                        <!-- Secondary Content -->
-                        <div class="navbar-nav-wrap-content-right">
-                            <!-- Navbar -->
-                            <ul class="navbar-nav align-items-center flex-row">
-                                <li class="nav-item d-lg-none">
-                                    <!-- Search Trigger -->
-                                    <div class="hs-unfold">
-                                        <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-light rounded-circle" href="javascript:;" data-hs-unfold-options='{
-                     "target": "#searchDropdown",
-                     "type": "css-animation",
-                     "animationIn": "fadeIn",
-                     "hasOverlay": "rgba(46, 52, 81, 0.1)",
-                     "closeBreakpoint": "md"
-                   }'>
-                                            <i class="tio-search"></i>
-                                        </a>
-                                    </div>
-                                    <!-- End Search Trigger -->
-                                </li>
-                                <li class="nav-item">
-                                    <!-- Account -->
-                                    <div class="hs-unfold">
-                                        <a class="js-hs-unfold-invoker navbar-dropdown-account-wrapper" href="javascript:;" data-hs-unfold-options='{
-                     "target": "#accountNavbarDropdown",
-                     "type": "css-animation"
-                   }'>
-                                            <div class="avatar avatar-sm avatar-circle">
-                                                <img class="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description">
-                                                <span class="avatar-status avatar-sm-status avatar-status-success"></span>
-                                            </div>
-                                        </a>
-
-                                        <div id="accountNavbarDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu navbar-dropdown-account" style="width: 16rem;">
-                                            <div class="dropdown-item-text">
-                                                <div class="media align-items-center">
-                                                    <div class="avatar avatar-sm avatar-circle mr-2">
-                                                        <img class="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <span class="card-title h5">Ruel Cabaluna</span>
-                                                        <span class="card-text">ruelcabaluna@example.com</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="dropdown-divider"></div>
-
-
-                                            <a class="dropdown-item" href="<?=base_url('profile')?>">
-                                                <span class="text-truncate pr-2" title="Profile &amp; account">Profile &amp; account</span>
-                                            </a>
-
-                                            <div class="dropdown-divider"></div>
-
-                                            <a class="dropdown-item" href="#">
-                                                <span class="text-truncate pr-2" title="Sign out">Sign out</span>
-                                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
                                         </div>
                                     </div>
-                                    <!-- End Account -->
-                                </li>
+                                </form>
+                            </div>
+                        </li>
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
 
+                    </ul>
 
-                            </ul>
-                            <!-- End Navbar -->
-                        </div>
-                        <!-- End Secondary Content -->
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-fluid">
-                <nav class="js-mega-menu flex-grow-1">
-                    <!-- Navbar -->
-                    <div class="navbar-nav-wrap-navbar collapse navbar-collapse" id="navbarNavMenu">
-                        <div class="navbar-body">
-                            <ul class="navbar-nav flex-grow-1">
-                                <!-- Dashboards -->
-                                <li class="hs-has-sub-menu navbar-nav-item">
-                                    <a id="dashboardsDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkDashboardsDropdown">
-                                        <i class="tio-home-vs-1-outlined nav-icon"></i> Dashboards
-                                    </a>
-
-                                    <!-- Dropdown -->
-                                    <ul id="navLinkDashboardsDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="dashboardsDropdown" style="min-width: 16rem;">
-                                        <li>
-                                            <a class="dropdown-item" href="index.html">
-                                                <span class="tio-circle nav-indicator-icon"></span> Registry
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="dashboard-alternative.html">
-                                                <span class="tio-circle nav-indicator-icon"></span> Modules
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <!-- End Dropdown -->
-                                </li>
-                                <!-- End Dashboards -->
-                            </ul>
-
-                        </div>
-                    </div>
-                    <!-- End Navbar -->
                 </nav>
-            </div>
-        </header>
-    </div>
-    <div id="sidebarMain" class="d-none">
-        <aside class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered  ">
-            <div class="navbar-vertical-container">
-                <div class="navbar-vertical-footer-offset">
-                    <div class="navbar-brand-wrapper justify-content-between">
-                        <!-- Logo -->
+                <!-- End of Topbar -->
 
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
-                        <a class="navbar-brand" href="<?=base_url('dashboard')?>" aria-label="Front">
-                        <img class="navbar-brand-logo" src="logo2.png" alt="Logo">
-                            <img class="navbar-brand-logo-mini" src="logo2.png" alt="Logo">
-                        </a>
-
-                        
-
-                        <!-- End Logo -->
-
-                        <!-- Navbar Vertical Toggle -->
-                        <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-vertical-aside-toggle btn btn-icon btn-xs btn-ghost-dark">
-                            <i class="tio-clear tio-lg"></i>
-                        </button>
-                        <!-- End Navbar Vertical Toggle -->
-                    </div>
-
-                    <!-- Content -->
-                                        <!-- Content -->
-                                        <div class="navbar-vertical-content">
-                        <ul class="navbar-nav navbar-nav-lg nav-tabs">
-                            <!-- Dashboards -->
-                            <li class="navbar-vertical-aside-has-menu ">
-                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Dashboards">
-                                    <i class="tio-home-vs-1-outlined nav-icon"></i>
-                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Dashboards</span>
-                                </a>
-
-                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="<?=base_url('registry')?>">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">Registry</span>
-                                        </a>
-                                        <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
-                                            <li class="nav-item">
-                                                <a class="nav-link " href="#">
-                                                    <span class="tio-circle nav-indicator-icon"></span>
-                                                    <span class="text-truncate">Perspective</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " href="#">
-                                                    <span class="tio-circle nav-indicator-icon"></span>
-                                                    <span class="text-truncate">Indicators</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="dashboard-alternative.html" title="Alternative">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">Modules</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="dashboard-alternative.html" title="Alternative">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">Reports</span>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                            <!-- End Dashboards -->
-
-
-                            <!-- Front Builder -->
-                            <li class="nav-item nav-footer-item ">
-                                <a class="d-none d-md-flex js-hs-unfold-invoker nav-link nav-link-toggle" href="javascript:;" data-hs-unfold-options='{
-                 "target": "#styleSwitcherDropdown",
-                 "type": "css-animation",
-                 "animationIn": "fadeInRight",
-                 "animationOut": "fadeOutRight",
-                 "hasOverlay": true,
-                 "smartPositionOff": true
-               }'>
-                                    <i class="tio-tune nav-icon"></i>
-                                </a>
-                                <a class="d-flex d-md-none nav-link nav-link-toggle" href="javascript:;">
-                                    <i class="tio-tune nav-icon"></i>
-                                </a>
-                            </li>
-                            <!-- End Front Builder -->
-
-                            <!-- Help -->
-
-                            <!-- End Language -->
-                        </ul>
-                    </div>
-                    <!-- End Content -->
-
+                    <!-- Page Heading -->
+                    <?= $this->renderSection('content') ?>
 
                 </div>
-            </div>
-        </aside>
-    </div>
-    <div id="sidebarCompact" class="d-none">
-        <aside class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered  ">
-            <div class="navbar-vertical-container">
-                <div class="navbar-brand d-flex justify-content-center">
-                    <!-- Logo -->
-
-
-                    <a class="navbar-brand" href="dashboard" aria-label="Front">
-                        <img class="navbar-brand-logo-short" src="logo2.png" alt="Logo">
-                    </a>
-
-                    <!-- End Logo -->
-                </div>
+                <!-- /.container-fluid -->
 
             </div>
-        </aside>
-    </div>
+            <!-- End of Main Content -->
 
-    <script src="assets/js/demo.js"></script>
-
-    <!-- END ONLY DEV -->
-
-    <!-- Search Form -->
-    <div id="searchDropdown" class="hs-unfold-content dropdown-unfold search-fullwidth d-md-none">
-        <form class="input-group input-group-merge input-group-borderless">
-            <div class="input-group-prepend">
-                <div class="input-group-text">
-                    <i class="tio-search"></i>
-                </div>
-            </div>
-
-
-            <div class="input-group-append">
-                <div class="input-group-text">
-                    <div class="hs-unfold">
-                        <a class="js-hs-unfold-invoker" href="javascript:;" data-hs-unfold-options='{
-                   "target": "#searchDropdown",
-                   "type": "css-animation",
-                   "animationIn": "fadeIn",
-                   "hasOverlay": "rgba(46, 52, 81, 0.1)",
-                   "closeBreakpoint": "md"
-                 }'>
-                            <i class="tio-clear tio-lg"></i>
-                        </a>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
                     </div>
                 </div>
-            </div>
-        </form>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
     </div>
-    <!-- End Search Form -->
+    <!-- End of Page Wrapper -->
 
-    <!-- ========== HEADER ========== -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Bootstrap core JavaScript-->
+    <script src="<?= base_url('assets/vendor/jquery/jquery.min.js') ?>"></script>
+    <script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 
+    <!-- Core plugin JavaScript-->
+    <script src="<?= base_url('assets/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
 
+    <!-- Custom scripts for all pages-->
+    <script src="<?= base_url('assets/js/sb-admin-2.min.jsassets/js/sb-admin-2.min.js') ?>"></script>
 
-    <!-- ========== END HEADER ========== -->
-
-    <!-- ========== MAIN CONTENT ========== -->
-    <!-- Navbar Vertical -->
-
-
-
-    <!-- End Navbar Vertical -->
-    <!-- MAIN CONTENT DIRI -->
-    <!-- ========== END MAIN CONTENT ========== -->
-
-
-    <?= $this->renderSection('content') ?>
-
-    <!-- JS Implementing Plugins -->
-    <script src="assets/js/vendor.min.js"></script>
-
-
-
-    <!-- JS Front -->
-    <script src="assets/js/theme.min.js"></script>
-
-    <!-- JS Plugins Init. -->
-    <script>
-        $(document).on('ready', function() {
-            // ONLY DEV
-            // =======================================================
-
-            if (window.localStorage.getItem('hs-builder-popover') === null) {
-                $('#builderPopover').popover('show')
-                    .on('shown.bs.popover', function() {
-                        $('.popover').last().addClass('popover-dark')
-                    });
-
-                $(document).on('click', '#closeBuilderPopover', function() {
-                    window.localStorage.setItem('hs-builder-popover', true);
-                    $('#builderPopover').popover('dispose');
-                });
-            } else {
-                $('#builderPopover').on('show.bs.popover', function() {
-                    return false
-                });
-            }
-
-            // END ONLY DEV
-            // =======================================================
-
-
-            // BUILDER TOGGLE INVOKER
-            // =======================================================
-            $('.js-navbar-vertical-aside-toggle-invoker').click(function() {
-                $('.js-navbar-vertical-aside-toggle-invoker i').tooltip('hide');
-            });
-
-
-            // INITIALIZATION OF MEGA MENU
-            // =======================================================
-            var megaMenu = new HSMegaMenu($('.js-mega-menu'), {
-                desktop: {
-                    position: 'left'
-                }
-            }).init();
-
-
-
-            // INITIALIZATION OF NAVBAR VERTICAL NAVIGATION
-            // =======================================================
-            var sidebar = $('.js-navbar-vertical-aside').hsSideNav();
-
-
-            // INITIALIZATION OF TOOLTIP IN NAVBAR VERTICAL MENU
-            // =======================================================
-            $('.js-nav-tooltip-link').tooltip({
-                boundary: 'window'
-            })
-
-            $(".js-nav-tooltip-link").on("show.bs.tooltip", function(e) {
-                if (!$("body").hasClass("navbar-vertical-aside-mini-mode")) {
-                    return false;
-                }
-            });
-
-
-            // INITIALIZATION OF UNFOLD
-            // =======================================================
-            $('.js-hs-unfold-invoker').each(function() {
-                var unfold = new HSUnfold($(this)).init();
-            });
-
-        });
-    </script>
-
-    <!-- IE Support -->
-    <script>
-        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/babel-polyfill/polyfill.min.js"><\/script>');
-    </script>
 </body>
-
-<!-- Mirrored from htmlstream.com/front-dashboard/welcome-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Jan 2022 03:34:16 GMT -->
 
 </html>
