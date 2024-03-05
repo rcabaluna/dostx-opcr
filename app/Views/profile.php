@@ -11,7 +11,7 @@
             <!-- Profile Cover -->
             <div class="profile-cover">
               <div class="profile-cover-img-wrapper">
-                <img id="profileCoverImg" class="profile-cover-img" src="assets/img/1920x400/img2.jpg]" alt="Image Description">
+                <img id="profileCoverImg" class="profile-cover-img" src="dost.png" alt="Image Description">
 
                 <!-- Custom File Cover -->
                 <div class="profile-cover-content profile-cover-btn">
@@ -101,15 +101,7 @@
                 <li class="nav-item">
                   <a class="nav-link active disabled" href="#">Profile</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Teams</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Projects</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Connections</a>
-                </li>
+                
 
                 <li class="nav-item ml-auto">
                   <a class="btn btn-sm btn-white mr-2" href="account-settings.html">
