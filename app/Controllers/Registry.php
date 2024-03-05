@@ -12,7 +12,9 @@ class Registry extends BaseController
         return view('registry/perspective-view', $data);
     }
 
-    public function indicators()
+    public function indicator()
     {
+        $data['title'] = 'DOST X - OPCR | Registry - Indicator';
+        return view('registry/indicator-view', $data);
     }
 }

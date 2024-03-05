@@ -16,3 +16,7 @@ $routes->get('/add-registry', 'Dashboard::add_registry');
 //REGISTRY ROUTES
 $routes->get('/registry/perspective', 'Registry::perspective');
 $routes->get('/profile', 'Dashboard::Profile');
+
+//INDICATOR ROUTES
+$routes->get('/registry/indicator', 'Registry::indicator');
+
