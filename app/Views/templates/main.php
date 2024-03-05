@@ -97,7 +97,7 @@
                                             </div>
                                             <div class="media-body">
                                                 <span class="card-title h5">Ruel Cabaluna</span>
-                                                <span class="card-text">rcabaluna@example.com</span>
+                                                <span class="card-text">rcabaluna@gmail.com</span>
                                             </div>
                                         </div>
                                     </div>
@@ -124,6 +124,7 @@
         </header>
     </div>
     <div id="headerFluid" class="d-none">
+        
         <header id="header" class="navbar navbar-expand-xl navbar-fixed navbar-height navbar-flush navbar-container navbar-bordered  ">
             <div class="js-mega-menu navbar-nav-wrap">
                 <div class="navbar-brand-wrapper">
@@ -353,11 +354,10 @@
                         <!-- Logo -->
 
 
-                        <a class="navbar-brand" href="<?=base_url('dashboard')?>" aria-label="Front">
-                        <img class="navbar-brand-logo" src="logo2.png" alt="Logo">
-                            <img class="navbar-brand-logo-mini" src="logo2.png" alt="Logo">
-                        </a>
-
+                       <a class="navbar-brand d-flex align-items-center" href="<?=base_url('dashboard')?>" aria-label="Front">
+  <img class="navbar-brand-logo" src="logo2.png" alt="Logo">
+  <span class="navbar-brand-text ml-auto font-weight-bold text-dark" style="font-size: 1.5rem;">DOST</span>
+</a>
                         
 
                         <!-- End Logo -->
