@@ -84,7 +84,7 @@
                  "type": "css-animation"
                }'>
                                     <div class="avatar avatar-sm avatar-circle">
-                                        <img class="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description">
+                                        <img class="avatar-img" src="sir.jpg" alt="Image Description">
                                         <span class="avatar-status avatar-sm-status avatar-status-success"></span>
                                     </div>
                                 </a>
@@ -93,17 +93,17 @@
                                     <div class="dropdown-item-text">
                                         <div class="media align-items-center">
                                             <div class="avatar avatar-sm avatar-circle mr-2">
-                                                <img class="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description">
+                                                <img class="avatar-img" src="sir.jpg" alt="Image Description">
                                             </div>
                                             <div class="media-body">
-                                                <span class="card-title h5">Mark Williams</span>
-                                                <span class="card-text">mark@example.com</span>
+                                                <span class="card-title h5">Ruel Cabaluna</span>
+                                                <span class="card-text">rcabaluna@example.com</span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="<?=base_url('profile')?>">
                                         <span class="text-truncate pr-2" title="Profile &amp; account">Profile &amp; account</span>
                                     </a>
 
@@ -131,8 +131,7 @@
 
 
                     <a class="navbar-brand" href="index.html" aria-label="Front">
-                        <img class="navbar-brand-logo" src="assets/svg/logos/logo.svg" alt="Logo">
-                    </a>
+<img class="navbar-brand-logo" src="logo.jpg" alt="Logo" style="width: 50%;"/>                    </a>
 
                     <!-- End Logo -->
                 </div>
@@ -204,12 +203,12 @@
                                 <ul id="navLinkDashboardsDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="dashboardsDropdown" style="min-width: 16rem;">
                                     <li>
                                         <a class="dropdown-item" href="index.html">
-                                            <span class="tio-circle nav-indicator-icon"></span> Default
+                                            <span class="tio-circle nav-indicator-icon"></span> Registry
                                         </a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="dashboard-alternative.html">
-                                            <span class="tio-circle nav-indicator-icon"></span> Alternative
+                                            <span class="tio-circle nav-indicator-icon"></span> Modules
                                         </a>
                                     </li>
                                 </ul>
@@ -232,7 +231,8 @@
                         <div class="navbar-brand-wrapper">
                             <!-- Logo -->
                             <a class="navbar-brand" href="index.html" aria-label="Front">
-                                <img class="navbar-brand-logo" src="assets/svg/logos/logo-white.svg" alt="Logo">
+                            <img class="navbar-brand-logo" src="logo.jpg" alt="Logo" style="width: 50%;"/>
+                                
                             </a>
                             <!-- End Logo -->
                         </div>
@@ -276,8 +276,8 @@
                                                         <img class="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description">
                                                     </div>
                                                     <div class="media-body">
-                                                        <span class="card-title h5">Mark Williams</span>
-                                                        <span class="card-text">mark@example.com</span>
+                                                        <span class="card-title h5">Ruel Cabaluna</span>
+                                                        <span class="card-text">ruelcabaluna@example.com</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -285,7 +285,7 @@
                                             <div class="dropdown-divider"></div>
 
 
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="<?=base_url('profile')?>">
                                                 <span class="text-truncate pr-2" title="Profile &amp; account">Profile &amp; account</span>
                                             </a>
 
@@ -324,12 +324,12 @@
                                     <ul id="navLinkDashboardsDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="dashboardsDropdown" style="min-width: 16rem;">
                                         <li>
                                             <a class="dropdown-item" href="index.html">
-                                                <span class="tio-circle nav-indicator-icon"></span> Default
+                                                <span class="tio-circle nav-indicator-icon"></span> Registry
                                             </a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="dashboard-alternative.html">
-                                                <span class="tio-circle nav-indicator-icon"></span> Alternative
+                                                <span class="tio-circle nav-indicator-icon"></span> Modules
                                             </a>
                                         </li>
                                     </ul>
@@ -353,10 +353,12 @@
                         <!-- Logo -->
 
 
-                        <a class="navbar-brand" href="index.html" aria-label="Front">
-                            <img class="navbar-brand-logo" src="assets/svg/logos/logo.svg" alt="Logo">
-                            <img class="navbar-brand-logo-mini" src="assets/svg/logos/logo-short.svg" alt="Logo">
+                        <a class="navbar-brand" href="<?=base_url('dashboard')?>" aria-label="Front">
+                        <img class="navbar-brand-logo" src="logo2.png" alt="Logo">
+                            <img class="navbar-brand-logo-mini" src="logo2.png" alt="Logo">
                         </a>
+
+                        
 
                         <!-- End Logo -->
 
@@ -381,13 +383,13 @@
                                     <li class="nav-item">
                                         <a class="nav-link " href="index.html" title="Default">
                                             <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">Default</span>
+                                            <span class="text-truncate">Registry</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link " href="dashboard-alternative.html" title="Alternative">
                                             <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">Alternative</span>
+                                            <span class="text-truncate">Modules</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -432,8 +434,8 @@
                     <!-- Logo -->
 
 
-                    <a class="navbar-brand" href="index.html" aria-label="Front">
-                        <img class="navbar-brand-logo-short" src="assets/svg/logos/logo-short.svg" alt="Logo">
+                    <a class="navbar-brand" href="dashboard" aria-label="Front">
+                        <img class="navbar-brand-logo-short" src="logo2.png" alt="Logo">
                     </a>
 
                     <!-- End Logo -->

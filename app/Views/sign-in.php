@@ -41,7 +41,7 @@
     <!-- Content -->
     <div class="container py-5 py-sm-7">
       <a class="d-flex justify-content-center mb-5" href="index.html">
-        <img class="z-index-2" src="assets/svg/logos/logo.svg" alt="Image Description" style="width: 8rem;">
+        <img class="z-index-2" src="logo1.png" alt="Image Description" style="width: 5rem;">
       </a>
 
       <div class="row justify-content-center">
@@ -53,23 +53,18 @@
               <form class="js-validate" action="<?=base_url('/sign-in')?>" method="POST">
                 <div class="text-center">
                   <div class="mb-5">
-                    <h1 class="display-4">Sign in</h1>
-                    <p>Don't have an account yet? <a href="authentication-signup-basic.html">Sign up here</a></p>
+                  <h3 class="display-6" style="font-family: 'Roboto', sans-serif;">Sign in</h3>
+                   
                   </div>
 
-                  <a class="btn btn-lg btn-block btn-white mb-4" href="#">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <img class="avatar avatar-xss mr-2" src="assets/svg/brands/google.svg" alt="Image Description">
-                      Sign in with Google
-                    </span>
-                  </a>
+                
 
-                  <span class="divider text-muted mb-4">OR</span>
+                  
                 </div>
 
                 <!-- Form Group -->
                 <div class="js-form-message form-group">
-                  <label class="input-label" for="username">Your Username</label>
+                  <label class="input-label" for="username">Username</label>
 
                   <input type="text" class="form-control form-control-lg" name="username" id="username" tabindex="1" placeholder="username" aria-label="username" required data-msg="Please enter a valid username">
                 </div>
@@ -116,28 +111,7 @@
           </div>
           <!-- End Card -->
 
-          <!-- Footer -->
-          <div class="text-center">
-            <small class="text-cap mb-4">Trusted by the world's best teams</small>
-
-            <div class="w-85 mx-auto">
-              <div class="row justify-content-between">
-                <div class="col">
-                  <img class="img-fluid" src="assets/svg/brands/gitlab-gray.svg" alt="Image Description">
-                </div>
-                <div class="col">
-                  <img class="img-fluid" src="assets/svg/brands/fitbit-gray.svg" alt="Image Description">
-                </div>
-                <div class="col">
-                  <img class="img-fluid" src="assets/svg/brands/flow-xo-gray.svg" alt="Image Description">
-                </div>
-                <div class="col">
-                  <img class="img-fluid" src="assets/svg/brands/layar-gray.svg" alt="Image Description">
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Footer -->
+         <!-- End Footer -->
         </div>
       </div>
     </div>
