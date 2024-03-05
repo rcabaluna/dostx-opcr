@@ -1,0 +1,1049 @@
+<?= $this->extend('templates/main') ?>
+<?= $this->section('content') ?>
+<main id="content" role="main" class="main">
+      <!-- Content -->
+      <div class="content container-fluid">
+        <!-- Page Header -->
+        <div class="page-header">
+          <div class="row align-items-end mb-3">
+            <div class="col-sm mb-2 mb-sm-0">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-no-gutter">
+                  <li class="breadcrumb-item"><a class="breadcrumb-link" href="javascript:;">Pages</a></li>
+                  <li class="breadcrumb-item"><a class="breadcrumb-link" href="javascript:;">Project</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Teams</li>
+                </ol>
+              </nav>
+
+              <h1 class="page-header-title">Teams</h1>
+            </div>
+
+            <div class="col-sm-auto">
+              <a class="btn btn-primary" href="javascript:;" data-toggle="modal" data-target="#shareWithPeopleModal">
+                <i class="tio-add mr-1"></i> Add team
+              </a>
+            </div>
+          </div>
+          <!-- End Row -->
+
+          <!-- Nav -->
+          <!-- Nav -->
+          <div class="js-nav-scroller hs-nav-scroller-horizontal">
+            <span class="hs-nav-scroller-arrow-prev" style="display: none;">
+              <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+                <i class="tio-chevron-left"></i>
+              </a>
+            </span>
+
+            <span class="hs-nav-scroller-arrow-next" style="display: none;">
+              <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+                <i class="tio-chevron-right"></i>
+              </a>
+            </span>
+
+            <ul class="nav nav-tabs page-header-tabs" id="projectsTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link " href="project.html">Overview</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="project-files.html">Files <span class="badge badge-soft-dark rounded-circle ml-1">3</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="project-activity.html">Activity</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="project-teams.html">Teams</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="project-settings.html">Settings</a>
+              </li>
+            </ul>
+          </div>
+          <!-- End Nav -->
+        </div>
+        <!-- End Page Header -->
+
+        <!-- Card -->
+        <div class="card">
+          <!-- Header -->
+          <div class="card-header">
+            <div class="row justify-content-between align-items-center flex-grow-1">
+              <div class="col-12 col-md">
+                <form>
+                  <!-- Search -->
+                  <div class="input-group input-group-merge input-group-borderless">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tio-search"></i>
+                      </div>
+                    </div>
+                    <input id="datatableSearch" type="search" class="form-control" placeholder="Search users" aria-label="Search users">
+                  </div>
+                  <!-- End Search -->
+                </form>
+              </div>
+
+              <div class="col-auto">
+                <div class="d-flex align-items-center">
+                  <!-- Datatable Info -->
+                  <div id="datatableCounterInfo" class="mr-2" style="display: none;">
+                    <div class="d-flex align-items-center">
+                      <span class="font-size-sm mr-3">
+                        <span id="datatableCounter">0</span>
+                        Selected
+                      </span>
+
+                      <a class="btn btn-sm btn-outline-danger" href="javascript:;">
+                        <i class="tio-delete-outlined"></i> Delete
+                      </a>
+                    </div>
+                  </div>
+                  <!-- End Datatable Info -->
+
+                  <!-- Filter Collapse Trigger -->
+                  <a class="btn btn-white dropdown-toggle" data-toggle="collapse" href="#filterSearchCollapse" role="button" aria-expanded="false" aria-controls="filterSearchCollapse">
+                    <i class="tio-filter-outlined mr-1"></i> Filters
+                  </a>
+                  <!-- End Filter Collapse Trigger -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Header -->
+
+          <!-- Filter Search Collapse -->
+          <div class="collapse" id="filterSearchCollapse">
+            <div class="card-body">
+              <form>
+                <div class="row">
+                  <div class="col-sm-12 col-lg-4">
+                    <!-- Form Group -->
+                    <div class="form-group">
+                      <label for="teamsFilterLabel" class="input-label">Teams</label>
+
+                      <div class="input-group input-group-merge">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="tio-group-senior"></i>
+                          </div>
+                        </div>
+                        <input class="js-tagify tagify-form-control form-control" id="teamsFilterLabel" placeholder="Name, role, department" aria-label="Name, role, department">
+                      </div>
+                    </div>
+                    <!-- End Form Group -->
+                  </div>
+
+                  <div class="col-sm-12 col-md-6 col-lg-4">
+                    <!-- Form Group -->
+                    <div class="form-group">
+                      <label for="tagsFilterLabel" class="input-label">Tags</label>
+
+                      <!-- Select -->
+                      <select class="js-select2-custom custom-select" size="1" style="opacity: 0;" id="tagsFilterLabel" multiple
+                              data-hs-select2-options='{
+                                "customClass": "form-control",
+                                "placeholder": "Enter top tags"
+                              }'>
+                        <option value="tagsFilter1" selected>Marketing team</option>
+                        <option value="tagsFilter2" selected>Blockchain</option>
+                        <option value="tagsFilter3">Customer service</option>
+                        <option value="tagsFilter4">Online payment</option>
+                        <option value="tagsFilter5">Finance</option>
+                        <option value="tagsFilter6">Organizers</option>
+                        <option value="tagsFilter7">Software</option>
+                      </select>
+                      <!-- End Select -->
+                    </div>
+                    <!-- End Form Group -->
+                  </div>
+
+                  <div class="col-sm-12 col-md-6 col-lg-4">
+                    <!-- Form Group -->
+                    <div class="form-group">
+                      <label for="ratingFilterLabel" class="input-label">Rating</label>
+
+                      <!-- Select -->
+                      <select class="js-select2-custom custom-select" size="1" style="opacity: 0;" id="ratingFilterLabel" multiple
+                              data-hs-select2-options='{
+                                "minimumResultsForSearch": "Infinity",
+                                "singleMultiple": true,
+                                "placeholder": "<span class=\"d-flex align-items-center\"><i class=\"tio-star-outlined mr-2\"></i> Select rating</span>"
+                              }'>
+                        <option label="empty"></option>
+                        <option value="rating1" data-option-template='<div class="d-flex">
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="12"></div>
+                                  <span class="ml-2">1 star</span>
+                                </div>'>1 star</option>
+                        <option value="rating2" data-option-template='<div class="d-flex">
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="12"></div>
+                                  <span class="ml-2">2 star</span>
+                                </div>'>2 star</option>
+                        <option value="rating3" selected data-option-template='<div class="d-flex">
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="12"></div>
+                                  <span class="ml-2">3 star</span>
+                                </div>'>3 star</option>
+                        <option value="rating4" selected data-option-template='<div class="d-flex">
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="12"></div>
+                                  <span class="ml-2">4 star</span>
+                                </div>'>4 star</option>
+                        <option value="rating5" selected data-option-template='<div class="d-flex">
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="12"></div>
+                                  <span class="ml-2">5 star</span>
+                                </div>'>5 star</option>
+                      </select>
+                      <!-- End Select -->
+                    </div>
+                    <!-- End Form Group -->
+                  </div>
+                </div>
+                <!-- End Row -->
+
+                <div class="d-flex justify-content-end">
+                  <button type="button" class="btn btn-white mr-2">Cancel</button>
+                  <button type="button" class="btn btn-primary">Apply</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- End Filter Search Collapse -->
+
+          <!-- Table -->
+          <div class="table-responsive datatable-custom">
+            <table id="datatable" class="table table-borderless table-thead-bordered card-table"
+                   data-hs-datatables-options='{
+                     "autoWidth": false,
+                     "columnDefs": [{
+                        "targets": [0, 6],
+                        "orderable": false
+                      }],
+                     "columns": [
+                        null,
+                        null,
+                        { "width": "35%" },
+                        null,
+                        null,
+                        null,
+                        null
+                      ],
+                     "order": [],
+                     "info": {
+                       "totalQty": "#datatableWithPaginationInfoTotalQty"
+                     },
+                     "search": "#datatableSearch",
+                     "entries": "#datatableEntries",
+                     "pageLength": 8,
+                     "isResponsive": false,
+                     "isShowPaging": false,
+                     "pagination": "datatablePagination"
+                   }'>
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" class="table-column-pr-0">
+                    <div class="custom-control custom-checkbox">
+                      <input id="datatableCheckAll" type="checkbox" class="custom-control-input">
+                      <label class="custom-control-label" for="datatableCheckAll"></label>
+                    </div>
+                  </th>
+                  <th scope="col" class="table-column-pl-0">Team</th>
+                  <th scope="col" style="min-width: 20rem;">Description</th>
+                  <th scope="col">Industry</th>
+                  <th scope="col">Rated</th>
+                  <th scope="col">Members</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td class="table-column-pr-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="teamDataCheck1">
+                      <label class="custom-control-label" for="teamDataCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="table-column-pl-0"><a href="#">#digitalmarketing</a></td>
+                  <td>Our group promotes and sells products and services by leveraging online marketing tactics</td>
+                  <td><a class="badge badge-soft-primary p-2" href="#">Marketing team</a></td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star-half.svg" alt="Review rating" width="14"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="avatar-group avatar-group-xs avatar-circle">
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Ella Lauda">
+                        <img class="avatar-img" src="assets/img/160x160/img9.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="David Harrison">
+                        <img class="avatar-img" src="assets/img/160x160/img3.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-soft-dark" data-toggle="tooltip" data-placement="top" title="Antony Taylor">
+                        <span class="avatar-initials">A</span>
+                      </span>
+                      <span class="avatar avatar-soft-info" data-toggle="tooltip" data-placement="top" title="Sara Iwens">
+                        <span class="avatar-initials">S</span>
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Finch Hoot">
+                        <img class="avatar-img" src="assets/img/160x160/img5.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-light avatar-circle" data-toggle="tooltip" data-placement="top" title="Sam Kart, Amanda Harvey and 1 more">
+                        <span class="avatar-initials">+3</span>
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="hs-unfold">
+                      <a class="js-hs-unfold-invoker btn btn-sm btn-white" href="javascript:;"
+                         data-hs-unfold-options='{
+                           "target": "#teamsDropdown1",
+                           "type": "css-animation"
+                         }'>
+                        More <i class="tio-chevron-down ml-1"></i>
+                      </a>
+
+                      <div id="teamsDropdown1" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Rename team</a>
+                        <a class="dropdown-item" href="#">Add to favorites</a>
+                        <a class="dropdown-item" href="#">Archive team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="table-column-pr-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="teamDataCheck2">
+                      <label class="custom-control-label" for="teamDataCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="table-column-pl-0"><a href="#">#ethereum</a></td>
+                  <td>Focusing on innovative and disruptive business models</td>
+                  <td><a class="badge badge-soft-dark p-2" href="#">Blockchain</a></td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="14"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="avatar-group avatar-group-xs avatar-circle">
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Sam Kart">
+                        <img class="avatar-img" src="assets/img/160x160/img4.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-soft-danger" data-toggle="tooltip" data-placement="top" title="Teresa Eyker">
+                        <span class="avatar-initials">T</span>
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Amanda Harvey">
+                        <img class="avatar-img" src="assets/img/160x160/img10.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="David Harrison">
+                        <img class="avatar-img" src="assets/img/160x160/img3.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-soft-warning" data-toggle="tooltip" data-placement="top" title="Olivier L.">
+                        <span class="avatar-initials">O</span>
+                      </span>
+                      <span class="avatar avatar-light avatar-circle" data-toggle="tooltip" data-placement="top" title="Brian Halligan, Rachel Doe and 7 more">
+                        <span class="avatar-initials">+9</span>
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="hs-unfold">
+                      <a class="js-hs-unfold-invoker btn btn-sm btn-white" href="javascript:;"
+                         data-hs-unfold-options='{
+                           "target": "#teamsDropdown2",
+                           "type": "css-animation"
+                         }'>
+                        More <i class="tio-chevron-down ml-1"></i>
+                      </a>
+
+                      <div id="teamsDropdown2" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Rename team</a>
+                        <a class="dropdown-item" href="#">Add to favorites</a>
+                        <a class="dropdown-item" href="#">Archive team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="table-column-pr-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="teamDataCheck3">
+                      <label class="custom-control-label" for="teamDataCheck3"></label>
+                    </div>
+                  </td>
+                  <td class="table-column-pl-0"><a href="#">#conference</a></td>
+                  <td>Online meeting services group</td>
+                  <td><a class="badge badge-soft-info p-2" href="#">Marketing team</a></td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star-half.svg" alt="Review rating" width="14"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="avatar-group avatar-group-xs avatar-circle">
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Costa Quinn">
+                        <img class="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Clarice Boone">
+                        <img class="avatar-img" src="assets/img/160x160/img7.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-soft-dark" data-toggle="tooltip" data-placement="top" title="Zack Ins">
+                        <span class="avatar-initials">Z</span>
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="hs-unfold">
+                      <a class="js-hs-unfold-invoker btn btn-sm btn-white" href="javascript:;"
+                         data-hs-unfold-options='{
+                           "target": "#teamsDropdown3",
+                           "type": "css-animation"
+                         }'>
+                        More <i class="tio-chevron-down ml-1"></i>
+                      </a>
+
+                      <div id="teamsDropdown3" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Rename team</a>
+                        <a class="dropdown-item" href="#">Add to favorites</a>
+                        <a class="dropdown-item" href="#">Archive team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="table-column-pr-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="teamDataCheck4">
+                      <label class="custom-control-label" for="teamDataCheck4"></label>
+                    </div>
+                  </td>
+                  <td class="table-column-pl-0"><a href="#">#supportteam</a></td>
+                  <td>Keep in touch and stay productive with us</td>
+                  <td><a class="badge badge-soft-danger p-2" href="#">Customer service</a></td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star-half.svg" alt="Review rating" width="14"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="avatar-group avatar-group-xs avatar-circle">
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Costa Quinn">
+                        <img class="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Clarice Boone">
+                        <img class="avatar-img" src="assets/img/160x160/img7.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-soft-dark" data-toggle="tooltip" data-placement="top" title="Adam Keep">
+                        <span class="avatar-initials">A</span>
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="hs-unfold">
+                      <a class="js-hs-unfold-invoker btn btn-sm btn-white" href="javascript:;"
+                         data-hs-unfold-options='{
+                           "target": "#teamsDropdown4",
+                           "type": "css-animation"
+                         }'>
+                        More <i class="tio-chevron-down ml-1"></i>
+                      </a>
+
+                      <div id="teamsDropdown4" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Rename team</a>
+                        <a class="dropdown-item" href="#">Add to favorites</a>
+                        <a class="dropdown-item" href="#">Archive team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="table-column-pr-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="teamDataCheck5">
+                      <label class="custom-control-label" for="teamDataCheck5"></label>
+                    </div>
+                  </td>
+                  <td class="table-column-pl-0"><a href="#">#invoices</a></td>
+                  <td>This group serves online money transfers as an electronic alternative to paper methods</td>
+                  <td><a class="badge badge-soft-primary p-2" href="#">Online payment</a></td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="14"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="avatar-group avatar-group-xs avatar-circle">
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Finch Hoot">
+                        <img class="avatar-img" src="assets/img/160x160/img5.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-soft-dark" data-toggle="tooltip" data-placement="top" title="Bob Bardly">
+                        <span class="avatar-initials">B</span>
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Linda Bates">
+                        <img class="avatar-img" src="assets/img/160x160/img8.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Ella Lauda">
+                        <img class="avatar-img" src="assets/img/160x160/img9.jpg" alt="Image Description">
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="hs-unfold">
+                      <a class="js-hs-unfold-invoker btn btn-sm btn-white" href="javascript:;"
+                         data-hs-unfold-options='{
+                           "target": "#teamsDropdown5",
+                           "type": "css-animation"
+                         }'>
+                        More <i class="tio-chevron-down ml-1"></i>
+                      </a>
+
+                      <div id="teamsDropdown5" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Rename team</a>
+                        <a class="dropdown-item" href="#">Add to favorites</a>
+                        <a class="dropdown-item" href="#">Archive team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="table-column-pr-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="teamDataCheck6">
+                      <label class="custom-control-label" for="teamDataCheck6"></label>
+                    </div>
+                  </td>
+                  <td class="table-column-pl-0"><a href="#">#payments</a></td>
+                  <td>Our responsibility to manage the money in this organization</td>
+                  <td><a class="badge badge-soft-info p-2" href="#">Finance</a></td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="avatar-group avatar-group-xs avatar-circle">
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Finch Hoot">
+                        <img class="avatar-img" src="assets/img/160x160/img5.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-soft-dark" data-toggle="tooltip" data-placement="top" title="Bob Bardly">
+                        <span class="avatar-initials">B</span>
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Linda Bates">
+                        <img class="avatar-img" src="assets/img/160x160/img8.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Ella Lauda">
+                        <img class="avatar-img" src="assets/img/160x160/img9.jpg" alt="Image Description">
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="hs-unfold">
+                      <a class="js-hs-unfold-invoker btn btn-sm btn-white" href="javascript:;"
+                         data-hs-unfold-options='{
+                           "target": "#teamsDropdown6",
+                           "type": "css-animation"
+                         }'>
+                        More <i class="tio-chevron-down ml-1"></i>
+                      </a>
+
+                      <div id="teamsDropdown6" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Rename team</a>
+                        <a class="dropdown-item" href="#">Add to favorites</a>
+                        <a class="dropdown-item" href="#">Archive team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="table-column-pr-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="teamDataCheck7">
+                      <label class="custom-control-label" for="teamDataCheck7"></label>
+                    </div>
+                  </td>
+                  <td class="table-column-pl-0"><a href="#">#event</a></td>
+                  <td>Because we love to know what's going on & share great ideas</td>
+                  <td><a class="badge badge-soft-dark p-2" href="#">Organizers</a></td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="14"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="avatar-group avatar-group-xs avatar-circle">
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Costa Quinn">
+                        <img class="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-soft-info" data-toggle="tooltip" data-placement="top" title="Bob Bardly">
+                        <span class="avatar-initials">B</span>
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Clarice Boone">
+                        <img class="avatar-img" src="assets/img/160x160/img7.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Sam Kart">
+                        <img class="avatar-img" src="assets/img/160x160/img4.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-soft-primary" data-toggle="tooltip" data-placement="top" title="Daniel Cs.">
+                        <span class="avatar-initials">D</span>
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="hs-unfold">
+                      <a class="js-hs-unfold-invoker btn btn-sm btn-white" href="javascript:;"
+                         data-hs-unfold-options='{
+                           "target": "#teamsDropdown7",
+                           "type": "css-animation"
+                         }'>
+                        More <i class="tio-chevron-down ml-1"></i>
+                      </a>
+
+                      <div id="teamsDropdown7" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Rename team</a>
+                        <a class="dropdown-item" href="#">Add to favorites</a>
+                        <a class="dropdown-item" href="#">Archive team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="table-column-pr-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="teamDataCheck8">
+                      <label class="custom-control-label" for="teamDataCheck8"></label>
+                    </div>
+                  </td>
+                  <td class="table-column-pl-0"><a href="#">#softwaretester</a></td>
+                  <td>Software testers play a critical role in application development. They are quality assurance experts who put applications</td>
+                  <td><a class="badge badge-soft-danger p-2" href="#">Software</a></td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star-half.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="14"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="avatar-group avatar-group-xs avatar-circle">
+                      <span class="avatar avatar-soft-dark" data-toggle="tooltip" data-placement="top" title="Bob Bardly">
+                        <span class="avatar-initials">B</span>
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Linda Bates">
+                        <img class="avatar-img" src="assets/img/160x160/img8.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Clarice Boone">
+                        <img class="avatar-img" src="assets/img/160x160/img7.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-soft-dark" data-toggle="tooltip" data-placement="top" title="Adam Keep">
+                        <span class="avatar-initials">A</span>
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="hs-unfold">
+                      <a class="js-hs-unfold-invoker btn btn-sm btn-white" href="javascript:;"
+                         data-hs-unfold-options='{
+                           "target": "#teamsDropdown8",
+                           "type": "css-animation"
+                         }'>
+                        More <i class="tio-chevron-down ml-1"></i>
+                      </a>
+
+                      <div id="teamsDropdown8" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Rename team</a>
+                        <a class="dropdown-item" href="#">Add to favorites</a>
+                        <a class="dropdown-item" href="#">Archive team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="table-column-pr-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="teamDataCheck9">
+                      <label class="custom-control-label" for="teamDataCheck9"></label>
+                    </div>
+                  </td>
+                  <td class="table-column-pl-0"><a href="#">#sales</a></td>
+                  <td>Managing a sales team is no easy task. You have the potential to either make or break your sales reps.</td>
+                  <td><a class="badge badge-soft-primary p-2" href="#">Sales</a></td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="avatar-group avatar-group-xs avatar-circle">
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Ella Lauda">
+                        <img class="avatar-img" src="assets/img/160x160/img9.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="David Harrison">
+                        <img class="avatar-img" src="assets/img/160x160/img3.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Finch Hoot">
+                        <img class="avatar-img" src="assets/img/160x160/img5.jpg" alt="Image Description">
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="hs-unfold">
+                      <a class="js-hs-unfold-invoker btn btn-sm btn-white" href="javascript:;"
+                         data-hs-unfold-options='{
+                           "target": "#teamsDropdown9",
+                           "type": "css-animation"
+                         }'>
+                        More <i class="tio-chevron-down ml-1"></i>
+                      </a>
+
+                      <div id="teamsDropdown9" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Rename team</a>
+                        <a class="dropdown-item" href="#">Add to favorites</a>
+                        <a class="dropdown-item" href="#">Archive team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="table-column-pr-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="teamDataCheck10">
+                      <label class="custom-control-label" for="teamDataCheck10"></label>
+                    </div>
+                  </td>
+                  <td class="table-column-pl-0"><a href="#">#webdev</a></td>
+                  <td>Web talents</td>
+                  <td><a class="badge badge-soft-dark p-2" href="#">Development</a></td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="avatar-group avatar-group-xs avatar-circle">
+                      <span class="avatar avatar-soft-danger" data-toggle="tooltip" data-placement="top" title="Teresa Eyker">
+                        <span class="avatar-initials">T</span>
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="David Harrison">
+                        <img class="avatar-img" src="assets/img/160x160/img3.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-soft-warning" data-toggle="tooltip" data-placement="top" title="Olivier L.">
+                        <span class="avatar-initials">O</span>
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="hs-unfold">
+                      <a class="js-hs-unfold-invoker btn btn-sm btn-white" href="javascript:;"
+                         data-hs-unfold-options='{
+                           "target": "#teamsDropdown10",
+                           "type": "css-animation"
+                         }'>
+                        More <i class="tio-chevron-down ml-1"></i>
+                      </a>
+
+                      <div id="teamsDropdown10" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Rename team</a>
+                        <a class="dropdown-item" href="#">Add to favorites</a>
+                        <a class="dropdown-item" href="#">Archive team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="table-column-pr-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="teamDataCheck11">
+                      <label class="custom-control-label" for="teamDataCheck11"></label>
+                    </div>
+                  </td>
+                  <td class="table-column-pl-0"><a href="#">#socialteam</a></td>
+                  <td>Team that manages and runs socials accounts of the company.</td>
+                  <td><a class="badge badge-soft-info p-2" href="#">Marketing team</a></td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star-muted.svg" alt="Review rating" width="14"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="avatar-group avatar-group-xs avatar-circle">
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Costa Quinn">
+                        <img class="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-soft-dark" data-toggle="tooltip" data-placement="top" title="Zack Ins">
+                        <span class="avatar-initials">Z</span>
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="hs-unfold">
+                      <a class="js-hs-unfold-invoker btn btn-sm btn-white" href="javascript:;"
+                         data-hs-unfold-options='{
+                           "target": "#teamsDropdown11",
+                           "type": "css-animation"
+                         }'>
+                        More <i class="tio-chevron-down ml-1"></i>
+                      </a>
+
+                      <div id="teamsDropdown11" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Rename team</a>
+                        <a class="dropdown-item" href="#">Add to favorites</a>
+                        <a class="dropdown-item" href="#">Archive team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="table-column-pr-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="teamDataCheck12">
+                      <label class="custom-control-label" for="teamDataCheck12"></label>
+                    </div>
+                  </td>
+                  <td class="table-column-pl-0"><a href="#">#design</a></td>
+                  <td>Creative minds</td>
+                  <td><a class="badge badge-soft-primary p-2" href="#">Design</a></td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                      <div class="mr-1"><img src="assets/svg/components/star.svg" alt="Review rating" width="14"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="avatar-group avatar-group-xs avatar-circle">
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Ella Lauda">
+                        <img class="avatar-img" src="assets/img/160x160/img9.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="David Harrison">
+                        <img class="avatar-img" src="assets/img/160x160/img3.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-soft-dark" data-toggle="tooltip" data-placement="top" title="Antony Taylor">
+                        <span class="avatar-initials">A</span>
+                      </span>
+                      <span class="avatar avatar-soft-info" data-toggle="tooltip" data-placement="top" title="Sara Iwens">
+                        <span class="avatar-initials">S</span>
+                      </span>
+                      <span class="avatar" data-toggle="tooltip" data-placement="top" title="Finch Hoot">
+                        <img class="avatar-img" src="assets/img/160x160/img5.jpg" alt="Image Description">
+                      </span>
+                      <span class="avatar avatar-light avatar-circle" data-toggle="tooltip" data-placement="top" title="Sam Kart, Amanda Harvey and 1 more">
+                        <span class="avatar-initials">+3</span>
+                      </span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="hs-unfold">
+                      <a class="js-hs-unfold-invoker btn btn-sm btn-white" href="javascript:;"
+                         data-hs-unfold-options='{
+                           "target": "#teamsDropdown12",
+                           "type": "css-animation"
+                         }'>
+                        More <i class="tio-chevron-down ml-1"></i>
+                      </a>
+
+                      <div id="teamsDropdown12" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Rename team</a>
+                        <a class="dropdown-item" href="#">Add to favorites</a>
+                        <a class="dropdown-item" href="#">Archive team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#">Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- End Table -->
+
+          <!-- Footer -->
+          <div class="card-footer">
+            <!-- Pagination -->
+            <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
+              <div class="col-sm mb-2 mb-sm-0">
+                <div class="d-flex justify-content-center justify-content-sm-start align-items-center">
+                  <span class="mr-2">Showing:</span>
+
+                  <!-- Select -->
+                  <select id="datatableEntries" class="js-select2-custom"
+                          data-hs-select2-options='{
+                            "minimumResultsForSearch": "Infinity",
+                            "customClass": "custom-select custom-select-sm custom-select-borderless",
+                            "dropdownAutoWidth": true,
+                            "width": true
+                          }'>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8" selected>8</option>
+                    <option value="12">12</option>
+                  </select>
+                  <!-- End Select -->
+
+                  <span class="text-secondary mr-2">of</span>
+
+                  <!-- Pagination Quantity -->
+                  <span id="datatableWithPaginationInfoTotalQty"></span>
+                </div>
+              </div>
+
+              <div class="col-sm-auto">
+                <div class="d-flex justify-content-center justify-content-sm-end">
+                  <!-- Pagination -->
+                  <nav id="datatablePagination" aria-label="Activity pagination"></nav>
+                </div>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+          <!-- End Footer -->
+        </div>
+        <!-- End Card -->
+      </div>
+      <!-- End Content -->
+
+      <!-- Footer -->
+      
+        <div class="footer">
+          <div class="row justify-content-between align-items-center">
+            <div class="col">
+              <p class="font-size-sm mb-0">&copy; Front. <span class="d-none d-sm-inline-block">2020 Htmlstream.</span></p>
+            </div>
+            <div class="col-auto">
+              <div class="d-flex justify-content-end">
+                <!-- List Dot -->
+                <ul class="list-inline list-separator">
+                  <li class="list-inline-item">
+                    <a class="list-separator-link" href="#">FAQ</a>
+                  </li>
+
+                  <li class="list-inline-item">
+                    <a class="list-separator-link" href="#">License</a>
+                  </li>
+
+                  <li class="list-inline-item">
+                    <!-- Keyboard Shortcuts Toggle -->
+                    <div class="hs-unfold">
+                      <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle" href="javascript:;"
+                         data-hs-unfold-options='{
+                              "target": "#keyboardShortcutsSidebar",
+                              "type": "css-animation",
+                              "animationIn": "fadeInRight",
+                              "animationOut": "fadeOutRight",
+                              "hasOverlay": true,
+                              "smartPositionOff": true
+                             }'>
+                        <i class="tio-command-key"></i>
+                      </a>
+                    </div>
+                    <!-- End Keyboard Shortcuts Toggle -->
+                  </li>
+                </ul>
+                <!-- End List Dot -->
+              </div>
+            </div>
+          </div>
+        </div>
+      
+
+      
+      <!-- End Footer -->
+    </main>
+
+<?= $this->endSection() ?>
