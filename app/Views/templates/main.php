@@ -381,7 +381,7 @@
 
                                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                                     <li class="nav-item">
-                                        <a class="nav-link " href="index.html" title="Default">
+                                        <a class="nav-link " href="<?=base_url('registry')?>">
                                             <span class="tio-circle nav-indicator-icon"></span>
                                             <span class="text-truncate">Registry</span>
                                         </a>
