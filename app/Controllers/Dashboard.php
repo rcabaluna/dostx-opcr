@@ -21,4 +21,10 @@ class Dashboard extends BaseController
         $data['title'] = "Registry";
         return view('registry', $data);
     }
+
+    public function Profile()
+    {
+        $data['title'] = "profile";
+        return view('profile', $data);
+    }
 }
