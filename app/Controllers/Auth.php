@@ -37,7 +37,8 @@ class Auth extends BaseController
                         }
                         else {
                         //if incorrect password
-                            echo "ERROR - Wrong password";
+                        $_SESSION['error'] = 'Incorrect password. Please try again.';
+                        return redirect()->to(base_url('')); 
                             exit();
                         }
                 }else{
