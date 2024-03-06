@@ -62,12 +62,23 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <span>Registry</span>
                 </a>
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?= base_url('registry/perspective') ?>">Perspective</a>
                         <a class="collapse-item" href="<?= base_url('registry/indicator') ?>">Indicator</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Modules</span>
+                </a>
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="<?= base_url('module/target') ?>">Target</a>
                     </div>
                 </div>
             </li>
