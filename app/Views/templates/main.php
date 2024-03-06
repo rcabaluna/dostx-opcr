@@ -33,7 +33,7 @@
     <div class="sidebar-brand-icon">
         <img src="logo.png" alt="Logo" width="38" height="38">
     </div>
-    <div class="sidebar-brand-text mx-3">DOST</div>
+    <div class="sidebar-brand-text mx-11" style="font-size: 0.6rem;">Department of Science and Technology</div>
     
 </a>
 
