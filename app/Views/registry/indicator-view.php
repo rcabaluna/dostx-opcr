@@ -80,9 +80,9 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Name</th>
                                     <th>Description</th>
-                                    <th>Ordes</th>
+                                    <th>Order</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -90,10 +90,26 @@
                                 foreach ($indicator as $indicatorRow) {
                                     ?>
                                     <tr>
-                                        <td><?=$descriptionRow['indicatorid']?></td>
-                                        <td><?=$descriptionRow['description']?></td>
-                                        <td><?=$ordersRow['orders']?></td>
-                                        <td><button class="btn btn-xs btn-primary">Edit</button>&nbsp;&nbsp;&nbsp;<button class="btn btn-xs btn-danger">Delete</button></td>
+                                        <td><?=$indicatorRow['indicatorId']?></td>
+                                        <td><?=$indicatorRow['description']?></td>
+                                        <td><?=$indicatorRow['order']?></td>
+                                       <td>
+  <button type="button" class="btn btn-primary" onclick="showPrompt('edit')">Edit</button>
+  <button type="button" class="btn btn-danger" onclick="showPrompt('delete')">Delete</button>
+</td>
+
+<script>
+  function showPrompt(action) {
+    if (action === 'edit') {
+      // Display an edit prompt
+      alert("Kalibangon ko!");
+    } else if (action === 'delete') {
+      // Display a delete prompt
+      alert("I-delete ko!");
+    }
+  }
+</script>
+
                                     </tr>
                                     <?php
                                 }

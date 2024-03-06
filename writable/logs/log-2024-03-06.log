@@ -391,3 +391,133 @@ INFO - 2024-03-06 02:02:21 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-03-06 02:02:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-03-06 02:02:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-03-06 02:02:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:05:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:06:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 02:06:29 --> ErrorException: Undefined variable $indicator
+in APPPATH\Views\registry\indicator-view.php on line 90.
+ 1 APPPATH\Views\registry\indicator-view.php(90): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $indicator', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Views\\registry\\indicator-view.php', 90)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\dostx-opcr\\app\\Views\\registry\\indicator-view.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('registry/indicator-view', [], true)
+ 5 APPPATH\Controllers\Registry.php(74): view('registry/indicator-view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->indicator()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 02:07:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-03-06 02:07:09 --> mysqli_sql_exception: Table 'dbopcr.indicator' doesn't exist in C:\xampp\htdocs\dostx-opcr\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\dostx-opcr\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\dostx-opcr\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\dostx-opcr\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\dostx-opcr\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\dostx-opcr\app\Models\RegistryModel.php(11): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\dostx-opcr\app\Controllers\Registry.php(29): App\Models\RegistryModel->get_all('indicator')
+#6 C:\xampp\htdocs\dostx-opcr\system\CodeIgniter.php(941): App\Controllers\Registry->indicator()
+#7 C:\xampp\htdocs\dostx-opcr\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+#8 C:\xampp\htdocs\dostx-opcr\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\dostx-opcr\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-06 02:07:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'dbopcr.indicator' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `indicator`', [], false)
+ 2 APPPATH\Models\RegistryModel.php(11): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Registry.php(29): App\Models\RegistryModel->get_all('indicator')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->indicator()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-06 02:07:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'dbopcr.indicator' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `indicator`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `indicator`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `indicator`', [], false)
+ 4 APPPATH\Models\RegistryModel.php(11): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Registry.php(29): App\Models\RegistryModel->get_all('indicator')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->indicator()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-06 02:07:09 --> [Caused by] mysqli_sql_exception: Table 'dbopcr.indicator' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `indicator`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `indicator`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `indicator`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `indicator`', [], false)
+ 5 APPPATH\Models\RegistryModel.php(11): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Registry.php(29): App\Models\RegistryModel->get_all('indicator')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->indicator()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 02:07:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:08:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 02:08:46 --> ErrorException: Undefined variable $descriptionRow
+in APPPATH\Views\registry\indicator-view.php on line 93.
+ 1 APPPATH\Views\registry\indicator-view.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $descriptionRow', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Views\\registry\\indicator-view.php', 93)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\dostx-opcr\\app\\Views\\registry\\indicator-view.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('registry/indicator-view', [], true)
+ 5 APPPATH\Controllers\Registry.php(30): view('registry/indicator-view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->indicator()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 02:09:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 02:09:53 --> ErrorException: Undefined array key "indicatorid"
+in APPPATH\Views\registry\indicator-view.php on line 92.
+ 1 APPPATH\Views\registry\indicator-view.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "indicatorid"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Views\\registry\\indicator-view.php', 92)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\dostx-opcr\\app\\Views\\registry\\indicator-view.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('registry/indicator-view', [], true)
+ 5 APPPATH\Controllers\Registry.php(30): view('registry/indicator-view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->indicator()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 02:10:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 02:10:50 --> ErrorException: Undefined array key "orders"
+in APPPATH\Views\registry\indicator-view.php on line 95.
+ 1 APPPATH\Views\registry\indicator-view.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "orders"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Views\\registry\\indicator-view.php', 95)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\dostx-opcr\\app\\Views\\registry\\indicator-view.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('registry/indicator-view', [], true)
+ 5 APPPATH\Controllers\Registry.php(30): view('registry/indicator-view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->indicator()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 02:10:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:11:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:14:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:15:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:15:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:18:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:20:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:21:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:21:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:22:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:24:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:25:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:26:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 02:26:12 --> ParseError: Unmatched '}'
+in APPPATH\Views\registry\indicator-view.php on line 136.
+ 1 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('registry/indicator-view', [], true)
+ 3 APPPATH\Controllers\Registry.php(30): view('registry/indicator-view', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->indicator()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 02:26:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:27:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:27:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 02:27:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
