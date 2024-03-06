@@ -13,4 +13,13 @@ class AuthModel extends Model
 
         return;
     }
+
+    public function get_single_data_where($tablename,$param){
+        $builder = $this->db->table($tablename);
+        $builder->where($param);
+        $builder = $builder->get();
+
+        return $builder->getRowArray();
+    }
+    
 }

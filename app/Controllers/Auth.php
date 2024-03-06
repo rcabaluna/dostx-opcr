@@ -1,30 +1,20 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\Users;
+use App\Models\AuthModel;
 
 class Auth extends BaseController
 {
+    public function __construct()
+    {
+        $this->authModel = new AuthModel();
+    }
+
     public function index()
     {
         return view('sign-in');
     }
     
-    public function signin()
-    {
-        return view('sign-in');
-    }
-
-    public function __construct()
-    {
-        $this->Users = new \App\Models\Users();
-    }
-    // public $authModel;
-
-	// public function __construct()
-    // {
-    //     $this->authModel = new AuthModel();
-    // }
 
     public function auth_signin()
     {
@@ -32,7 +22,7 @@ class Auth extends BaseController
                         'password' => $this->request->getPost('password')                
                 );
 
-            $userdetails = $this->Users->get_single_data_where('tbluseraccount',array('username' => $input['username']));
+            $userdetails = $this->authModel->get_single_data_where('tbluseraccount',array('username' => $input['username']));
             
 
             if ($userdetails != null ){

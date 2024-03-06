@@ -2,8 +2,8 @@
 
 use CodeIgniter\Router\RouteCollection;
 
-$routes->get('/', 'Auth::signin');
-$routes->get('/sign-in', 'Auth::signin');
+$routes->get('/', 'Auth::index');
+$routes->post('/sign-in', 'Auth::auth_signin');
 
 $routes->get('/sign-out', 'Auth::logout');
 $routes->get('/dashboard', 'Dashboard::index');
