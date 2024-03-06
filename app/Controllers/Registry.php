@@ -25,6 +25,8 @@ class Registry extends BaseController
     public function indicator()
     {
         $data['title'] = 'DOST X - OPCR | Registry - Indicator';
+
+        $data['indicators'] = $this->registryModel->get_all('indicators');
         return view('registry/indicator-view', $data);
     }
 }
