@@ -29,13 +29,13 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('dashboard') ?>">
-    <div class="sidebar-brand-icon">
-        <img src="logo.png" alt="Logo" width="38" height="38">
-    </div>
-    <div class="sidebar-brand-text mx-11" style="font-size: 0.6rem;">Department of Science and Technology</div>
-    
-</a>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('dashboard') ?>">
+                <div class="sidebar-brand-icon">
+                    <img src="logo.png" alt="Logo" width="38" height="38">
+                </div>
+                <div class="sidebar-brand-text mx-11" style="font-size: 0.6rem;">Department of Science and Technology</div>
+
+            </a>
 
 
 
@@ -45,7 +45,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link"href="<?= base_url('dashboard') ?>">
+                <a class="nav-link" href="<?= base_url('dashboard') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -74,6 +74,12 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('modules/test') ?>">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Test</span></a>
+            </li>
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

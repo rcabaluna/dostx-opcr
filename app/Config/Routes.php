@@ -25,3 +25,5 @@ $routes->get('/registry/indicator', 'Registry::indicator');
 
 $routes->get('/signin', 'Dashboard::Signin');
 
+
+$routes->get('/modules/test', 'Modules::test');
