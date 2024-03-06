@@ -3,6 +3,7 @@
 
 <!-- Page Heading -->
 <h2 class="h3 mb-2 text-gray-800">Indicators</h2>
+<<<<<<< HEAD
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -17,6 +18,9 @@
     	margin: 20px;
     }
 </style>
+=======
+    <!-- Button trigger modal -->
+>>>>>>> 8b6938cc0841f618fcebdbcf3a70f961755f6625
 <div class="bs-example">
     <div class="container">
         <div class="row">
