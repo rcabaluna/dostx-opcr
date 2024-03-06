@@ -3,7 +3,8 @@
 use CodeIgniter\Router\RouteCollection;
 
 $routes->get('/', 'Auth::signin');
-$routes->post('/sign-in', 'Auth::auth_signin');
+$routes->get('/sign-in', 'Auth::signin');
+
 $routes->get('/sign-out', 'Auth::logout');
 $routes->get('/dashboard', 'Dashboard::index');
 $routes->get('/projects', 'Dashboard::projects');
@@ -19,4 +20,6 @@ $routes->get('/profile', 'Dashboard::Profile');
 
 //INDICATOR ROUTES
 $routes->get('/registry/indicator', 'Registry::indicator');
+
+$routes->get('/signin', 'Dashboard::Signin');
 

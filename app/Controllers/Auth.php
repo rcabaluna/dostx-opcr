@@ -5,6 +5,11 @@ use App\Models\Users;
 
 class Auth extends BaseController
 {
+    public function index()
+    {
+        return view('sign-in');
+    }
+    
     public function signin()
     {
         return view('sign-in');
