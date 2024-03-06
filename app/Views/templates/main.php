@@ -29,12 +29,16 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('dashboard') ?>">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">DOST</div>
-            </a>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('dashboard') ?>">
+    <div class="sidebar-brand-icon">
+        <img src="logo.png" alt="Logo" width="38" height="38">
+    </div>
+    <div class="sidebar-brand-text mx-11" style="font-size: 0.6rem;">Department of Science and Technology</div>
+    
+</a>
+
+
+
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -264,7 +268,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>We are all handsome &copy; OPCR 2024</span>
                     </div>
                 </div>
             </footer>
