@@ -29,5 +29,12 @@ class RegistryModel extends Model
         return $result;
     } 
 
+    public function insert_data($tblname, $data)
+    {
+        $builder = $this->db->table($tblname);
+        $builder->insert($data);
+
+        return;
+    }
 
 }
