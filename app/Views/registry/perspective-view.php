@@ -3,8 +3,27 @@
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Perspectives</h1>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Right Align Bootstrap Buttons</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<style>
+    .bs-example{
+    	margin: 20px;
+    }
+</style>
+</head>
+<body>
+    <!-- Button trigger modal -->
+<div class="bs-example">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 bg-light text-right">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   NEW
 </button>
 
@@ -19,19 +38,36 @@
         </button>
       </div>
       <div class="modal-body">
-      <form>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Name</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Input Name">
-  </div>
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1" style="text-align: left; display: block;">Name</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Input Name">
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" onclick="showPrompt()">Save changes</button>
+        <script>
+  function showPrompt() {
+    // Display a prompt
+    alert("Kalibangon ko!");
+  }
+</script>
+
       </div>
     </div>
   </div>
 </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">

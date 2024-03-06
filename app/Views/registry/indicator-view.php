@@ -2,10 +2,70 @@
 <?= $this->section('content') ?>
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Tables</h1>
-<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-    For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+<h2 class="h3 mb-2 text-gray-800">Indicators</h2>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Right Align Bootstrap Buttons</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<style>
+    .bs-example{
+    	margin: 20px;
+    }
+</style>
+</head>
+<body>
+    <!-- Button trigger modal -->
+<div class="bs-example">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 bg-light text-right">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  NEW
+</button>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Input new</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1" style="text-align: left; display: block;">Name</label>
+            <input type="Name" class="form-control" id="exampleFormControlInput1" placeholder="Input Name">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="showPrompt()">Save changes</button>
+        <script>
+  function showPrompt() {
+    // Display a prompt
+    alert("Kalibangon ko!");
+  }
+</script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -21,16 +81,18 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Name</th>
-                                    <th>Actions</th>
+                                    <th>Description</th>
+                                    <th>Ordes</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($indicators as $perspectiveRow) {
+                                foreach ($indicator as $indicatorRow) {
                                     ?>
                                     <tr>
-                                        <td><?=$perspectiveRow['perspectiveid']?></td>
-                                        <td><?=$perspectiveRow['name']?></td>
+                                        <td><?=$descriptionRow['indicatorid']?></td>
+                                        <td><?=$descriptionRow['description']?></td>
+                                        <td><?=$ordersRow['orders']?></td>
                                         <td><button class="btn btn-xs btn-primary">Edit</button>&nbsp;&nbsp;&nbsp;<button class="btn btn-xs btn-danger">Delete</button></td>
                                     </tr>
                                     <?php
