@@ -29,13 +29,13 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('dashboard') ?>">
-    <div class="sidebar-brand-icon">
-        <img src="logo.png" alt="Logo" width="38" height="38">
-    </div>
-    <div class="sidebar-brand-text mx-3">DOST</div>
-    
-</a>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('dashboard') ?>">
+                <div class="sidebar-brand-icon">
+                    <img src="<?= base_url('assets/img/logo.png') ?>" alt="Logo" width="38" height="38">
+                </div>
+                <div class="sidebar-brand-text mx-11" style="font-size: 0.6rem;">Department of Science and Technology</div>
+
+            </a>
 
 
 
@@ -45,7 +45,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link"href="<?= base_url('dashboard') ?>">
+                <a class="nav-link" href="<?= base_url('dashboard') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -85,6 +85,12 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('modules/test') ?>">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Test</span></a>
+            </li>
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -190,7 +196,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
+                                        <img class="rounded-circle" src="<?= base_url('assets/img/logo.png') ?>" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -212,7 +218,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
+                                        <img class="rounded-circle" src="<?= base_url('assets/img/logo.png') ?>" alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -242,7 +248,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ruel Cabaluna</span>
-                                <img class="img-profile rounded-circle" src="sir.jpg">
+                                <img class="img-profile rounded-circle" src="<?= base_url('assets/img/sir.jpg') ?>">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

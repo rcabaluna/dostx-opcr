@@ -46,7 +46,7 @@ class Auth extends BaseController
                     exit();
                 }
             }else{
-                echo "wala";
+                return redirect()->to(base_url('')); 
             }
         }
     

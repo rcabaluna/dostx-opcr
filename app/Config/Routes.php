@@ -15,9 +15,9 @@ $routes->get('/profile', 'Dashboard::Profile');
 
 //REGISTRY ROUTES
 $routes->get('/registry/perspective', 'Registry::perspective');
-$routes->get('/registry/add-registry', 'Registry::add_registry');
-$routes->put('/registry/edit-registry', 'Registry::edit_registry');
-$routes->delete('/registry/delete-registry', 'Registry::delete_registry');
+$routes->get('/registry/add-perspective', 'Registry::add_perspective');
+$routes->put('/registry/edit-perspective', 'Registry::edit_perspective');
+$routes->get('/registry/delete-perspective/(:num)', 'Registry::delete_perspective/$1');
 
 
 //INDICATOR ROUTES
@@ -25,5 +25,10 @@ $routes->get('/registry/indicator', 'Registry::indicator');
 
 $routes->get('/signin', 'Dashboard::Signin');
 
+<<<<<<< HEAD
 //MODULES-TARGET
 $routes->get('/module/target', 'Module::target');
+=======
+
+$routes->get('/modules/test', 'Modules::test');
+>>>>>>> 6995ede63bfa5accb1879b89b0d800628cc62a9d
