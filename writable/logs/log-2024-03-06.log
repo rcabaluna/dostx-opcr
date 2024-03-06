@@ -1,0 +1,47 @@
+INFO - 2024-03-06 00:05:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 00:05:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 00:05:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 00:05:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 00:05:29 --> ErrorException: Undefined variable $perspectives
+in APPPATH\Views\registry\indicator-view.php on line 147.
+ 1 APPPATH\Views\registry\indicator-view.php(147): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $perspectives', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Views\\registry\\indicator-view.php', 147)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\dostx-opcr\\app\\Views\\registry\\indicator-view.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('registry/indicator-view', [], true)
+ 5 APPPATH\Controllers\Registry.php(28): view('registry/indicator-view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->indicator()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 00:05:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 00:05:33 --> ErrorException: Undefined variable $perspectives
+in APPPATH\Views\registry\indicator-view.php on line 147.
+ 1 APPPATH\Views\registry\indicator-view.php(147): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $perspectives', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Views\\registry\\indicator-view.php', 147)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\dostx-opcr\\app\\Views\\registry\\indicator-view.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('registry/indicator-view', [], true)
+ 5 APPPATH\Controllers\Registry.php(28): view('registry/indicator-view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->indicator()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 00:05:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 00:07:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 00:10:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 00:20:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 00:20:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 00:20:10 --> ErrorException: Undefined variable $perspectives
+in APPPATH\Views\registry\indicator-view.php on line 147.
+ 1 APPPATH\Views\registry\indicator-view.php(147): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $perspectives', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Views\\registry\\indicator-view.php', 147)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\dostx-opcr\\app\\Views\\registry\\indicator-view.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('registry/indicator-view', [], true)
+ 5 APPPATH\Controllers\Registry.php(28): view('registry/indicator-view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->indicator()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 00:20:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 00:22:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 00:29:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 00:29:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

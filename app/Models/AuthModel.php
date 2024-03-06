@@ -6,11 +6,11 @@ use CodeIgniter\Model;
 
 class AuthModel extends Model
 {
-    public function insert_data($data)
+    public function insert_data($tblname, $data)
     {
-        $builder = $this->db->table('tbluseraccount');
+        $builder = $this->db->table($tblname);
         $builder->insert($data);
 
-        return view;
+        return;
     }
 }
