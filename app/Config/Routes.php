@@ -28,4 +28,4 @@ $routes->get('/signin', 'Dashboard::Signin');
 //MODULES-TARGET
 $routes->get('/module/target', 'Module::target');
 
-$routes->get('/modules/target', 'Module::target');
+$routes->get('/modules/test', 'Modules::test');
