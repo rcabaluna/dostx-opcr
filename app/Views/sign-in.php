@@ -35,7 +35,7 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image" style="background-image: url('logo2.png');"></div>
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image" style="background-image: url('assets/img/logo2.png');"></div>
 
                             <div class="col-lg-6">
                                 <div class="p-5">
