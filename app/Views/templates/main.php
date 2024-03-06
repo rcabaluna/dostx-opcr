@@ -21,6 +21,7 @@
     <script>
         var BASE_URL = '<?=base_url()?>'
     </script>
+    
 </head>
 
 <body id="page-top">
