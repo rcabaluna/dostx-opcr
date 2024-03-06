@@ -9,14 +9,16 @@ $routes->get('/sign-out', 'Auth::logout');
 $routes->get('/dashboard', 'Dashboard::index');
 $routes->get('/projects', 'Dashboard::projects');
 $routes->get('/registry', 'Dashboard::registry');
-$routes->get('/add-registry', 'Dashboard::add_registry');
+$routes->get('/profile', 'Dashboard::Profile');
+
 // $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
-
-
 
 //REGISTRY ROUTES
 $routes->get('/registry/perspective', 'Registry::perspective');
-$routes->get('/profile', 'Dashboard::Profile');
+$routes->get('/registry/add-registry', 'Registry::add_registry');
+$routes->put('/registry/edit-registry', 'Registry::edit_registry');
+$routes->delete('/registry/delete-registry', 'Registry::delete_registry');
+
 
 //INDICATOR ROUTES
 $routes->get('/registry/indicator', 'Registry::indicator');
