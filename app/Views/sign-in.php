@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-info">
 
     <div class="container">
 
@@ -55,8 +55,7 @@
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
+                                                
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-lg btn-block btn-primary">Sign in</button>
