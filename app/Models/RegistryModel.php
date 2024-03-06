@@ -37,4 +37,12 @@ class RegistryModel extends Model
         return;
     }
 
+    public function update_data($tblname, $data)
+    {
+        $builder = $this->db->table($tblname);
+        $builder->update($data)->where($data['perspectiveid']);
+
+        return;
+    }
+
 }

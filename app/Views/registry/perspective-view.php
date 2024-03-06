@@ -41,6 +41,52 @@
     </div>
 </form>
 
+<!-- Edit Modal -->
+<form method="post" action="<?=base_url('registry/edit-perspective'); ?>">
+    <div class="modal" id="editModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Perspective</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="txtperspectiveid" name="perspectiveid" class="form-control" value="" />
+                    <input type="text" id="txtname" name="name" class="form-control" placeholder="Enter new data" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Delete Modal -->
+
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this item?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <a href="#" id="delete-confirmation-link"><button class="btn btn-xs btn-danger">Delete</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -68,8 +114,8 @@
                                     <td><?=$perspectiveRow['name']?></td>
 
                                     <td>
-                                        <button class="btn btn-xs btn-primary">Edit</button>&nbsp;&nbsp;&nbsp;
-                                        <a href="<?=base_url('registry/delete-perspective/'.$perspectiveRow['perspectiveid']) ?>" method="POST"><button class="btn btn-xs btn-danger">Delete</button></a>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" onClick="edit_name(<?=htmlspecialchars(json_encode($perspectiveRow)) ?>)" data-target="#editModal">Edit</button>&nbsp;&nbsp;&nbsp;
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" onClick="delete_confirmation(<?=$perspectiveRow['perspectiveid']?>)" data-target="#deleteModal">Delete</button>
                                     </td>
                                 </tr>
                                 <?php
@@ -83,4 +129,18 @@
         </div>
     </div>
 </div>
+<script>
+    function delete_confirmation(perspectiveid) {
+        $("#delete-confirmation-link").attr("href", BASE_URL + "registry/delete-perspective/" + perspectiveid);
+    }
+
+    function edit_name(perspective) {
+        $("#txtperspectiveid").val(perspective.perspectiveid);
+        $("#txtname").val(perspective.name);
+    }
+
+    function update_data(perspective) {
+        $("#update-link").attr("href", BASE_URL + "registry/edit-perspective/" + perspective);
+    }
+</script>
 <?= $this->endSection() ?>
