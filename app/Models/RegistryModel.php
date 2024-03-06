@@ -37,12 +37,14 @@ class RegistryModel extends Model
         return;
     }
 
-    public function update_data($tblname, $data)
+    public function update_data($tblname, $name, $id)
     {
         $builder = $this->db->table($tblname);
-        $builder->update($data)->where($data['perspectiveid']);
-
+        $builder->where('perspectiveid', $id['perspectiveid']);
+        $builder->update($name);
+    
         return;
     }
+    
 
 }

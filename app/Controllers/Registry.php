@@ -39,23 +39,17 @@ class Registry extends BaseController
         return redirect()->to(base_url('registry/perspective')); 
     }
 
-    public function edit_perspective(){
-        $persdata = $param = [];
-        $input = $this->request->getPost('$persdata');
-
-        parse_str($_POST['$persdata'], $persdata);
-        $param['perspectiveid'] = $persdata['perspectivei'];
-        unset($persdata['perspectivei']);
-
-        if (!array_key_exists('is_active',$persdata)) {
-            $persdata['is_active'] = 0;
-        }
-
-        $persuser = $this->registryModel->update_data('tblusers',$persdata,$param);
-
-        $this->session->setFlashdata('okstatus', 'true');
-        echo $persuser;
+    public function edit_perspective()
+    {
+        $input = $this->request->getPost();
+        $pers_name['name'] = $input['name'];
+        $pers_id['perspectiveid'] = $input['perspectiveid'];
+        $this->registryModel->update_data('perspective', $pers_name, $pers_id);
+        
+        return redirect()->to(base_url('registry/perspective')); 
     }
+    
+    
 
     public function delete_perspective($id = '') {
         $perspectiveId = $id;

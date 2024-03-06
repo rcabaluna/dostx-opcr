@@ -6,3 +6,202 @@ INFO - 2024-03-06 06:28:27 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-03-06 06:32:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-03-06 07:41:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-03-06 07:42:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 07:52:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 07:53:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 07:54:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 07:54:06 --> ErrorException: Undefined array key "$persdata"
+in APPPATH\Controllers\Registry.php on line 46.
+ 1 APPPATH\Controllers\Registry.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "$persdata"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Registry.php', 46)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 07:55:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 07:55:54 --> ErrorException: Undefined array key "$perspective"
+in APPPATH\Controllers\Registry.php on line 46.
+ 1 APPPATH\Controllers\Registry.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "$perspective"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Registry.php', 46)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 07:56:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 07:56:04 --> ErrorException: Undefined array key "perspective"
+in APPPATH\Controllers\Registry.php on line 46.
+ 1 APPPATH\Controllers\Registry.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "perspective"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Controllers\\Registry.php', 46)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 08:03:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-03-06 08:03:38 --> mysqli_sql_exception: Table 'dbopcr.tblusers' doesn't exist in C:\xampp\htdocs\dostx-opcr\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\dostx-opcr\system\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `tbluser...', 0)
+#1 C:\xampp\htdocs\dostx-opcr\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `tbluser...')
+#2 C:\xampp\htdocs\dostx-opcr\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `tbluser...')
+#3 C:\xampp\htdocs\dostx-opcr\system\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `tbluser...', Array, false)
+#4 C:\xampp\htdocs\dostx-opcr\app\Models\RegistryModel.php(44): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 C:\xampp\htdocs\dostx-opcr\app\Controllers\Registry.php(49): App\Models\RegistryModel->update_data('tblusers', Array, Array)
+#6 C:\xampp\htdocs\dostx-opcr\system\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+#7 C:\xampp\htdocs\dostx-opcr\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+#8 C:\xampp\htdocs\dostx-opcr\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\dostx-opcr\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-06 08:03:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'dbopcr.tblusers' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `tblusers` SET `name` = :name:
+WHERE `perspectiveid` = :perspectiveid:', [...], false)
+ 2 APPPATH\Models\RegistryModel.php(44): CodeIgniter\Database\BaseBuilder->update([...])
+ 3 APPPATH\Controllers\Registry.php(49): App\Models\RegistryModel->update_data('tblusers', [...], [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-06 08:03:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'dbopcr.tblusers' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `tblusers` SET `name` = \'dawda1\'
+WHERE `perspectiveid` = \'26\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `tblusers` SET `name` = \'dawda1\'
+WHERE `perspectiveid` = \'26\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `tblusers` SET `name` = :name:
+WHERE `perspectiveid` = :perspectiveid:', [...], false)
+ 4 APPPATH\Models\RegistryModel.php(44): CodeIgniter\Database\BaseBuilder->update([...])
+ 5 APPPATH\Controllers\Registry.php(49): App\Models\RegistryModel->update_data('tblusers', [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-06 08:03:38 --> [Caused by] mysqli_sql_exception: Table 'dbopcr.tblusers' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `tblusers` SET `name` = \'dawda1\'
+WHERE `perspectiveid` = \'26\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `tblusers` SET `name` = \'dawda1\'
+WHERE `perspectiveid` = \'26\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `tblusers` SET `name` = \'dawda1\'
+WHERE `perspectiveid` = \'26\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `tblusers` SET `name` = :name:
+WHERE `perspectiveid` = :perspectiveid:', [...], false)
+ 5 APPPATH\Models\RegistryModel.php(44): CodeIgniter\Database\BaseBuilder->update([...])
+ 6 APPPATH\Controllers\Registry.php(49): App\Models\RegistryModel->update_data('tblusers', [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 08:03:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:04:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:04:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:04:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:04:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:04:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:05:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:05:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:05:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:05:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:05:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:05:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:05:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:05:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:05:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:08:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 08:08:51 --> ErrorException: Undefined array key "perspectiveid"
+in APPPATH\Models\RegistryModel.php on line 43.
+ 1 APPPATH\Models\RegistryModel.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "perspectiveid"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Models\\RegistryModel.php', 43)
+ 2 APPPATH\Controllers\Registry.php(47): App\Models\RegistryModel->update_data('perspective', [...], [...])
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 08:08:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:09:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 08:09:06 --> ErrorException: Undefined array key "perspectiveid"
+in APPPATH\Models\RegistryModel.php on line 43.
+ 1 APPPATH\Models\RegistryModel.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "perspectiveid"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Models\\RegistryModel.php', 43)
+ 2 APPPATH\Controllers\Registry.php(47): App\Models\RegistryModel->update_data('perspective', [...], [...])
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 08:09:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 08:09:25 --> ErrorException: Undefined array key "perspectiveid"
+in APPPATH\Models\RegistryModel.php on line 43.
+ 1 APPPATH\Models\RegistryModel.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "perspectiveid"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Models\\RegistryModel.php', 43)
+ 2 APPPATH\Controllers\Registry.php(47): App\Models\RegistryModel->update_data('perspective', [...], [...])
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 08:09:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:09:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:09:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 08:09:33 --> ErrorException: Undefined array key "perspectiveid"
+in APPPATH\Models\RegistryModel.php on line 43.
+ 1 APPPATH\Models\RegistryModel.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "perspectiveid"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Models\\RegistryModel.php', 43)
+ 2 APPPATH\Controllers\Registry.php(47): App\Models\RegistryModel->update_data('perspective', [...], [...])
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 08:09:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 08:09:44 --> ErrorException: Undefined array key "perspectiveid"
+in APPPATH\Models\RegistryModel.php on line 43.
+ 1 APPPATH\Models\RegistryModel.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "perspectiveid"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Models\\RegistryModel.php', 43)
+ 2 APPPATH\Controllers\Registry.php(47): App\Models\RegistryModel->update_data('perspective', [...], [...])
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 08:10:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:10:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:10:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:10:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:10:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:10:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:10:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:10:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 08:10:40 --> ErrorException: Undefined array key "perspectiveid"
+in APPPATH\Models\RegistryModel.php on line 43.
+ 1 APPPATH\Models\RegistryModel.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "perspectiveid"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Models\\RegistryModel.php', 43)
+ 2 APPPATH\Controllers\Registry.php(47): App\Models\RegistryModel->update_data('perspective', [...], [...])
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 08:10:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 08:10:46 --> ErrorException: Undefined array key "txtperspectiveid"
+in APPPATH\Models\RegistryModel.php on line 43.
+ 1 APPPATH\Models\RegistryModel.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "txtperspectiveid"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Models\\RegistryModel.php', 43)
+ 2 APPPATH\Controllers\Registry.php(47): App\Models\RegistryModel->update_data('perspective', [...], [...])
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 08:10:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 08:10:54 --> ErrorException: Undefined array key "id"
+in APPPATH\Models\RegistryModel.php on line 43.
+ 1 APPPATH\Models\RegistryModel.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Models\\RegistryModel.php', 43)
+ 2 APPPATH\Controllers\Registry.php(47): App\Models\RegistryModel->update_data('perspective', [...], [...])
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 08:11:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 08:11:56 --> ErrorException: Undefined array key "id"
+in APPPATH\Models\RegistryModel.php on line 43.
+ 1 APPPATH\Models\RegistryModel.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Models\\RegistryModel.php', 43)
+ 2 APPPATH\Controllers\Registry.php(47): App\Models\RegistryModel->update_data('perspective', [...], [...])
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 08:11:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-03-06 08:11:57 --> ErrorException: Undefined array key "id"
+in APPPATH\Models\RegistryModel.php on line 43.
+ 1 APPPATH\Models\RegistryModel.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\xampp\\htdocs\\dostx-opcr\\app\\Models\\RegistryModel.php', 43)
+ 2 APPPATH\Controllers\Registry.php(47): App\Models\RegistryModel->update_data('perspective', [...], [...])
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Registry->edit_perspective()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registry))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2024-03-06 08:12:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:12:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:12:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-03-06 08:12:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

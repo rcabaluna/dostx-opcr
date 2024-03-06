@@ -53,7 +53,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" id="txtperspectiveid" name="perspectiveid" class="form-control" value="" />
+                    <input type="hidden" id="txtperspectiveid" name="perspectiveid" class="form-control" value="txtperspectiveid" />
                     <input type="text" id="txtname" name="name" class="form-control" placeholder="Enter new data" />
                 </div>
                 <div class="modal-footer">
@@ -137,10 +137,6 @@
     function edit_name(perspective) {
         $("#txtperspectiveid").val(perspective.perspectiveid);
         $("#txtname").val(perspective.name);
-    }
-
-    function update_data(perspective) {
-        $("#update-link").attr("href", BASE_URL + "registry/edit-perspective/" + perspective);
     }
 </script>
 <?= $this->endSection() ?>
