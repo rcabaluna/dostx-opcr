@@ -17,10 +17,10 @@ class Module extends BaseController
 
     public function target()
     {
-        $data['title'] = 'DOST X - OPCR | Modules - Modules';
+        $data['title'] = 'DOST X - OPCR | Module - Module';
 
-        $data['target'] = $this->moduleModel->get_all('target');
-        return view('modules/target', $data);
+        $data['targets'] = $this->moduleModel->get_all('tbltarget_summary');
+        return view('module/target-view', $data);
     }
 
 

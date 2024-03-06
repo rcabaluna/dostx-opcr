@@ -25,10 +25,5 @@ $routes->get('/registry/indicator', 'Registry::indicator');
 
 $routes->get('/signin', 'Dashboard::Signin');
 
-<<<<<<< HEAD
-//MODULES-TARGET
 $routes->get('/module/target', 'Module::target');
-=======
-
 $routes->get('/modules/test', 'Modules::test');
->>>>>>> 6995ede63bfa5accb1879b89b0d800628cc62a9d

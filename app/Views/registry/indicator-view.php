@@ -2,7 +2,7 @@
 <?= $this->section('content') ?>
 
 <!-- Page Heading -->
-<h2 class="h3 mb-2 text-gray-800">Indicators</h2>
+
 
 <html lang="en">
 <head>
@@ -113,7 +113,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Indicators</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
