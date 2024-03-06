@@ -34,7 +34,7 @@ class Registry extends BaseController
     {
 
         $data = $this->request->getPost();
-        $insert = $this->authModel->insert_data("perspective", $data);
+        $insert = $this->registryModel->insert_data("perspective", $data);
 
         return redirect()->to(base_url('registry/perspective')); 
     }
