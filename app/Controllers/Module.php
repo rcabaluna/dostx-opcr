@@ -22,6 +22,4 @@ class Module extends BaseController
         $data['target'] = $this->moduleModel->get_all('target');
         return view('modules/target', $data);
     }
-
-
 }
