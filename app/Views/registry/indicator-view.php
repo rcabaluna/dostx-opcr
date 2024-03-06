@@ -93,22 +93,89 @@
                                         <td><?=$indicatorRow['indicatorId']?></td>
                                         <td><?=$indicatorRow['description']?></td>
                                         <td><?=$indicatorRow['order']?></td>
-                                       <td>
-  <button type="button" class="btn btn-primary" onclick="showPrompt('edit')">Edit</button>
-  <button type="button" class="btn btn-danger" onclick="showPrompt('delete')">Delete</button>
+                                      <!-- Edit Modal -->
+<div class="modal" id="editModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="editDataInput" class="form-control" placeholder="Enter new data">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="editData()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this item?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" onclick="deleteData()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Your table cell with buttons -->
+<td>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">Edit</button>
+  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
 </td>
 
 <script>
-  function showPrompt(action) {
-    if (action === 'edit') {
-      // Display an edit prompt
-      alert("Kalibangon ko!");
-    } else if (action === 'delete') {
-      // Display a delete prompt
-      alert("I-delete ko!");
-    }
+  // Variables to store edit/delete data
+  var editDataInput = document.getElementById('editDataInput');
+  var deleteItemId;
+
+  // Function to set up edit modal
+  function setupEditModal(data) {
+    editDataInput.value = data;
+  }
+
+  // Function to handle edit action
+  function editData() {
+    var newData = editDataInput.value;
+    // Handle edit action here, you can pass newData to your backend for processing
+    // For demonstration, let's just log the newData
+    console.log("Edited data:", newData);
+    // Close the modal
+    $('#editModal').modal('hide');
+  }
+
+  // Function to set up delete modal
+  function setupDeleteModal(itemId) {
+    deleteItemId = itemId;
+  }
+
+  // Function to handle delete action
+  function deleteData() {
+    // Handle delete action here, you can pass deleteItemId to your backend for processing
+    // For demonstration, let's just log the deleteItemId
+    console.log("Deleted item ID:", deleteItemId);
+    // Close the modal
+    $('#deleteModal').modal('hide');
   }
 </script>
+
 
                                     </tr>
                                     <?php
