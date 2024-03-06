@@ -6,7 +6,7 @@
 
     <!-- Button trigger modal -->
 <div class="bs-example">
-    <div class="container">
+    <di class="container">
         <div class="row">
             <div class="col-md-12 bg-light text-right">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -48,10 +48,8 @@
 
             </div>
         </div>
-    </div>
-</div>
-</body>
-</html>
+
+
 
 
 <!-- DataTales Example -->
@@ -79,8 +77,10 @@
                                     <tr>
                                         <td><?=$perspectiveRow['perspectiveid']?></td>
                                         <td><?=$perspectiveRow['name']?></td>
+                                        
                                         <td><button class="btn btn-xs btn-primary">Edit</button>&nbsp;&nbsp;&nbsp;
-                                        <button class="btn btn-xs btn-danger">Delete</button></td>
+                                        <a href="<?=base_url('registry/delete-perspective/'.$perspectiveRow['perspectiveid']) ?>" method="POST" ><button class="btn btn-xs btn-danger">Delete</button></a>
+                                        </td>
                                     </tr>
                                     <?php
                                 }

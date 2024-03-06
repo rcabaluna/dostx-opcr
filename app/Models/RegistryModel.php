@@ -13,4 +13,21 @@ class RegistryModel extends Model
         return $builder->getResultArray();
     }
 
+    public function get_single_data_where($tablename,$param){
+        $builder = $this->db->table($tablename);
+        $builder->where($param);
+        $builder = $builder->get();
+
+        return $builder->getRowArray();
+    }
+
+    public function delete_data($tablename, $param) {
+        $builder = $this->db->table($tablename);
+        $builder->where($param);
+        $result = $builder->delete();
+    
+        return $result;
+    } 
+
+
 }
