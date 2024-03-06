@@ -22,11 +22,57 @@ class Registry extends BaseController
         return view('registry/perspective-view', $data);
     }
 
+    public function add_perspective()
+    {
+
+        $data = $this->request->getPost();
+        $insert = $this->authModel->insert_data("perspective", $data);
+
+        return redirect()->to(base_url('projects')); 
+    }
+
+    public function edit_perspective(){
+        $persdata = $param = [];
+        $input = $this->request->getPost('$persdata');
+
+        parse_str($_POST['$persdata'], $persdata);
+        $param['perspectiveid'] = $persdata['perspectivei'];
+        unset($persdata['perspectivei']);
+
+        if (!array_key_exists('is_active',$persdata)) {
+            $persdata['is_active'] = 0;
+        }
+
+        $persuser = $this->registryModel->update_data('tblusers',$persdata,$param);
+
+        $this->session->setFlashdata('okstatus', 'true');
+        echo $persuser;
+    }
+
+    public function delete_perspective(){
+        $persdata = $param = [];
+        $input = $this->request->getPost('$persdata');
+
+        parse_str($_POST['$persdata'], $persdata);
+        $param['perspectiveid'] = $persdata['perspectivei'];
+        unset($persdata['perspectivei']);
+
+        if (!array_key_exists('is_active',$persdata)) {
+            $persdata['is_active'] = 0;
+        }
+
+        $persuser = $this->registryModel->update_data('tblusers',$persdata,$param);
+
+        $this->session->setFlashdata('okstatus', 'true');
+        echo $persuser;
+    }
+    
+
     public function indicator()
     {
         $data['title'] = 'DOST X - OPCR | Registry - Indicator';
-
-        $data['indicators'] = $this->registryModel->get_all('indicators');
         return view('registry/indicator-view', $data);
     }
+
+
 }
