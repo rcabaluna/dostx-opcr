@@ -90,7 +90,51 @@
     </div>
 </div>
 
+<!-- Edit Modal -->
+<form method="post" action="<?=base_url('module/edit-target'); ?>">
+    <div class="modal" id="editModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Target</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="txttargetsummary_id" name="targetsummary_id" class="form-control" value="txttargetsummary_id" />
+                    <input type="text" id="txtname" name="name" class="form-control" placeholder="Enter new data" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 
+<!-- Delete Modal -->
+
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this item?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <a href="#" id="delete-confirmation-link"><button class="btn btn-xs btn-danger">Delete</button></a>
+            </div>
+        </div>
+    </div>
+</div>
 <!--Table-body-->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -127,13 +171,9 @@
                                             <?= $target['status'] ?>
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-primary btn-sm"
-                                                onClick="editRecord(<?= $target['targetsummary_id'] ?>)">Edit</button>
-                                            <button type="button" class="btn btn-danger btn-sm"
-                                                onClick="deleteRecord(<?= $target['targetsummary_id'] ?>)">Delete</button>
-                                            <button type="button" class="btn btn-warning btn-sm"
-                                                onClick="disableRecord(<?= $target['targetsummary_id'] ?>)">Disable</button>
-                                        </td>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" onClick="edit_name(<?=htmlspecialchars(json_encode($target)) ?>)" data-target="#editModal">Edit</button>&nbsp;&nbsp;&nbsp;
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" onClick="delete_confirmation(<?=$target['targetsummary_id']?>)" data-target="#deleteModal">Delete</button>
+                                    </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -145,5 +185,16 @@
     </div>
 </div>
 
+
+<script>
+    function delete_confirmation(targetsummary_id) {
+        $("#delete-confirmation-link").attr("href", BASE_URL + "Module/delete-target/" + targetsummary_id);
+    }
+
+    function edit_name(target) {
+        $("#targetsummary_id").val(target.targetsummary_id);
+        $("#txtname").val(target.name);
+    }
+</script>
 
 <?= $this->endSection() ?>
