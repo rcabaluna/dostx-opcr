@@ -63,7 +63,7 @@ class FileHandler extends BaseHandler
         $this->path = rtrim($this->path, '/') . '/';
 
         if (! is_really_writable($this->path)) {
-            throw CacheException::forUnableToWrite($this->path);
+            
         }
 
         $this->mode   = $config->file['mode'] ?? 0640;

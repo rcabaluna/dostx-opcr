@@ -18,6 +18,10 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
 
+    <script>
+        var BASE_URL = '<?=base_url()?>'
+    </script>
+    
 </head>
 
 <body id="page-top">

@@ -21,7 +21,8 @@
                 </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -60,14 +61,16 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+                                <button type="button" class="btn btn-primary" onclick="saveChanges()">Save
+                                    changes</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Successfully Saved Modal -->
-                <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+                <div class="modal fade" id="successModal" tabindex="-1" role="dialog"
+                    aria-labelledby="successModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -87,6 +90,8 @@
     </div>
 </div>
 
+
+<!--Table-body-->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Targets</h6>
@@ -109,11 +114,26 @@
                             <tbody id="dataTableBody">
                                 <?php foreach ($targets as $target): ?>
                                     <tr>
-                                        <td><?= $target['targetsummary_id'] ?></td>
-                                        <td><?= $target['year'] ?></td>
-                                        <td><?= $target['version'] ?></td>
-                                        <td><?= $target['status'] ?></td>
-                                        <td>Action buttons here</td>
+                                    <td>
+                                            <?= $target['targetsummary_id'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $target['year'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $target['version'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $target['status'] ?>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-sm"
+                                                onClick="editRecord(<?= $target['targetsummary_id'] ?>)">Edit</button>
+                                            <button type="button" class="btn btn-danger btn-sm"
+                                                onClick="deleteRecord(<?= $target['targetsummary_id'] ?>)">Delete</button>
+                                            <button type="button" class="btn btn-warning btn-sm"
+                                                onClick="disableRecord(<?= $target['targetsummary_id'] ?>)">Disable</button>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -125,5 +145,5 @@
     </div>
 </div>
 
-<?= $this->endSection() ?>
 
+<?= $this->endSection() ?>
