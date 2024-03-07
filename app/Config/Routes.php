@@ -32,7 +32,7 @@ $routes->post('/module/edit-target', 'Module::edit_target');
 $routes->get('/module/delete-target/(:num)', 'Module::delete_target/$1');
 // In app/Config/Routes.php
 
-$routes->post('/module/delete-target/(:num)', 'Module::delete_target/$1');
+
 
 $routes->get('/modules/test', 'Modules::test');
 
