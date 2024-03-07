@@ -64,7 +64,7 @@
                 </div>
                 <div class="modal-body">
                     <label for="name" style="text-align: left; display: block;">Perspective</label>
-                    <input type="hidden" id="txtindicatorId" name="indicatorId" class="form-control" value="txtindicatorId" />
+                    <input type="hidden" id="txtindicatorid" name="indicatorid" class="form-control" value="txtindicatorid" />
                     <select class="form-control" id="txtperspectiveid" placeholder="Input Description" name="perspectiveid">
                         <?php  
                           foreach ($perspectives as $perspectiveRow) 
@@ -78,7 +78,7 @@
                     <label for="name" style="text-align: left; display: block;">Description</label>
                     <input type="text" class="form-control" id="txtdescription" name="description" />
                     <label for="name" style="text-align: left; display: block;">Order</label>
-                    <input type="text" id="txtorder" name="order" class="form-control"/>
+                    <input type="text" id="txtorder" name="order" class="form-control" placeholder="#txtorder"/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -135,13 +135,14 @@
                                 foreach ($indicator as $indicatorRow) {
                                     ?>
                                 <tr>
-                                    <td><?=$indicatorRow['indicatorId']?></td>
+                                    <td><?=$indicatorRow['indicatorid']?></td>
                                     <td><?=$indicatorRow['description']?></td>
                                     <td><?=$indicatorRow['order']?></td>
                                     <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" onClick="edit_indicator(<?=htmlspecialchars (json_encode($indicatorRow)) ?>)" data-target="#editModal">Edit</button>&nbsp;&nbsp;&nbsp;
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" onClick="edit_indicator(<?=htmlspecialchars
+                                        (json_encode($indicatorRow)) ?>)" data-target="#editModal">Edit</button>&nbsp;&nbsp;&nbsp;
                                         <button type="button" class="btn btn-danger" data-toggle="modal" onClick="delete_confirmation(<?=
-                                        $indicatorRow['indicatorId']?>)" data-target="#deleteModal">Delete</button>
+                                        $indicatorRow['indicatorid']?>)" data-target="#deleteModal">Delete</button>
                                     </td>
                                 </tr>
                                 <?php
@@ -156,13 +157,13 @@
     </div>
 </div>
 <script>
-    function delete_confirmation(indicatorId) {
-        $("#delete-confirmation-link").attr("href", BASE_URL + "registry/delete-indicator/" + indicatorId);
+    function delete_confirmation(indicatorid) {
+        $("#delete-confirmation-link").attr("href", BASE_URL + "registry/delete-indicator/" + indicatorid);
     }
 
     function edit_indicator(indicators) {
-        $("#txtindicatorId").val(indicators.indicatorId);
-        $("#txtperspectiveId").val(indicators.perspectiveId);
+        $("#txtindicatorid").val(indicators.indicatorid);
+        $("#txtperspectiveid").val(indicators.perspectiveid);
         $("#txtdescription").val(indicators.description);
         $("#txtorder").val(indicators.order);
     }

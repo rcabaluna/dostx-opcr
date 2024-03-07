@@ -53,7 +53,7 @@ class Registry extends BaseController
     public function delete_perspective($id = '') {
         $perspectiveId = $id;
     
-        $deletedPerspective = $this->registryModel->delete_data('perspective', array('perspectiveid' => $perspectiveId));
+        $this->registryModel->delete_data('perspective', array('perspectiveid' => $perspectiveId));
     
         return redirect()->to(base_url('registry/perspective')); 
     }
@@ -73,22 +73,22 @@ class Registry extends BaseController
     $input = $this->request->getPost();
     
     $data = [
-        'perspectiveId' => $input['perspectiveId'],
+        'perspectiveid' => $input['perspectiveid'],
         'description' => $input['description'],
         'order' => $input['order'],
     ];
     
-    $indicatorId['indicatorId'] = $input['indicatorId'];
+    $indicatorid['indicatorid'] = $input['indicatorid'];
     
-    $this->registryModel->update_data('indicator', $data, $indicatorId);
+    $this->registryModel->update_data('indicator', $data, $indicatorid);
     
     return redirect()->to(base_url('registry/indicator')); 
     }
 
     public function delete_indicator($id = '') {
-        $perspectiveId = $id;
+        $indicatorid = $id;
     
-        $deletedPerspective = $this->registryModel->delete_data('indicator', array('indicatorId' => $indicatorId));
+        $this->registryModel->delete_data('indicator', array('indicatorid' => $indicatorid));
     
         return redirect()->to(base_url('registry/indicator')); 
     }
