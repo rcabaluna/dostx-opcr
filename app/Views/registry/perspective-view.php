@@ -128,11 +128,7 @@
                         </table>
                     </div>
                 </div>
-                                <td>
-                                    <button class="btn btn-sm btn-circle btn-primary mr-1"><i class="fas fa-edit"></i>
-                                    </button>
-                                    <a href="<?= base_url('registry/delete-perspective/' . $perspectiveRow['perspectiveid']) ?>" method="POST"><button class="btn btn-circle btn-sm btn-danger"><i class="fas fa-trash"></i></button></a>
-                                </td>
+                               
                             </tr>
                         <?php
                         
@@ -146,7 +142,7 @@
 
     </div>
 </div>
-<<<<<<< HEAD
+
 <script>
     function delete_confirmation(perspectiveid) {
         $("#delete-confirmation-link").attr("href", BASE_URL + "registry/delete-perspective/" + perspectiveid);
