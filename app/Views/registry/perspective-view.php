@@ -130,6 +130,7 @@
         </div>
     </div>
 </div>
+
 <script>
     function delete_confirmation(perspectiveid) {
         $("#delete-confirmation-link").attr("href", BASE_URL + "registry/delete-perspective/" + perspectiveid);

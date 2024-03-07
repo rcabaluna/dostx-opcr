@@ -188,7 +188,7 @@
 
 <script>
     function delete_confirmation(targetsummary_id) {
-        $("#delete-confirmation-link").attr("href", BASE_URL + "Module/delete-target/" + targetsummary_id);
+        $("#delete-confirmation-link").attr("href", BASE_URL + "module/delete-target/" + targetsummary_id);
     }
 
     function edit_name(target) {
