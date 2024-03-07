@@ -2,20 +2,15 @@
 <?= $this->section('content') ?>
 
 <!-- Page Heading -->
-<div class="row">
-    <div class="col-md-6">
-        <h1 class="h3 mb-2 text-gray-800">Perspectives</h1>
-    </div>
-    <div class="col-md-6"><button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">NEW</button></div>
-</div>
+<h1 class="h3 mb-2 text-gray-800">Perspectives</h1>
 
 <!-- Button trigger modal -->
-<form method="post" action="<?= base_url('registry/add-perspective'); ?>">
+<form method="post" action="<?=base_url('registry/add-perspective'); ?>">
     <div class="bs-example">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 bg-light text-right">
-
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">NEW</button>
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -59,7 +54,8 @@
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="txtperspectiveid" name="perspectiveid" class="form-control" value="txtperspectiveid" />
-                    <input type="text" id="txtname" name="name" class="form-control" placeholder="Enter new data" />
+                    <label for="name" style="text-align: left; display: block;"> Name </label>
+                    <input type="text" id="txtname" name="name" class="form-control"/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -95,26 +91,28 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">TABLE</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Overview</h6>
     </div>
     <div class="card-body">
-        <div class="row">
-            <div class="col-sm-12">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>Name</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($perspectives as $perspectiveRow) {
-                        ?>
-                            <tr>
-                                <td><?= $perspectiveRow['perspectiveid'] ?></td>
-                                <td><?= $perspectiveRow['name'] ?></td>
+        <div class="table-responsive">
+            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                foreach ($perspectives as $perspectiveRow) {
+                                    ?>
+                                <tr>
+                                    <td><?=$perspectiveRow['perspectiveid']?></td>
+                                    <td><?=$perspectiveRow['name']?></td>
 
                                     <td>
                                         <button type="button" class="btn btn-primary" data-toggle="modal" onClick="edit_name(<?=htmlspecialchars(json_encode($perspectiveRow)) ?>)" data-target="#editModal">Edit</button>&nbsp;&nbsp;&nbsp;
@@ -128,18 +126,8 @@
                         </table>
                     </div>
                 </div>
-                                
-                            </tr>
-                        <?php
-                        
-                        ?>
-                    </tbody>
-                </table>
-
             </div>
         </div>
-
-
     </div>
 </div>
 <script>

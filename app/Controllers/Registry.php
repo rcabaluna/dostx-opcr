@@ -27,6 +27,7 @@ class Registry extends BaseController
         $data['title'] = 'DOST X - OPCR | Registry - Indicator';
 
         $data['indicator'] = $this->registryModel->get_all('indicator');
+        $data['perspectives'] = $this->registryModel->get_all('perspective');
         return view('registry/indicator-view', $data);
     }
 
@@ -49,8 +50,6 @@ class Registry extends BaseController
         return redirect()->to(base_url('registry/perspective')); 
     }
     
-    
-
     public function delete_perspective($id = '') {
         $perspectiveId = $id;
     
@@ -58,6 +57,40 @@ class Registry extends BaseController
     
         return redirect()->to(base_url('registry/perspective')); 
     }
+
+    public function add_indicator()
+    {
+
+        $data = $this->request->getPost();
+        $insert = $this->registryModel->insert_data("indicator", $data);
+
+        return redirect()->to(base_url('registry/indicator')); 
+    }
+
+
+    public function edit_indicator()
+    {
+    $input = $this->request->getPost();
     
+    $data = [
+        'perspectiveId' => $input['perspectiveId'],
+        'description' => $input['description'],
+        'order' => $input['order'],
+    ];
+    
+    $indicatorId['indicatorId'] = $input['indicatorId'];
+    
+    $this->registryModel->update_data('indicator', $data, $indicatorId);
+    
+    return redirect()->to(base_url('registry/indicator')); 
+    }
+
+    public function delete_indicator($id = '') {
+        $perspectiveId = $id;
+    
+        $deletedPerspective = $this->registryModel->delete_data('indicator', array('indicatorId' => $indicatorId));
+    
+        return redirect()->to(base_url('registry/indicator')); 
+    }
     
 }

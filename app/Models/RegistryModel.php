@@ -40,7 +40,7 @@ class RegistryModel extends Model
     public function update_data($tblname, $name, $id)
     {
         $builder = $this->db->table($tblname);
-        $builder->where('perspectiveid', $id['perspectiveid']);
+        $builder->where($id, $id);
         $builder->update($name);
     
         return;

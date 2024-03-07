@@ -22,8 +22,9 @@ $routes->get('/registry/delete-perspective/(:num)', 'Registry::delete_perspectiv
 
 //INDICATOR ROUTES
 $routes->get('/registry/indicator', 'Registry::indicator');
-
-$routes->get('/signin', 'Dashboard::Signin');
+$routes->post('/registry/add-indicator', 'Registry::add_indicator');
+$routes->post('/registry/edit-indicator', 'Registry::edit_indicator');
+$routes->get('/registry/delete-indicator/(:num)', 'Registry::delete_indicator/$1');
 
 //MODULES-TARGET
 $routes->get('/module/target', 'Module::target');
