@@ -27,10 +27,10 @@ $routes->post('/registry/edit-indicator', 'Registry::edit_indicator');
 $routes->get('/registry/delete-indicator/(:num)', 'Registry::delete_indicator/$1');
 
 //MODULES-TARGET
-$routes->get('/module/target', 'Module::target');
-$routes->post('/module/add-target', 'Module::add_target');
-$routes->post('/module/edit-target', 'Module::edit_target');
-$routes->get('/module/delete-target/(:num)', 'Module::delete_target/$1');
+$routes->get('/module/target', 'Modules::target');
+$routes->post('/module/add-target', 'Modules::add_target');
+$routes->post('/module/edit-target', 'Modules::edit_target');
+$routes->get('/module/delete-target/(:num)', 'Modules::delete_target/$1');
 // In app/Config/Routes.php
 
 

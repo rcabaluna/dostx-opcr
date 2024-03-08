@@ -1,5 +1,8 @@
 <?= $this->extend('templates/main') ?>
-<?= $this->section('content') ?>
+<?= $this->section('content');
+
+$counter = 0;
+?>
 
 <h5>OPCR Target 2024 v1.0</h5>
 
@@ -10,6 +13,7 @@
 </style>
 
 <!-- Button trigger modal -->
+<form method="post" action="<?=base_url('module/add-target'); ?>">
 <div class="bs-example">
     <div class="container">
         <div class="row">
@@ -26,7 +30,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Input new</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Add New Target</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -34,53 +38,29 @@
                             <div class="modal-body">
                                 <form>
                                     <div class="form-group">
-                                        <label for="yearDropdown">Year</label>
-                                        <select class="form-control" id="yearDropdown">
-                                            <option value="">Select Year</option>
-                                            <!-- Add options for years starting from 1950 -->
-                                            <?php
+                                        <label for="year">Year</label>
+                                        <select class="form-control" id="txtyear" name="year">
+                                        <?php
                                             $startYear = 1950;
                                             $currentYear = date('Y');
-                                            for ($year = $currentYear; $year >= $startYear; $year--) {
-                                                echo "<option value='$year'>$year</option>";
+                                            $years = range($currentYear, $startYear);
+                                            foreach ($years as $year) {
+                                        ?>
+                                            <option value="<?=$year?>"><?=$year?></option>
+                                            <?php
                                             }
                                             ?>
                                         </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="versionDropdown">Version</label>
-                                        <select class="form-control" id="versionDropdown">
-                                            <option value="">Select Version</option>
-                                            <option value="1.0">Version 1.0</option>
-                                            <option value="1.1">Version 1.1</option>
-                                            <option value="2.0">Version 2.0</option>
-                                            <!-- Add more versions as needed -->
-                                        </select>
+                                        <label for="version">Version</label>
+                                        <input type="text" class="form-control" id="txtversion" name="version" placeholder="Input Version">
+                                        </input>
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" onclick="saveChanges()">Save
+                                <button type="submit" class="btn btn-primary">Save
                                     changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Successfully Saved Modal -->
-                <div class="modal fade" id="successModal" tabindex="-1" role="dialog"
-                    aria-labelledby="successModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="successModalLabel">Successfully Saved</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Your changes have been successfully saved.
                             </div>
                         </div>
                     </div>
@@ -89,7 +69,7 @@
         </div>
     </div>
 </div>
-
+</form>
 <!-- Edit Modal -->
 <form method="post" action="<?=base_url('module/edit-target'); ?>">
     <div class="modal" id="editModal" tabindex="-1" role="dialog">
@@ -102,8 +82,27 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <label for="name" style="text-align: left; display: block;">Year</label>
                     <input type="hidden" id="txttargetsummary_id" name="targetsummary_id" class="form-control" value="txttargetsummary_id" />
-                    <input type="text" id="txtname" name="name" class="form-control" placeholder="Enter new data" />
+                    <select class="form-control" id="txteyear" name="year">
+                        <?php
+                            $startYear = 1950;
+                            $currentYear = date('Y');
+                            $years = range($currentYear, $startYear);
+                                foreach ($years as $year) {
+                                        ?>
+                            <option value="<?=$year?>"><?=$year?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>&nbsp;
+                    <label for="name" style="text-align: left; display: block;">Description</label>
+                    <input type="text" class="form-control" id="txteversion" name="version" />&nbsp;
+                    <label for="name" style="text-align: left; display: block;">Status</label>
+                    <select class="form-control" name="status" id="txtestatus">
+                        <option value=1> Activate </option>
+                        <option value=0> Disable </option>
+                    </select>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -113,6 +112,7 @@
         </div>
     </div>
 </form>
+
 
 <!-- Delete Modal -->
 
@@ -135,6 +135,7 @@
         </div>
     </div>
 </div>
+
 <!--Table-body-->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -159,7 +160,7 @@
                                 <?php foreach ($targets as $target): ?>
                                     <tr>
                                     <td>
-                                            <?= $target['targetsummary_id'] ?>
+                                            <?= $counter+=1; ?>
                                         </td>
                                         <td>
                                             <?= $target['year'] ?>
@@ -192,8 +193,10 @@
     }
 
     function edit_name(target) {
-        $("#targetsummary_id").val(target.targetsummary_id);
-        $("#txtname").val(target.name);
+        $("#txttargetsummary_id").val(target.targetsummary_id);
+        $("#txteyear").val(target.year);
+        $("#txteversion").val(target.version);
+        $("#txtestatus").val(target.status);
     }
 </script>
 

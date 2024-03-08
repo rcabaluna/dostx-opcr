@@ -36,19 +36,15 @@ class ModuleModel extends Model
     {
         $builder = $this->db->table($tblname);
         $builder->insert($data);
-
-        // You might want to return the insert ID if needed
-        return $this->db->insertID();
+        return;
     }
 
-    public function update_data($tblname, $year, $version, $id)
+    public function update_data($tblname, $data, $id)
     {
         $builder = $this->db->table($tblname);
         $builder->where('targetsummary_id', $id['targetsummary_id']);
-        $builder->update($year); // Update year
-        $builder->update($version); // Update version
+        $builder->update($data); 
 
-        // You might want to return the number of affected rows or a success flag
-        return $builder->affectedRows();
+        return;
     }
 }

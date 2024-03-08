@@ -1,5 +1,9 @@
 <?= $this->extend('templates/main') ?>
-<?= $this->section('content') ?>
+<?php $this->section('content');
+
+$counter = 0;
+?>
+
 
 <!-- Page Heading -->
 <h2 class="h3 mb-2 text-gray-800">Indicators</h2>
@@ -64,8 +68,8 @@
                 </div>
                 <div class="modal-body">
                     <label for="name" style="text-align: left; display: block;">Perspective</label>
-                    <input type="hidden" id="txtindicatorid" name="indicatorid" class="form-control" value="txtindicatorid" />
-                    <select class="form-control" id="txtperspectiveid" placeholder="Input Description" name="perspectiveid">
+                    <input type="hidden" id="txteindicatorid" name="indicatorid" class="form-control" value="txtindicatorid" />
+                    <select class="form-control" id="txteperspectiveid" placeholder="Input Description" name="perspectiveid">
                         <?php  
                           foreach ($perspectives as $perspectiveRow) 
                             { 
@@ -76,9 +80,9 @@
                         ?>
                     </select>&nbsp;
                     <label for="name" style="text-align: left; display: block;">Description</label>
-                    <input type="text" class="form-control" id="txtdescription" name="description" />&nbsp;
+                    <input type="text" class="form-control" id="txtedescription" name="description" />&nbsp;
                     <label for="name" style="text-align: left; display: block;">Order</label>
-                    <input type="text" id="txtorder" name="order" class="form-control"/>
+                    <input type="text" id="txteorder" name="order" class="form-control"/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -135,7 +139,8 @@
                                 foreach ($indicator as $indicatorRow) {
                                     ?>
                                 <tr>
-                                    <td><?=$indicatorRow['indicatorid']?></td>
+                                    <td><?=$counter+=1;                                     
+                                    ?></td>
                                     <td><?=$indicatorRow['description']?></td>
                                     <td><?=$indicatorRow['order']?></td>
                                     <td>
@@ -162,10 +167,11 @@
     }
 
     function edit_indicator(indicators) {
+      console.log(indicators);
         $("#txtindicatorid").val(indicators.indicatorid);
-        $("#txtperspectiveid").val(indicators.perspectiveid);
-        $("#txtdescription").val(indicators.description);
-        $("#txtorder").val(indicators.order);
+        $("#txteperspectiveid").val(indicators.perspectiveid);
+        $("#txtedescription").val(indicators.description);
+        $("#txteorder").val(indicators.order);
     }
 </script>
 <?= $this->endSection() ?>

@@ -1,5 +1,8 @@
 <?= $this->extend('templates/main') ?>
-<?= $this->section('content') ?>
+<?= $this->section('content');
+
+$counter = 0;
+?>
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Perspectives</h1>
@@ -111,7 +114,7 @@
                                 foreach ($perspectives as $perspectiveRow) {
                                     ?>
                                 <tr>
-                                    <td><?=$perspectiveRow['perspectiveid']?></td>
+                                    <td><?=$counter += 1;?></td>
                                     <td><?=$perspectiveRow['name']?></td>
 
                                     <td>
