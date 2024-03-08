@@ -72,6 +72,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?= base_url('registry/perspective') ?>">Perspective</a>
                         <a class="collapse-item" href="<?= base_url('registry/indicator') ?>">Indicator</a>
+                        <a class="collapse-item" href="<?= base_url('registry/location') ?>">Location</a>
                     </div>
                 </div>
             </li>

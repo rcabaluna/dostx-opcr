@@ -13,12 +13,12 @@ $routes->get('/profile', 'Dashboard::Profile');
 
 // $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
 
-//REGISTRY ROUTES
+//PERSPECTIVE ROUTES
 $routes->get('/registry/perspective', 'Registry::perspective');
 $routes->post('/registry/add-perspective', 'Registry::add_perspective');
 $routes->post('/registry/edit-perspective', 'Registry::edit_perspective');
 $routes->get('/registry/delete-perspective/(:num)', 'Registry::delete_perspective/$1');
-
+$routes->get('/registry/location', 'Registry::location');
 
 //INDICATOR ROUTES
 $routes->get('/registry/indicator', 'Registry::indicator');

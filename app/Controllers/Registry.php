@@ -31,6 +31,15 @@ class Registry extends BaseController
         return view('registry/indicator-view', $data);
     }
 
+    public function location()
+    {
+        $data['title'] = 'DOST X - OPCR | Registry - Location';
+
+        $data['locations'] = $this->registryModel->get_all('location');
+        return view('registry/location-view', $data);
+    }
+
+
     public function add_perspective()
     {
 
