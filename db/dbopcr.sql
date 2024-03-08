@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2024 at 07:31 AM
+-- Generation Time: Mar 08, 2024 at 01:31 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `indicator` (
-  `indicatorId` int(11) NOT NULL,
-  `perspectiveId` int(11) NOT NULL,
+  `indicatorid` int(11) NOT NULL,
+  `perspectiveid` int(11) NOT NULL,
   `description` varchar(256) NOT NULL,
   `order` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -38,8 +38,8 @@ CREATE TABLE `indicator` (
 -- Dumping data for table `indicator`
 --
 
-INSERT INTO `indicator` (`indicatorId`, `perspectiveId`, `description`, `order`) VALUES
-(1, 2, 'adad', '12');
+INSERT INTO `indicator` (`indicatorid`, `perspectiveid`, `description`, `order`) VALUES
+(4, 29, 'daw', '321');
 
 -- --------------------------------------------------------
 
@@ -69,17 +69,7 @@ CREATE TABLE `perspective` (
 --
 
 INSERT INTO `perspective` (`perspectiveid`, `name`) VALUES
-(2, 'Financial Perspective'),
-(3, 'Internal Perspective'),
-(4, 'Learning and Growth Perspective'),
-(22, 'dawda'),
-(23, 'dawda'),
-(24, 'dawda'),
-(25, 'dawda'),
-(26, 'dawda'),
-(28, 'dawda'),
-(29, 'YEHHHH'),
-(30, '12');
+(29, 'dsa');
 
 -- --------------------------------------------------------
 
@@ -87,12 +77,11 @@ INSERT INTO `perspective` (`perspectiveid`, `name`) VALUES
 -- Table structure for table `tbltarget`
 --
 
-CREATE TABLE `tbltarget_summary` (
-  `targetsummary_id` int(11) NOT NULL,
+CREATE TABLE `tbltarget` (
+  `targetid` int(11) NOT NULL,
   `year` varchar(45) NOT NULL,
   `version` varchar(45) NOT NULL,
-  `status` varchar(45) NOT NULL,  
-  `datecreated` varchar(45) NOT NULL
+  `status` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -126,8 +115,8 @@ INSERT INTO `tbluseraccount` (`useraccountid`, `username`, `password`, `date_cre
 -- Indexes for table `indicator`
 --
 ALTER TABLE `indicator`
-  ADD PRIMARY KEY (`indicatorId`),
-  ADD KEY `pers_ind_persId_FK_idx` (`perspectiveId`);
+  ADD PRIMARY KEY (`indicatorid`),
+  ADD KEY `pers_ind_persId_FK_idx` (`perspectiveid`);
 
 --
 -- Indexes for table `location`
@@ -158,10 +147,16 @@ ALTER TABLE `tbluseraccount`
 --
 
 --
+-- AUTO_INCREMENT for table `indicator`
+--
+ALTER TABLE `indicator`
+  MODIFY `indicatorid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `perspective`
 --
 ALTER TABLE `perspective`
-  MODIFY `perspectiveid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `perspectiveid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `tbluseraccount`
@@ -177,7 +172,7 @@ ALTER TABLE `tbluseraccount`
 -- Constraints for table `indicator`
 --
 ALTER TABLE `indicator`
-  ADD CONSTRAINT `pers_ind_persId_FK` FOREIGN KEY (`perspectiveId`) REFERENCES `perspective` (`perspectiveid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `pers_ind_persId_FK` FOREIGN KEY (`perspectiveid`) REFERENCES `perspective` (`perspectiveid`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

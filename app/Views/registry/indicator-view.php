@@ -76,9 +76,9 @@
                         ?>
                     </select>&nbsp;
                     <label for="name" style="text-align: left; display: block;">Description</label>
-                    <input type="text" class="form-control" id="txtdescription" name="description" />
+                    <input type="text" class="form-control" id="txtdescription" name="description" />&nbsp;
                     <label for="name" style="text-align: left; display: block;">Order</label>
-                    <input type="text" id="txtorder" name="order" class="form-control" placeholder="#txtorder"/>
+                    <input type="text" id="txtorder" name="order" class="form-control"/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
