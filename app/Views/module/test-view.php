@@ -70,7 +70,8 @@
                     <thead>
                         <tr class="text-center">
                             <th></th>
-                            <?php foreach ($locations as $locationRow) { ?>
+                            <?php 
+                            foreach ($locations as $locationRow) { ?>
                             <th colspan="5"><?= $locationRow['name'] ?></th>
                             <?php } ?>
                         </tr>
@@ -135,8 +136,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($indicators as $indicatorRow) { ?>
-                        <tr>
+                        <?php 
+                        
+                        foreach ($indicators as $indicatorRow) { 
+                            if ($perspectiveRow['perspectiveid'] == $indicatorRow['perspectiveid']) {
+                                ?>
+                        <tr> 
                             <td><?= $indicatorRow['description'] ?></td>
                             <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
                             <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
@@ -169,7 +174,8 @@
                             <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
                             <td class="text-center">-</td>
                         </tr>
-                        <?php } ?>
+                        <?php }  
+                    } ?>
                     </tbody>
                 </table>
             </div>
