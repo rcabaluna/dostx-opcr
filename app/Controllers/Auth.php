@@ -31,7 +31,6 @@ class Auth extends BaseController
                         if($verifyuser) {   
                             unset($userdetails['password']);
                             $userdetails['logged_in'] = true;
-
                             $this->session->set($userdetails);
                             return redirect()->to(base_url('/dashboard'));
                         }
