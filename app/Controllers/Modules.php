@@ -20,7 +20,7 @@ class Modules extends BaseController
     {
         $data['title'] = 'DOST X - OPCR | Modules - Test';
 
-        return view('modules/test-view', $data);
+        return view('module/test-view', $data);
     }
 
     public function target()
