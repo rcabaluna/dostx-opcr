@@ -142,7 +142,6 @@ $counter = 0;
         <h6 class="m-0 font-weight-bold text-primary">Targets</h6>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
             <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                 <div class="row">
                     <div class="col-sm-12">
@@ -182,7 +181,6 @@ $counter = 0;
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 
