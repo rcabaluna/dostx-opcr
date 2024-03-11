@@ -20,6 +20,9 @@ class Modules extends BaseController
     {
         $data['title'] = 'DOST X - OPCR | Modules - Test';
 
+        $data['indicators'] = $this->moduleModel->get_all('indicator');
+        $data['perspectives'] = $this->moduleModel->get_all('perspective');
+        $data['locations'] = $this->moduleModel->get_all('location');
         return view('module/test-view', $data);
     }
 

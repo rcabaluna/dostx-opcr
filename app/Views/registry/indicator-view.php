@@ -26,7 +26,7 @@ $counter = 0;
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="name" style="text-align: left; display: block;">Perspective</label>
+                                        <label for="name" style="text-align: left; display: block;">Indicator</label>
                                         <select class="form-control" id="txtperspectiveid" placeholder="Input Description" name="perspectiveid">
                                             <?php  
                                           foreach ($perspectives as $perspectiveRow) 
@@ -61,14 +61,14 @@ $counter = 0;
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Edit Perspective</h5>
+                    <h5 class="modal-title">Edit Indicator</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label for="name" style="text-align: left; display: block;">Perspective</label>
-                    <input type="hidden" id="txteindicatorid" name="indicatorid" class="form-control" value="txtindicatorid" />
+                    <label for="name" style="text-align: left; display: block;">Indicator</label>
+                    <input type="hidden" id="txteindicatorid" name="indicatorid" class="form-control" value="txteindicatorid" />
                     <select class="form-control" id="txteperspectiveid" placeholder="Input Description" name="perspectiveid">
                         <?php  
                           foreach ($perspectives as $perspectiveRow) 
@@ -82,7 +82,7 @@ $counter = 0;
                     <label for="name" style="text-align: left; display: block;">Description</label>
                     <input type="text" class="form-control" id="txtedescription" name="description" />&nbsp;
                     <label for="name" style="text-align: left; display: block;">Order</label>
-                    <input type="text" id="txteorder" name="order" class="form-control"/>
+                    <input type="text" class="form-control" id="txteorder" name="order" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -167,8 +167,7 @@ $counter = 0;
     }
 
     function edit_indicator(indicators) {
-      console.log(indicators);
-        $("#txtindicatorid").val(indicators.indicatorid);
+        $("#txteindicatorid").val(indicators.indicatorid);
         $("#txteperspectiveid").val(indicators.perspectiveid);
         $("#txtedescription").val(indicators.description);
         $("#txteorder").val(indicators.order);
