@@ -35,18 +35,21 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image" style="background-image: url('assets/img/logo2.png');"></div>
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"
+                                style="background-image: url('assets/img/logo2.png');"></div>
 
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
+                                    <div id="notification" class="alert alert-danger d-none" role="alert">
+                                        Incorrect username or password.
+                                    </div>
                                     <form class="js-validate" action="<?=base_url('sign-in')?>" method="POST">
                                         <div class="form-group">
                                             <input type="username" class="form-control form-control-user"
-                                                id="username" name="username"
-                                                placeholder="Enter Username...">
+                                                id="username" name="username" placeholder="Enter Username...">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
@@ -55,12 +58,12 @@
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                
+
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-lg btn-block btn-primary">Sign in</button>
+                                        <button type="submit"
+                                            class="btn btn-lg btn-block btn-primary">Sign in</button>
                                     </form>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -82,6 +85,26 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Notification script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('form').addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent the form from submitting
+
+                // Check if username and password are correct
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('exampleInputPassword').value;
+
+                if (username !== 'rain' || password !== '12345678') {
+                    document.getElementById('notification').classList.remove('d-none');
+                } else {
+                    // If username and password are correct, submit the form
+                    this.submit();
+                }
+            });
+        });
+    </script>
 
 </body>
 
