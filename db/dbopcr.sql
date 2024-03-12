@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2024 at 02:50 AM
+-- Generation Time: Mar 12, 2024 at 01:27 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -44,7 +44,8 @@ INSERT INTO `indicator` (`indicatorid`, `perspectiveid`, `description`, `order`)
 (6, 34, 'Financiaaaaal', '2'),
 (7, 33, 'Internal ko1', '223'),
 (8, 34, 'Financial Ko', '2'),
-(9, 35, 'Learning ko', '21');
+(10, 35, 'I want to be learning', '21'),
+(11, 29, 'hehe', '111');
 
 -- --------------------------------------------------------
 
@@ -94,6 +95,48 @@ INSERT INTO `perspective` (`perspectiveid`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tblquarter`
+--
+
+CREATE TABLE `tblquarter` (
+  `quarterid` int(11) NOT NULL,
+  `semid` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `months` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblquarter`
+--
+
+INSERT INTO `tblquarter` (`quarterid`, `semid`, `name`, `months`) VALUES
+(1, 1, '1st Quarter', 'Jan - Mar'),
+(2, 1, '2nd Quarter', 'Apr - Jun'),
+(3, 2, '3rd Quarter', 'July - Sep'),
+(4, 2, '4th Quarter', 'Oct - Dec');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblsemester`
+--
+
+CREATE TABLE `tblsemester` (
+  `semid` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblsemester`
+--
+
+INSERT INTO `tblsemester` (`semid`, `name`) VALUES
+(1, '1st Sem'),
+(2, '2nd Sem');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbltarget_summary`
 --
 
@@ -125,17 +168,19 @@ CREATE TABLE `tbluseraccount` (
   `username` varchar(10) NOT NULL,
   `password` varchar(256) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT current_timestamp(),
-  `is_active` enum('1','0') NOT NULL
+  `is_active` enum('1','0') NOT NULL,
+  `userlevel` varchar(45) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbluseraccount`
 --
 
-INSERT INTO `tbluseraccount` (`useraccountid`, `username`, `password`, `date_created`, `is_active`) VALUES
-(1, '2313', '$2y$10$80jSijP2X/htv48v4a2dduufOKGMP7KF8s/3Hg7FBfnWX4zPUBwGC', '2024-03-04 00:32:05', '1'),
-(2, '2020300298', '$2y$10$BYRC7owP54kCRat1ec7zOOg9B1JmkjzMAMUWJMfkPqmdxIbjzNaOy', '2024-03-04 00:32:23', '1'),
-(3, 'rain', '$2y$10$IVeE6mCg0uZkGFOpjCiNR.1ZyhRpxXdZAup31f34KuxYlv6YeEgmS', '2024-03-04 00:21:21', '1');
+INSERT INTO `tbluseraccount` (`useraccountid`, `username`, `password`, `date_created`, `is_active`, `userlevel`) VALUES
+(1, '2313', '$2y$10$80jSijP2X/htv48v4a2dduufOKGMP7KF8s/3Hg7FBfnWX4zPUBwGC', '2024-03-04 00:32:05', '1', 'user'),
+(2, '2020300298', '$2y$10$BYRC7owP54kCRat1ec7zOOg9B1JmkjzMAMUWJMfkPqmdxIbjzNaOy', '2024-03-04 00:32:23', '1', 'user'),
+(3, 'rain', '$2y$10$IVeE6mCg0uZkGFOpjCiNR.1ZyhRpxXdZAup31f34KuxYlv6YeEgmS', '2024-03-04 00:21:21', '1', 'admin'),
+(4, 'userx', '$2y$10$MGani8XBQOq6QJlCVHXfg.g/k6.i6cct0.DApSu5pZ8e5URPKOw2.', '2024-03-12 00:09:11', '1', 'user');
 
 --
 -- Indexes for dumped tables
@@ -161,6 +206,19 @@ ALTER TABLE `perspective`
   ADD PRIMARY KEY (`perspectiveid`);
 
 --
+-- Indexes for table `tblquarter`
+--
+ALTER TABLE `tblquarter`
+  ADD PRIMARY KEY (`quarterid`),
+  ADD KEY `semid_idx` (`semid`);
+
+--
+-- Indexes for table `tblsemester`
+--
+ALTER TABLE `tblsemester`
+  ADD PRIMARY KEY (`semid`);
+
+--
 -- Indexes for table `tbltarget_summary`
 --
 ALTER TABLE `tbltarget_summary`
@@ -180,13 +238,25 @@ ALTER TABLE `tbluseraccount`
 -- AUTO_INCREMENT for table `indicator`
 --
 ALTER TABLE `indicator`
-  MODIFY `indicatorid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `indicatorid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `perspective`
 --
 ALTER TABLE `perspective`
   MODIFY `perspectiveid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT for table `tblquarter`
+--
+ALTER TABLE `tblquarter`
+  MODIFY `quarterid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tblsemester`
+--
+ALTER TABLE `tblsemester`
+  MODIFY `semid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbltarget_summary`
@@ -198,7 +268,7 @@ ALTER TABLE `tbltarget_summary`
 -- AUTO_INCREMENT for table `tbluseraccount`
 --
 ALTER TABLE `tbluseraccount`
-  MODIFY `useraccountid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `useraccountid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -209,6 +279,12 @@ ALTER TABLE `tbluseraccount`
 --
 ALTER TABLE `indicator`
   ADD CONSTRAINT `pers_ind_persId_FK` FOREIGN KEY (`perspectiveid`) REFERENCES `perspective` (`perspectiveid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblquarter`
+--
+ALTER TABLE `tblquarter`
+  ADD CONSTRAINT `semid` FOREIGN KEY (`semid`) REFERENCES `tblsemester` (`semid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
