@@ -20,6 +20,8 @@ class Modules extends BaseController
     {
         $data['title'] = 'DOST X - OPCR | Modules - Test';
 
+        $data['semester'] = $this -> moduleModel->get_all('tblsemester');
+        $data['quarter'] = $this-> moduleModel->get_all('tblquarter');
         $data['indicators'] = $this->moduleModel->get_all('indicator');
         $data['perspectives'] = $this->moduleModel->get_all('perspective');
         $data['locations'] = $this->moduleModel->get_all('location');

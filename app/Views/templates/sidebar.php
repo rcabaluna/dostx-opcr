@@ -17,11 +17,11 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <?php if($_SESSION['userlevel'] != "user"){ ?>
         <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Registry</span>
             </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="<?= base_url('registry/perspective') ?>">Perspective</a>
                     <a class="collapse-item" href="<?= base_url('registry/indicator') ?>">Indicator</a>
@@ -43,15 +43,6 @@
 
             </div>
         </div>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('modules/test') ?>">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Test</span></a>
     </li>
 
     <!-- Sidebar Toggler (Sidebar) -->

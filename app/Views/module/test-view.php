@@ -45,13 +45,12 @@
 
 <div class="card shadow mb-4">
     <div class="card-body">
-
         <div class="button-group">
             <?php $first = true; ?>
             <?php foreach ($perspectives as $perspectiveRow) { ?>
-                <button class="tab-button <?= $first ? 'active' : '' ?>" data-tab="<?= $perspectiveRow['name'] ?>">
-                    <?= $perspectiveRow['name'] ?>
-                </button>
+            <button class="tab-button <?= $first ? 'active' : '' ?>" data-tab="<?= $perspectiveRow['name'] ?>">
+                <?= $perspectiveRow['name'] ?>
+            </button>
             <?php $first = false; ?>
             <?php } ?>
         </div>
@@ -59,123 +58,57 @@
         <div class="tab-content">
             <?php $first = true; ?>
             <?php foreach ($perspectives as $perspectiveRow) { ?>
-                <div class="tab-pane <?= $first ? 'show active' : '' ?>" id="pills-<?= $perspectiveRow['name'] ?>">
-                    <h6 class="my-4 font-weight-bold">
-                        <?= $perspectiveRow['name'] ?>
-                        <span class="font-weight-normal">
-                            <i>(<?= $perspectiveRow['name'] ?>)</i>
-                        </span>
-                    </h6>
+            <div class="tab-pane <?= $first ? 'show active' : '' ?>" id="pills-<?= $perspectiveRow['name'] ?>">
+                <h6 class="my-4 font-weight-bold">
+                    <?= $perspectiveRow['name'] ?>
+                    <span class="font-weight-normal">
+                        <i>(<?= $perspectiveRow['name'] ?>)</i>
+                    </span>
+                </h6>
                 <table class="table table-sm table-bordered table-hover table-responsive table-fixed">
                     <thead>
                         <tr class="text-center">
                             <th></th>
-                            <?php 
-                            foreach ($locations as $locationRow) { ?>
+                            <?php foreach ($locations as $locationRow) { ?>
                             <th colspan="5"><?= $locationRow['name'] ?></th>
                             <?php } ?>
                         </tr>
                         <tr class="text-center">
                             <th rowspan="2" class="align-middle">Indicator</th>
-                            <th>1st Quarter</th>
-                            <th>2nd Quarter</th>
-                            <th>3rd Quarter</th>
-                            <th>4th Quarter</th>
+
+                            <?php foreach ($locations as $locationRow) { ?>
+                            <?php foreach ($quarter as $quarterRow) { ?>
+                            <th><?= $quarterRow['name'] ?></th>
+                            <?php } ?>
                             <th rowspan="2" class="align-middle">Total Targets</th>
-                            <th>1st Quarter</th>
-                            <th>2nd Quarter</th>
-                            <th>3rd Quarter</th>
-                            <th>4th Quarter</th>
-                            <th rowspan="2" class="align-middle">Total Targets</th>
-                            <th>1st Quarter</th>
-                            <th>2nd Quarter</th>
-                            <th>3rd Quarter</th>
-                            <th>4th Quarter</th>
-                            <th rowspan="2" class="align-middle">Total Targets</th>
-                            <th>1st Quarter</th>
-                            <th>2nd Quarter</th>
-                            <th>3rd Quarter</th>
-                            <th>4th Quarter</th>
-                            <th rowspan="2" class="align-middle">Total Targets</th>
-                            <th>1st Quarter</th>
-                            <th>2nd Quarter</th>
-                            <th>3rd Quarter</th>
-                            <th>4th Quarter</th>
-                            <th rowspan="2" class="align-middle">Total Targets</th>
-                            <th>1st Quarter</th>
-                            <th>2nd Quarter</th>
-                            <th>3rd Quarter</th>
-                            <th>4th Quarter</th>
-                            <th rowspan="2" class="align-middle">Total Targets</th>
+                            <?php } ?>
                         </tr>
-                        <tr class="text-center">
-                            <th>(Jan - Mar)</th>
-                            <th>(Apr - Jun)</th>
-                            <th>(Jul - Sep)</th>
-                            <th>(Oct - Dec)</th>
-                            <th>(Jan - Mar)</th>
-                            <th>(Apr - Jun)</th>
-                            <th>(Jul - Sep)</th>
-                            <th>(Oct - Dec)</th>
-                            <th>(Jan - Mar)</th>
-                            <th>(Apr - Jun)</th>
-                            <th>(Jul - Sep)</th>
-                            <th>(Oct - Dec)</th>
-                            <th>(Jan - Mar)</th>
-                            <th>(Apr - Jun)</th>
-                            <th>(Jul - Sep)</th>
-                            <th>(Oct - Dec)</th>
-                            <th>(Jan - Mar)</th>
-                            <th>(Apr - Jun)</th>
-                            <th>(Jul - Sep)</th>
-                            <th>(Oct - Dec)</th>
-                            <th>(Jan - Mar)</th>
-                            <th>(Apr - Jun)</th>
-                            <th>(Jul - Sep)</th>
-                            <th>(Oct - Dec)</th>
+
+                        <tr>
+                            <?php foreach ($locations as $locationRow) { ?>
+                            <?php foreach ($quarter as $quarterRow) { ?>
+                            <th><?= $quarterRow['months'] ?></th>
+                            <?php } ?>
+                            <?php } ?>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                        
-                        foreach ($indicators as $indicatorRow) { 
-                            if ($perspectiveRow['perspectiveid'] == $indicatorRow['perspectiveid']) {
-                                ?>
-                        <tr> 
+                        <?php foreach ($indicators as $indicatorRow) {
+                            if ($perspectiveRow['perspectiveid'] == $indicatorRow['perspectiveid']) { ?>
+                        <tr>
                             <td><?= $indicatorRow['description'] ?></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td class="text-center">-</td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td class="text-center">-</td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td class="text-center">-</td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td class="text-center">-</td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td class="text-center">-</td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td><input type="number" class="form-control form-control-sm" name="" id="" /></td>
-                            <td class="text-center">-</td>
+                            <?php foreach ($locations as $locationRow) {
+                                foreach ($quarter as $quarterRow) { ?>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" name="<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"] ?>" id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"] ?>" />
+                            </td>
+                            <?php } ?>
+                            <td class="align-middle">-</td>
+                            <?php
+                            } ?>
                         </tr>
-                        <?php }  
-                    } ?>
+                        <?php }
+                        } ?>
                     </tbody>
                 </table>
             </div>
@@ -202,6 +135,9 @@
             tabContent.classList.add("show", "active");
         });
     });
+
+    function
+    
 </script>
 
 <?= $this->endSection() ?>
