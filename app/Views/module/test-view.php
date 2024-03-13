@@ -100,12 +100,12 @@
                             <?php foreach ($locations as $locationRow) {
                                 foreach ($quarter as $quarterRow) { ?>
                             <td>
-                                <input type="number" class="form-control form-control-sm" name="<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"] ?>" id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"] ?>" />
+                                <input type="number" class="form-control form-control-sm" name="<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"] ?>" id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"] ?>"
+                                oninput=total_number() />
                             </td>
                             <?php } ?>
-                            <td class="align-middle">-</td>
-                            <?php
-                            } ?>
+                            <td id="total-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>" class="align-middle"></td>
+                            <?php } ?>
                         </tr>
                         <?php }
                         } ?>
@@ -136,8 +136,30 @@
         });
     });
 
-    function
-    
+    function total_number() {
+        $('input[type="number"]').on("input", function () {
+            var sum = 0;
+            $(this)
+                .closest("tr")
+                .find('input[type="number"]')
+                .each(function () {
+                    var value = $(this).val();
+                    if (!isNaN(value) && value != "") {
+                        sum += parseInt(value);
+                    }
+                });
+            var indicatorId = $(this).attr("name").split("-")[0];
+            var locationId = $(this).attr("name").split("-")[1];
+            var total = 0;
+            $(`input[name^="${indicatorId}-${locationId}"]`).each(function () {
+                var value = $(this).val();
+                if (!isNaN(value) && value != "") {
+                    total += parseInt(value);
+                }
+            });
+            $("#total-" + indicatorId + "-" + locationId).text(total);
+        });
+    }
 </script>
 
 <?= $this->endSection() ?>
