@@ -2,25 +2,7 @@
 <?= $this->section('content') ?>
 
 <style>
-    /* Custom CSS to freeze the first td in trs */
-    .table-fixed th,
-    .table-fixed td:first-child {
-        position: sticky;
-        left: 0;
-        z-index: 1;
-        /* Ensures the first td is on top of the other cells */
-        background-color: #fff;
-        /* Adjust background color if necessary */
-    }
 
-    .table-fixed th:first-child {
-        position: sticky;
-        left: 0;
-        z-index: 1;
-        /* Ensures the first td is on top of the other cells */
-        background-color: #cacaca;
-        /* Adjust background color if necessary */
-    }
 
     .button-group {
         display: flex;
