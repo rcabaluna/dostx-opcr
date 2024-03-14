@@ -52,7 +52,7 @@ class Modules extends BaseController
             'status' => $input['status']
         ];
 
-        $target_id['targetsummary_id'] = $input['targetsummary_id'];
+        $target_id['targetsummaryid'] = $input['targetsummaryid'];
         $this->moduleModel->update_data('tbltarget_summary', $data, $target_id);
         
         return redirect()->to(base_url('module/target')); 
@@ -61,9 +61,36 @@ class Modules extends BaseController
     public function delete_target($id = '') {
         $targetsummary_id = $id;
     
-        $deletetarget = $this->moduleModel->delete_data('tbltarget_summary', array('targetsummary_id' => $targetsummary_id));
+        $deletetarget = $this->moduleModel->delete_data('tbltarget_summary', array('targetsummaryid' => $targetsummary_id));
     
         return redirect()->to(base_url('module/target')); 
     }
+
+    public function add_edit_test()
+    {
+        $input = $this->request->getPost();
+
+        $detailsid = $this-> moduleModel->get_single_data_where('tbltarget_details',array('tbldetailsid' => $input['tbldetailsid']));
+        $data = [
+            'value'=> $input['value'],
+            'targetsummaryid' => $input['targetsummaryid'],
+            'indicatorid' => $input['indicatorid'],
+            'locationid' => $input['locationid'],
+            'quarterid' => $input['quarterid']
+        ];
+
+        if ($detailsid == null){
+
+            $this->moduleModel->insert_data("tbltarget_details", $data);
+            return redirect()->to(base_url('module/test')); 
+
+        } else {
+            $dtls_id['targetdetailsid'] = $input['targetdetailsid'];
+            $this->moduleModel->update_data('tbltarget_details', $data, $dtls_id);
+            
+            return redirect()->to(base_url('module/test')); 
+        } 
+    }
+    
     
 }

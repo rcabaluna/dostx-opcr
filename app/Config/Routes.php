@@ -31,8 +31,11 @@ $routes->get('/module/target', 'Modules::target', ['filter' => 'authGuard']);
 $routes->post('/module/add-target', 'Modules::add_target', ['filter' => 'authGuard']);
 $routes->post('/module/edit-target', 'Modules::edit_target', ['filter' => 'authGuard']);
 $routes->get('/module/delete-target/(:num)', 'Modules::delete_target/$1', ['filter' => 'authGuard']);
+
 // In app/Config/Routes.php
 
+//MODULES-TEST
+$routes->post('/module/add-edit-test', 'Modules::add_edit_test', ['filter' => 'authGuard']);
 
 
 $routes->get('/modules/test', 'Modules::test', ['filter' => 'authGuard']);

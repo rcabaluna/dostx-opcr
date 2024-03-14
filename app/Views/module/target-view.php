@@ -83,7 +83,7 @@ $counter = 0;
                 </div>
                 <div class="modal-body">
                     <label for="name" style="text-align: left; display: block;">Year</label>
-                    <input type="hidden" id="txttargetsummary_id" name="targetsummary_id" class="form-control" value="txttargetsummary_id" />
+                    <input type="hidden" id="txttargetsummaryid" name="targetsummaryid" class="form-control" value="txttargetsummaryid" />
                     <select class="form-control" id="txteyear" name="year">
                         <?php
                             $startYear = 1950;
@@ -172,7 +172,7 @@ $counter = 0;
                                         </td>
                                         <td>
                                         <button type="button" class="btn btn-primary" data-toggle="modal" onClick="edit_name(<?=htmlspecialchars(json_encode($target)) ?>)" data-target="#editModal">Edit</button>&nbsp;&nbsp;&nbsp;
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" onClick="delete_confirmation(<?=$target['targetsummary_id']?>)" data-target="#deleteModal">Delete</button>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" onClick="delete_confirmation(<?=$target['targetsummaryid']?>)" data-target="#deleteModal">Delete</button>
                                     </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -191,7 +191,7 @@ $counter = 0;
     }
 
     function edit_name(target) {
-        $("#txttargetsummary_id").val(target.targetsummary_id);
+        $("#txttargetsummaryid").val(target.targetsummary_id);
         $("#txteyear").val(target.year);
         $("#txteversion").val(target.version);
         $("#txtestatus").val(target.status);

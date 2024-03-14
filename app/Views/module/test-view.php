@@ -2,8 +2,6 @@
 <?= $this->section('content') ?>
 
 <style>
-
-
     .button-group {
         display: flex;
         margin-bottom: 20px;
@@ -82,12 +80,15 @@
                             <?php foreach ($locations as $locationRow) {
                                 foreach ($quarter as $quarterRow) { ?>
                             <td>
-                                <input type="number" class="form-control form-control-sm" name="<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"] ?>" id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"] ?>"
-                                oninput=total_number() />
+                                <input type="number" class="form-control form-control-sm" name="<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow[
+    "quarterid"
+] ?>" id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"] ?>"
+                                onchange="total_number()" />
                             </td>
                             <?php } ?>
                             <td id="total-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>" class="align-middle"></td>
-                            <?php } ?>
+                            <?php
+                            } ?>
                         </tr>
                         <?php }
                         } ?>
@@ -119,7 +120,7 @@
     });
 
     function total_number() {
-        $('input[type="number"]').on("input", function () {
+        $('input[type="number"]').on("change", function (event) {
             var sum = 0;
             $(this)
                 .closest("tr")
@@ -140,6 +141,8 @@
                 }
             });
             $("#total-" + indicatorId + "-" + locationId).text(total);
+
+            $("#add-edit-link").attr("href", BASE_URL + "modules/add-edit-test");
         });
     }
 </script>
