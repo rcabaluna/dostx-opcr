@@ -1,5 +1,6 @@
 <?= $this->extend('templates/main') ?>
 <?= $this->section('content') ?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style>
     .button-group {
@@ -73,6 +74,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <form>
                         <?php foreach ($indicators as $indicatorRow) {
                             if ($perspectiveRow['perspectiveid'] == $indicatorRow['perspectiveid']) { ?>
                         <tr>
@@ -80,10 +82,8 @@
                             <?php foreach ($locations as $locationRow) {
                                 foreach ($quarter as $quarterRow) { ?>
                             <td>
-                                <input type="number" class="form-control form-control-sm" name="<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow[
-    "quarterid"
-] ?>" id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"] ?>"
-                                onchange="total_number()" />
+                                <input type="number" class="form-control form-control-sm" name="<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"]?>"
+                                id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"] ?>" onchange="total_number()" />
                             </td>
                             <?php } ?>
                             <td id="total-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>" class="align-middle"></td>
@@ -92,6 +92,7 @@
                         </tr>
                         <?php }
                         } ?>
+                        </form>
                     </tbody>
                 </table>
             </div>
@@ -120,31 +121,52 @@
     });
 
     function total_number() {
-        $('input[type="number"]').on("change", function (event) {
-            var sum = 0;
-            $(this)
-                .closest("tr")
-                .find('input[type="number"]')
-                .each(function () {
-                    var value = $(this).val();
-                    if (!isNaN(value) && value != "") {
-                        sum += parseInt(value);
-                    }
-                });
-            var indicatorId = $(this).attr("name").split("-")[0];
-            var locationId = $(this).attr("name").split("-")[1];
-            var total = 0;
-            $(`input[name^="${indicatorId}-${locationId}"]`).each(function () {
-                var value = $(this).val();
-                if (!isNaN(value) && value != "") {
-                    total += parseInt(value);
-                }
-            });
-            $("#total-" + indicatorId + "-" + locationId).text(total);
+    $('input[type="number"]').on("change", function (event) {
 
-            $("#add-edit-link").attr("href", BASE_URL + "modules/add-edit-test");
+        var indicatorid = $(this).attr("name").split("-")[0];
+        var locationid = $(this).attr("name").split("-")[1];
+        var quarterid = $(this).attr("name").split("-")[3];
+        var targetsummaryid = 2;
+        var total = 0;
+
+        $(`input[name^="${indicatorid}-${locationid}"]`).each(function () {
+            var value = $(this).val();
+            if (!isNaN(value) && value != "") {
+                total += parseInt(value);
+            }
         });
-    }
+        $("#total-" + indicatorid + "-" + locationid).text(total);
+
+        var previousTotal = $(this).data("previousTotal") || 0;
+        if (total !== previousTotal) {
+            $(this).data("previousTotal", total);
+
+            var data = {
+                targetsummaryid: targetsummaryid,
+                indicatorid: indicatorid,
+                locationid: locationid,
+                quarterid: quarterid,
+                value: $(this).val(),
+            };
+            $.ajax({    
+                type: "POST",
+                url: BASE_URL + "module/add-edit-test",
+                data: data,
+                success: function (response) {
+                    console.log(data)
+                    console.log(response);
+                    
+                    console.log("Data saved successfully");
+                },
+                error: function (response) {
+                    // console.log(response);
+                    // console.log("Failed to save data: " + error);
+                },
+            });
+        }
+    });
+}
+
 </script>
 
 <?= $this->endSection() ?>

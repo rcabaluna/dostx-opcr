@@ -47,4 +47,13 @@ class ModuleModel extends Model
 
         return;
     }
+
+    public function update_test($tblname, $data,$id)
+    {
+        $builder = $this->db->table($tblname);
+        $builder->where('targetdetailsid',$id);
+        $builder->update($data); 
+
+        return;
+    }
 }

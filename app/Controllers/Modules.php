@@ -65,32 +65,30 @@ class Modules extends BaseController
     
         return redirect()->to(base_url('module/target')); 
     }
-
-    public function add_edit_test()
-    {
-        $input = $this->request->getPost();
-
-        $detailsid = $this-> moduleModel->get_single_data_where('tbltarget_details',array('tbldetailsid' => $input['tbldetailsid']));
-        $data = [
-            'value'=> $input['value'],
-            'targetsummaryid' => $input['targetsummaryid'],
-            'indicatorid' => $input['indicatorid'],
-            'locationid' => $input['locationid'],
-            'quarterid' => $input['quarterid']
-        ];
-
-        if ($detailsid == null){
-
-            $this->moduleModel->insert_data("tbltarget_details", $data);
-            return redirect()->to(base_url('module/test')); 
-
-        } else {
-            $dtls_id['targetdetailsid'] = $input['targetdetailsid'];
-            $this->moduleModel->update_data('tbltarget_details', $data, $dtls_id);
-            
-            return redirect()->to(base_url('module/test')); 
-        } 
-    }
     
+        public function add_edit_test()
+        {
+            if ($this->request->isAJAX()) {
+                $input = $this->request->getPost(); 
+
+                $data = array(
+                    'targetsummaryid' => $input['targetsummaryid'],
+                    'indicatorid' => $input['indicatorid'],
+                    'locationid' => $input['locationid'],
+                    'quarterid' => $input['quarterid']
+                );
+
+                $detailsid = $this->moduleModel->get_single_data_where('tbltarget_details', $data);
+                var_dump($detailsid);
+                if ($detailsid == null) {
+                    $this->moduleModel->insert_data("tbltarget_details", $input);
+                } else {
+                    $this->moduleModel->update_test('tbltarget_details', $input,$detailsid['targetdetailsid']);
+                }
+                return $this->response->setJSON(['status' => 'success']);
+            } else {
+                return redirect()->to(base_url('modules/test'));
+            }
+        }
     
 }

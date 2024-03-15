@@ -171,7 +171,9 @@
                                             <?= $target['status'] ?>
                                         </td>
                                         <td>
+                                        
                                         <button type="button" class="btn btn-primary" data-toggle="modal" onClick="edit_name(<?=htmlspecialchars(json_encode($target)) ?>)" data-target="#editModal">Edit</button>&nbsp;&nbsp;&nbsp;
+                                        <button type="button" class="btn btn-info"> Details </button>&nbsp;&nbsp;&nbsp;
                                         <button type="button" class="btn btn-danger" data-toggle="modal" onClick="delete_confirmation(<?=$target['targetsummaryid']?>)" data-target="#deleteModal">Delete</button>
                                     </td>
                                     </tr>
