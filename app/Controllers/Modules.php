@@ -40,7 +40,7 @@ class Modules extends BaseController
         $targetsummary_id = $id;
         $data['title'] = 'DOST X - OPCR | Modules - Target Details';
 
-        $data['targetsummary'] = $this -> moduleModel->get_all('tbltargetsummary');
+        $data['targetsummary'] = $this -> moduleModel->get_all('tbltarget_summary');
         $data['semester'] = $this -> moduleModel->get_all('tblsemester');
         $data['quarter'] = $this-> moduleModel->get_all('tblquarter');
         $data['indicators'] = $this->moduleModel->get_all('indicator');
