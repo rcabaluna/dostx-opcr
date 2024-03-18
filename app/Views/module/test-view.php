@@ -103,6 +103,10 @@
 </div>
 
 <script>
+        window.addEventListener("DOMContentLoaded", () => {
+        total_number();
+    });
+    
     const tabButtons = document.querySelectorAll(".tab-button");
 
     tabButtons.forEach((button) => {

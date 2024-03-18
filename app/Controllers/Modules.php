@@ -40,7 +40,7 @@ class Modules extends BaseController
         $targetsummary_id = $id;
         $data['title'] = 'DOST X - OPCR | Modules - Target Details';
 
-        $data['targetdetail'] = $this -> moduleModel->get_all('tbltarget_detail');
+        $data['targetsummary'] = $this -> moduleModel->get_all('tbltargetsummary');
         $data['semester'] = $this -> moduleModel->get_all('tblsemester');
         $data['quarter'] = $this-> moduleModel->get_all('tblquarter');
         $data['indicators'] = $this->moduleModel->get_all('indicator');
@@ -95,12 +95,12 @@ class Modules extends BaseController
                     'quarterid' => $input['quarterid']
                 );
 
-                $detailsid = $this->moduleModel->get_single_data_where('tbltarget_detail', $data);
+                $detailsid = $this->moduleModel->get_single_data_where('tbltarget_details', $data);
                 var_dump($detailsid);
                 if ($detailsid == null) {
-                    $this->moduleModel->insert_data("tbltarget_detail", $input);
+                    $this->moduleModel->insert_data("tbltarget_details", $input);
                 } else {
-                    $this->moduleModel->update_test('tbltarget_detail', $input, $detailsid['targetdetailsid']);
+                    $this->moduleModel->update_test('tbltarget_details', $input, $detailsid['targetdetailsid']);
                 }
                 return $this->response->setJSON(['status' => 'success']);
             } else {

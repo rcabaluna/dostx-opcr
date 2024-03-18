@@ -194,15 +194,10 @@
     }
 
     function edit_name(target) {
-<<<<<<< HEAD
         $("#txttargetsummaryid").val(target.targetsummaryid);
         $("#txteyear").val(target.year);
         $("#txteversion").val(target.version);
         $("#txtestatus").val(target.status);
-=======
-        $("#targetsummaryid").val(target.targetsummary_id);
-        $("#txtname").val(target.name);
->>>>>>> 49063b007910b8ec00a8c8f9288f979ff27f449a
     }
 </script>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2024 at 02:06 AM
+-- Generation Time: Mar 18, 2024 at 04:18 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -137,10 +137,10 @@ INSERT INTO `tblsemester` (`semid`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbltarget_detail`
+-- Table structure for table `tbltarget_details`
 --
 
-CREATE TABLE `tbltarget_detail` (
+CREATE TABLE `tbltarget_details` (
   `targetdetailsid` int(11) NOT NULL,
   `targetsummaryid` int(11) DEFAULT NULL,
   `indicatorid` int(11) DEFAULT NULL,
@@ -150,47 +150,12 @@ CREATE TABLE `tbltarget_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbltarget_detail`
+-- Dumping data for table `tbltarget_details`
 --
 
-INSERT INTO `tbltarget_detail` (`targetdetailsid`, `targetsummaryid`, `indicatorid`, `locationid`, `quarterid`, `value`) VALUES
-(11, 2, 4, 1, 1, 0),
-(12, 2, 4, 1, 2, 1),
-(13, 2, 4, 1, 3, 1),
-(14, 2, 4, 1, 4, 1),
-(15, 2, 11, 1, 4, 31),
-(16, 2, 11, 1, 3, 21),
-(17, 2, 11, 1, 2, 4),
-(18, 2, 11, 1, 1, 3),
-(19, 2, 5, 1, 1, 20),
-(20, 2, 4, 2, 1, 1),
-(21, 2, 4, 2, 2, 1),
-(22, 2, 4, 2, 3, 1),
-(23, 2, 4, 2, 4, 1),
-(24, 2, 7, 1, 1, 1),
-(25, 2, 7, 1, 2, 12),
-(26, 2, 7, 1, 3, 33),
-(27, 2, 7, 1, 4, 78),
-(28, 2, 7, 2, 2, 0),
-(29, 2, 7, 2, 1, 11),
-(30, 2, 7, 2, 3, 1),
-(31, 2, 7, 2, 4, 1),
-(32, 2, 4, 3, 1, 1),
-(33, 2, 4, 3, 2, 1),
-(34, 2, 4, 3, 3, 1),
-(35, 2, 4, 3, 4, 1),
-(36, 2, 4, 4, 1, 1),
-(37, 2, 4, 4, 2, 1),
-(38, 2, 4, 4, 3, 1),
-(39, 2, 4, 4, 4, 1),
-(40, 2, 4, 5, 1, 1),
-(41, 2, 4, 5, 2, 1),
-(42, 2, 4, 5, 3, 1),
-(43, 2, 4, 5, 4, 1),
-(44, 2, 4, 6, 1, 1),
-(45, 2, 4, 6, 2, 1),
-(46, 2, 4, 6, 3, 1),
-(47, 2, 4, 6, 4, 11);
+INSERT INTO `tbltarget_details` (`targetdetailsid`, `targetsummaryid`, `indicatorid`, `locationid`, `quarterid`, `value`) VALUES
+(72, 2, 4, 1, 1, 2),
+(73, 2, 4, 1, 2, 12);
 
 -- --------------------------------------------------------
 
@@ -277,9 +242,9 @@ ALTER TABLE `tblsemester`
   ADD PRIMARY KEY (`semid`);
 
 --
--- Indexes for table `tbltarget_detail`
+-- Indexes for table `tbltarget_details`
 --
-ALTER TABLE `tbltarget_detail`
+ALTER TABLE `tbltarget_details`
   ADD PRIMARY KEY (`targetdetailsid`),
   ADD KEY `targetsummaryid_idx` (`targetsummaryid`),
   ADD KEY `ind_ttd_indid_fk_idx` (`indicatorid`),
@@ -327,10 +292,10 @@ ALTER TABLE `tblsemester`
   MODIFY `semid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbltarget_detail`
+-- AUTO_INCREMENT for table `tbltarget_details`
 --
-ALTER TABLE `tbltarget_detail`
-  MODIFY `targetdetailsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+ALTER TABLE `tbltarget_details`
+  MODIFY `targetdetailsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `tbltarget_summary`
@@ -361,9 +326,9 @@ ALTER TABLE `tblquarter`
   ADD CONSTRAINT `sem_qua_semid_fk` FOREIGN KEY (`semid`) REFERENCES `tblsemester` (`semid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `tbltarget_detail`
+-- Constraints for table `tbltarget_details`
 --
-ALTER TABLE `tbltarget_detail`
+ALTER TABLE `tbltarget_details`
   ADD CONSTRAINT `ind_ttd_indid_fk` FOREIGN KEY (`indicatorid`) REFERENCES `indicator` (`indicatorid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `loc_ttd_locid_fk` FOREIGN KEY (`locationid`) REFERENCES `location` (`locationId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `qua_ttd_quaid_fk` FOREIGN KEY (`quarterid`) REFERENCES `tblquarter` (`quarterid`) ON DELETE NO ACTION ON UPDATE NO ACTION,

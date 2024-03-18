@@ -1,4 +1,4 @@
-<!-- <?= $this->extend('templates/main') ?>
+<?= $this->extend('templates/main') ?>
 <?= $this->section('content') ?>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -75,16 +75,13 @@
                     </thead>
                     <tbody>
                         <form>
+                            
                         <?php
-                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {}
-                            if (isset($_POST['segments'])) {}
-                                $segments = $_POST['segments'];
-                                foreach ($targetdetails as $targetdetailsRow){}
-                                    if ($segments === $targetdetailsRow['targetsummaryid']) {
-                            foreach ($indicators as $indicatorRow) {
+                                        foreach ($indicators as $indicatorRow) {
                             if ($perspectiveRow['perspectiveid'] == $indicatorRow['perspectiveid']) { ?>
                         <tr>
                             <td><?= $indicatorRow['description'] ?></td>
+                
                             <?php foreach ($locations as $locationRow) {
                                 foreach ($quarter as $quarterRow) { ?>
                             <td>
@@ -96,8 +93,7 @@
                             <?php
                             } ?>
                         </tr>
-                        <?php }
-                        } ?>
+                        <?php }} ?>
                         </form>
                     </tbody>
                 </table>
@@ -190,4 +186,4 @@
 
 </script>
 
-<?= $this->endSection() ?> -->
+<?= $this->endSection() ?>
