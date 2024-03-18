@@ -86,7 +86,7 @@
                                 foreach ($quarter as $quarterRow) { ?>
                             <td>
                                 <input type="number" class="form-control form-control-sm" name="<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"]?>"
-                                id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"] ?>" onchange="total_number()" />
+                                id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["quarterid"] ?>-<?=$targetsummaryid?>" onchange="total_number()" />
                             </td>
                             <?php } ?>
                             <td id="total-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>" class="align-middle"></td>
@@ -105,6 +105,22 @@
 </div>
 
 <script>
+
+    $(document).ready(function () {
+        var data = JSON.parse('<?=$targetdetails?>');
+        console.log(data);
+        for (let i = 0; i < data.length; i++) {
+            var indicatorid  = data[i].indicatorid;
+            var locationid  = data[i].locationid;
+            var quarterid  = data[i].quarterid;
+            var targetsummaryid  = data[i].targetsummaryid;
+            var value = data[i].value;
+
+            $("#txtval-"+indicatorid+"-"+locationid+"-"+quarterid+"-"+targetsummaryid).val(value);
+        }
+
+    });
+
     const tabButtons = document.querySelectorAll(".tab-button");
 
     tabButtons.forEach((button) => {

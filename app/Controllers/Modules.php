@@ -39,15 +39,14 @@ class Modules extends BaseController
     {
         $targetsummary_id = $id;
         $data['title'] = 'DOST X - OPCR | Modules - Target Details';
-
-        $data['targetsummary'] = $this -> moduleModel->get_all('tbltarget_summary');
+        $data['targetsummaryid'] = $targetsummary_id;
         $data['semester'] = $this -> moduleModel->get_all('tblsemester');
         $data['quarter'] = $this-> moduleModel->get_all('tblquarter');
         $data['indicators'] = $this->moduleModel->get_all('indicator');
         $data['perspectives'] = $this->moduleModel->get_all('perspective');
         $data['locations'] = $this->moduleModel->get_all('location');
 
-        // $data['targetsummary'] = $this->moduleModel->get_all_data_where('tbltarget_summary', $targetsummary_id);
+        $data['targetdetails'] = json_encode($this->moduleModel->get_target_details_value('tbltarget_details', array('targetsummaryid' => $targetsummary_id)));
     
         return view('module/details-view', $data);
     }

@@ -32,6 +32,15 @@ class ModuleModel extends Model
         return $query->getRowArray();
     }
 
+    public function get_target_details_value($tablename, $param)
+    {
+        $builder = $this->db->table($tablename);
+        $builder->where($param);
+        $query = $builder->get();
+
+        return $query->getResultArray();
+    }
+
     public function delete_data($tablename, $param)
     {
         $builder = $this->db->table($tablename);
