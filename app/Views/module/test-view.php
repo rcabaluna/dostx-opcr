@@ -74,7 +74,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <form>
                         <?php foreach ($indicators as $indicatorRow) {
                             if ($perspectiveRow['perspectiveid'] == $indicatorRow['perspectiveid']) { ?>
                         <tr>
@@ -82,8 +81,11 @@
                             <?php foreach ($locations as $locationRow) {
                                 foreach ($quarter as $quarterRow) { ?>
                             <td>
-                                <input type="number" class="form-control form-control-sm" name="<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"]?>"
-                                id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"] ?>" onchange="total_number()" />
+                                <?php
+                                $inputName = $indicatorRow['indicatorid'] . '-' . $locationRow['locationId'] . '-' . $quarterRow["semid"] . '-' . $quarterRow["quarterid"];
+                                $inputId = 'txtval-' . $indicatorRow['indicatorid'] . '-' . $locationRow['locationId'] . '-' . $quarterRow["semid"] . '-' . $quarterRow["quarterid"];
+                                ?>
+                                <input type="number" class="form-control form-control-sm" name="<?= $inputName ?>" id="<?= $inputId ?>" value="<?= isset($savedData[$inputName]) ? $savedData[$inputName] : '' ?>" onchange="total_number(this)" />
                             </td>
                             <?php } ?>
                             <td id="total-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>" class="align-middle"></td>
@@ -92,7 +94,6 @@
                         </tr>
                         <?php }
                         } ?>
-                        </form>
                     </tbody>
                 </table>
             </div>
@@ -103,33 +104,20 @@
 </div>
 
 <script>
-        window.addEventListener("DOMContentLoaded", () => {
-        total_number();
-    });
-    
-    const tabButtons = document.querySelectorAll(".tab-button");
-
-    tabButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            tabButtons.forEach((btn) => {
-                btn.classList.remove("active");
-            });
-
-            button.classList.add("active");
-            const tabName = button.getAttribute("data-tab");
-            const tabContent = document.getElementById(`pills-${tabName}`);
-            const activeTabContent = document.querySelector(".tab-pane.show.active");
-            activeTabContent.classList.remove("show", "active");
-            tabContent.classList.add("show", "active");
+    // Load saved values from local storage when the page loads
+    $(document).ready(function () {
+        $('input[type="number"]').each(function () {
+            var value = localStorage.getItem($(this).attr('id'));
+            if (value !== null) {
+                $(this).val(value);
+            }
         });
     });
 
-    function total_number() {
-    $('input[type="number"]').on("change", function (event) {
-
-        var indicatorid = $(this).attr("name").split("-")[0];
-        var locationid = $(this).attr("name").split("-")[1];
-        var quarterid = $(this).attr("name").split("-")[3];
+    function total_number(input) {
+        var indicatorid = $(input).attr("name").split("-")[0];
+        var locationid = $(input).attr("name").split("-")[1];
+        var quarterid = $(input).attr("name").split("-")[3];
         var targetsummaryid = 2;
         var total = 0;
 
@@ -141,25 +129,32 @@
         });
         $("#total-" + indicatorid + "-" + locationid).text(total);
 
-        var previousTotal = $(this).data("previousTotal") || 0;
+        // Save the input value in local storage if not empty
+        if ($(input).val() !== "") {
+            localStorage.setItem($(input).attr('id'), $(input).val());
+        } else {
+            localStorage.removeItem($(input).attr('id')); // Remove from local storage if empty
+        }
+
+        var previousTotal = $(input).data("previousTotal") || 0;
         if (total !== previousTotal) {
-            $(this).data("previousTotal", total);
+            $(input).data("previousTotal", total);
 
             var data = {
                 targetsummaryid: targetsummaryid,
                 indicatorid: indicatorid,
                 locationid: locationid,
                 quarterid: quarterid,
-                value: $(this).val(),
+                value: $(input).val(),
             };
-            $.ajax({    
+            $.ajax({
                 type: "POST",
                 url: BASE_URL + "module/add-edit-test",
                 data: data,
                 success: function (response) {
                     console.log(data)
                     console.log(response);
-                    
+
                     console.log("Data saved successfully");
                 },
                 error: function (response) {
@@ -168,9 +163,7 @@
                 },
             });
         }
-    });
-}
-
+    }
 </script>
 
 <?= $this->endSection() ?>
