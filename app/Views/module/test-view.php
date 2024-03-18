@@ -104,6 +104,24 @@
 </div>
 
 <script>
+
+const tabButtons = document.querySelectorAll(".tab-button");
+
+tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        tabButtons.forEach((btn) => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+        const tabName = button.getAttribute("data-tab");
+        const tabContent = document.getElementById(`pills-${tabName}`);
+        const activeTabContent = document.querySelector(".tab-pane.show.active");
+        activeTabContent.classList.remove("show", "active");
+        tabContent.classList.add("show", "active");
+    });
+});
+
     // Load saved values from local storage when the page loads
     $(document).ready(function () {
         $('input[type="number"]').each(function () {
