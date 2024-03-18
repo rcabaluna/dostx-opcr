@@ -171,9 +171,8 @@ $counter = 0;
                                             <?= $target['status'] ?>
                                         </td>
                                         <td>
-                                        
+                                        <a type="submit" class="btn btn-info" method="get" href="<?= 'target/',$target['targetsummaryid']?>"> Details </a>&nbsp;&nbsp;&nbsp;
                                         <button type="button" class="btn btn-primary" data-toggle="modal" onClick="edit_name(<?=htmlspecialchars(json_encode($target)) ?>)" data-target="#editModal">Edit</button>&nbsp;&nbsp;&nbsp;
-                                        <button type="button" class="btn btn-info"> Details </button>&nbsp;&nbsp;&nbsp;
                                         <button type="button" class="btn btn-danger" data-toggle="modal" onClick="delete_confirmation(<?=$target['targetsummaryid']?>)" data-target="#deleteModal">Delete</button>
                                     </td>
                                     </tr>
@@ -188,12 +187,13 @@ $counter = 0;
 
 
 <script>
-    function delete_confirmation(targetsummary_id) {
-        $("#delete-confirmation-link").attr("href", BASE_URL + "module/delete-target/" + targetsummary_id);
+
+    function delete_confirmation(targetsummaryid) {
+        $("#delete-confirmation-link").attr("href", BASE_URL + "module/delete-target/" + targetsummaryid);
     }
 
     function edit_name(target) {
-        $("#txttargetsummaryid").val(target.targetsummary_id);
+        $("#txttargetsummaryid").val(target.targetsummaryid);
         $("#txteyear").val(target.year);
         $("#txteversion").val(target.version);
         $("#txtestatus").val(target.status);

@@ -35,6 +35,23 @@ class Modules extends BaseController
         return view('module/target-view', $data);
     }
 
+    public function target_details($id = '')
+    {
+        $targetsummary_id = $id;
+        $data['title'] = 'DOST X - OPCR | Modules - Target Details';
+
+        $data['targetdetail'] = $this -> moduleModel->get_all('tbltarget_detail');
+        $data['semester'] = $this -> moduleModel->get_all('tblsemester');
+        $data['quarter'] = $this-> moduleModel->get_all('tblquarter');
+        $data['indicators'] = $this->moduleModel->get_all('indicator');
+        $data['perspectives'] = $this->moduleModel->get_all('perspective');
+        $data['locations'] = $this->moduleModel->get_all('location');
+
+        // $data['targetsummary'] = $this->moduleModel->get_all_data_where('tbltarget_summary', $targetsummary_id);
+    
+        return view('module/details-view', $data);
+    }
+
     public function add_target()
     {
         $data = $this->request->getPost();
@@ -52,8 +69,8 @@ class Modules extends BaseController
             'status' => $input['status']
         ];
 
-        $target_id['targetsummaryid'] = $input['targetsummaryid'];
-        $this->moduleModel->update_data('tbltarget_summary', $data, $target_id);
+
+        $this->moduleModel->update_data('tbltarget_summary', $data, $input['targetsummaryid']);
         
         return redirect()->to(base_url('module/target')); 
     }
@@ -78,12 +95,12 @@ class Modules extends BaseController
                     'quarterid' => $input['quarterid']
                 );
 
-                $detailsid = $this->moduleModel->get_single_data_where('tbltarget_details', $data);
+                $detailsid = $this->moduleModel->get_single_data_where('tbltarget_detail', $data);
                 var_dump($detailsid);
                 if ($detailsid == null) {
-                    $this->moduleModel->insert_data("tbltarget_details", $input);
+                    $this->moduleModel->insert_data("tbltarget_detail", $input);
                 } else {
-                    $this->moduleModel->update_test('tbltarget_details', $input,$detailsid['targetdetailsid']);
+                    $this->moduleModel->update_test('tbltarget_detail', $input, $detailsid['targetdetailsid']);
                 }
                 return $this->response->setJSON(['status' => 'success']);
             } else {
