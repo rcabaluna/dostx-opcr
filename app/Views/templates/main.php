@@ -145,7 +145,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>We are all handsome &copy; OPCR 2024</span>
+                        <span>DOST Region 10 &copy; OPCR 2024</span>
                     </div>
                 </div>
             </footer>
