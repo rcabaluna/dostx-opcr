@@ -102,8 +102,27 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" id="txttargetsummary_id" name="targetsummary_id" class="form-control" value="txttargetsummary_id" />
-                    <input type="text" id="txtname" name="name" class="form-control" placeholder="Enter new data" />
+                <label for="name" style="text-align: left; display: block;">Year</label>
+                    <input type="hidden" id="txttargetsummaryid" name="targetsummaryid" class="form-control" value="txttargetsummaryid" />
+                    <select class="form-control" id="txteyear" name="year">
+                        <?php
+                            $startYear = 1950;
+                            $currentYear = date('Y');
+                            $years = range($currentYear, $startYear);
+                                foreach ($years as $year) {
+                                        ?>
+                            <option value="<?=$year?>"><?=$year?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>&nbsp;
+                    <label for="name" style="text-align: left; display: block;">Description</label>
+                    <input type="text" class="form-control" id="txteversion" name="version" />&nbsp;
+                    <label for="name" style="text-align: left; display: block;">Status</label>
+                    <select class="form-control" name="status" id="txtestatus">
+                        <option value=1> Activate </option>
+                        <option value=0> Disable </option>
+                    </select>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

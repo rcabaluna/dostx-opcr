@@ -83,8 +83,10 @@
                                 <?php foreach ($locations as $locationRow) {
                                     foreach ($quarter as $quarterRow) { ?>
                                 <td>
-                                    <input type="number" class="form-control form-control-sm" name="<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"]?>"
-                                        id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["quarterid"] ?>-<?=$targetsummaryid?>" onchange="total_number()" />
+                                <?php
+                                $inputName = $indicatorRow['indicatorid'] . '-' . $locationRow['locationId'] . '-' . $targetsummaryid . '-' . $quarterRow["quarterid"];
+                                ?>
+                                <input type="number" class="form-control form-control-sm" name="<?= $inputName ?>" id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["quarterid"] ?>-<?=$targetsummaryid?>"  value="<?= isset($savedData[$inputName]) ? $savedData[$inputName] : '' ?>" onchange="total_number(this)" />
                                 </td>
                                 <?php } ?>
                                 <td id="total-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>" class="align-middle"></td>
@@ -100,8 +102,7 @@
             <?php } ?>
         </div>
 
-        <!-- Add the buttons here -->
-        <div style="position: absolute; bottom: 10px; right: 10px;">
+        <div style="position: absolute; bottom: 0px; right: 10px;">
             <button id="postBtn" onclick="lockPage()" class="btn btn-primary <?= (isset($_SESSION['isLocked']) && $_SESSION['isLocked'] === 'true') ? 'disabled' : '' ?>">Post</button>
             <button id="editBtn" onclick="unlockPage()" class="btn btn-secondary <?= (isset($_SESSION['isLocked']) && $_SESSION['isLocked'] === 'true') ? '' : 'disabled' ?>" style="<?= (isset($_SESSION['isLocked']) && $_SESSION['isLocked'] === 'true') ? 'display: none;' : '' ?>">Edit</button>
         </div>
@@ -119,7 +120,7 @@
         $('input[type="number"]').prop('disabled', true);
         $('#postBtn').addClass('disabled');
         $('#editBtn').removeClass('disabled').show();
-    }
+    };
 
     function unlockPage() {
         isLocked = false;
@@ -129,14 +130,13 @@
         $('input[type="number"]').prop('disabled', false);
         $('#editBtn').addClass('disabled').hide();
         $('#postBtn').removeClass('disabled').show();
-    }
+    };
 
-    // Call unlockPage initially to ensure inputs are enabled
     if (isLocked) {
         lockPage();
     } else {
         unlockPage();
-    }
+    };
 
     $(document).ready(function () {
         var data = JSON.parse('<?=$targetdetails?>');
@@ -184,15 +184,13 @@
             console.error("Error sending segments 1: " + error);
         }
     });
-    }
+    };
 
-    function total_number() {
-    $('input[type="number"]').on("change", function (event) {
-
-        var indicatorid = $(this).attr("name").split("-")[0];
-        var locationid = $(this).attr("name").split("-")[1];
-        var quarterid = $(this).attr("name").split("-")[3];
-        var targetsummaryid = 2;
+    function total_number(input) {
+        var indicatorid = $(input).attr("name").split("-")[0];
+        var locationid = $(input).attr("name").split("-")[1];
+        var targetsummaryid = $(input).attr("name").split("-")[2];
+        var quarterid = $(input).attr("name").split("-")[3];
         var total = 0;
 
         $(`input[name^="${indicatorid}-${locationid}"]`).each(function () {
@@ -203,16 +201,16 @@
         });
         $("#total-" + indicatorid + "-" + locationid).text(total);
 
-        var previousTotal = $(this).data("previousTotal") || 0;
+        var previousTotal = $(input).data("previousTotal") || 0;
         if (total !== previousTotal) {
-            $(this).data("previousTotal", total);
+            $(input).data("previousTotal", input);
 
             var data = {
                 targetsummaryid: targetsummaryid,
                 indicatorid: indicatorid,
                 locationid: locationid,
                 quarterid: quarterid,
-                value: $(this).val(),
+                value: $(input).val(),
             };
 
             $.ajax({    
@@ -229,8 +227,7 @@
                 },
             });
         }
-    });
-}
+    };
 
 </script>
 
