@@ -84,11 +84,13 @@
                                     foreach ($quarter as $quarterRow) { ?>
                                 <td>
                                 <?php
+                                if ($indicatorRow['input'] == 1){
                                 $inputName = $indicatorRow['indicatorid'] . '-' . $locationRow['locationId'] . '-' . $targetsummaryid . '-' . $quarterRow["quarterid"];
                                 ?>
                                 <input type="number" class="form-control form-control-sm" name="<?= $inputName ?>" id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["quarterid"] ?>-<?=$targetsummaryid?>"  value="<?= isset($savedData[$inputName]) ? $savedData[$inputName] : '' ?>" onchange="total_number(this)" />
                                 </td>
-                                <?php } ?>
+                                <?php }
+                                } ?>
                                 <td id="total-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>" class="align-middle"></td>
                                 <?php
                                 } ?>
@@ -140,7 +142,6 @@
 
     $(document).ready(function () {
         var data = JSON.parse('<?=$targetdetails?>');
-        console.log(data);
         for (let i = 0; i < data.length; i++) {
             var indicatorid  = data[i].indicatorid;
             var locationid  = data[i].locationid;
@@ -149,7 +150,8 @@
             var value = data[i].value;
 
             $("#txtval-"+indicatorid+"-"+locationid+"-"+quarterid+"-"+targetsummaryid).val(value);
-        }
+        };
+
 
     });
 
@@ -169,22 +171,6 @@
             tabContent.classList.add("show", "active");
         });
     });
-
-    window.onload = function(){
-
-        var segments = location.pathname.split('/')[4];
-        $.ajax({
-        type: "POST",
-        url: BASE_URL + "module/target/" + segments,
-        data: { segments: segments},
-        success: function(response) {
-            console.log(segments);
-        },
-        error: function(xhr, status, error) {
-            console.error("Error sending segments 1: " + error);
-        }
-    });
-    };
 
     function total_number(input) {
         var indicatorid = $(input).attr("name").split("-")[0];

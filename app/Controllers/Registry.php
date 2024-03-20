@@ -85,6 +85,7 @@ class Registry extends BaseController
         'perspectiveid' => $input['perspectiveid'],
         'description' => $input['description'],
         'order' => $input['order'],
+        'input' => $input['input'],
     ];
     
     $indicatorid['indicatorid'] = $input['indicatorid'];

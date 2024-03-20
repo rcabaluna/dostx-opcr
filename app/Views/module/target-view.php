@@ -9,33 +9,31 @@
     }
 </style>
 
-<!-- Button trigger modal -->
-<div class="bs-example">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 bg-light">
-                <div class="text-right mb-3">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        NEW
-                    </button>
-                </div>
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Input new</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
+
+<!-- Page Heading -->
+<h2 class="h3 mb-2 text-gray-800">Targets</h2>
+<!-- Button trigger modal -->
+<form method="post" action="<?=base_url('module/add-target'); ?>">
+    <div class="bs-example">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 bg-light text-right">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add New</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">New Target</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="yearDropdown">Year</label>
-                                        <select class="form-control" id="yearDropdown">
+                                        <label for="year" style="text-align: left; display: block;">Year</label>
+                                        <select class="form-control" id="txtyear" name="year">
                                             <option value="">Select Year</option>
                                             <!-- Add options for years starting from 1950 -->
                                             <?php
@@ -46,41 +44,14 @@
                                             }
                                             ?>
                                         </select>
+                                        <label for="version" style="text-align: left; display: block;">Version</label>
+                                        <input type="text" class="form-control" id="txtversion" placeholder="Input Version" name="version" />
                                     </div>
-                                    <div class="form-group">
-                                        <label for="versionDropdown">Version</label>
-                                        <select class="form-control" id="versionDropdown">
-                                            <option value="">Select Version</option>
-                                            <option value="1.0">Version 1.0</option>
-                                            <option value="1.1">Version 1.1</option>
-                                            <option value="2.0">Version 2.0</option>
-                                            <!-- Add more versions as needed -->
-                                        </select>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Create New Target</button>
                                     </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" onclick="saveChanges()">Save
-                                    changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Successfully Saved Modal -->
-                <div class="modal fade" id="successModal" tabindex="-1" role="dialog"
-                    aria-labelledby="successModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="successModalLabel">Successfully Saved</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Your changes have been successfully saved.
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -88,8 +59,7 @@
             </div>
         </div>
     </div>
-</div>
-
+</form>
 <!-- Edit Modal -->
 <form method="post" action="<?=base_url('module/edit-target'); ?>">
     <div class="modal" id="editModal" tabindex="-1" role="dialog">

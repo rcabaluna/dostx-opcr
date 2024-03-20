@@ -46,6 +46,7 @@ class Modules extends BaseController
         $data['perspectives'] = $this->moduleModel->get_all('perspective');
         $data['locations'] = $this->moduleModel->get_all('location');
 
+        $data['indicator'] = json_encode($this->moduleModel->get_all('indicator'));
         $data['targetdetails'] = json_encode($this->moduleModel->get_target_details_value('tbltarget_details', array('targetsummaryid' => $targetsummary_id)));
     
         return view('module/details-view', $data);

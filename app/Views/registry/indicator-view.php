@@ -26,21 +26,26 @@ $counter = 0;
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="name" style="text-align: left; display: block;">Indicator</label>
+                                        <label for="txtperspectiveid" style="text-align: left; display: block;">Indicator</label>
                                         <select class="form-control" id="txtperspectiveid" placeholder="Input Description" name="perspectiveid">
-                                            <?php  
-                                          foreach ($perspectives as $perspectiveRow) 
-                                          { 
+                                        <?php  
+                                        foreach ($perspectives as $perspectiveRow) 
+                                        { 
                                             ?>
                                             <option value="<?=$perspectiveRow['perspectiveid']?>"><?=$perspectiveRow['name']?></option>
                                             <?php
-                                          }
-                                          ?>
+                                        }
+                                        ?>
+                                        </select>&nbsp;
+                                        <label for="txtdescription" style="text-align: left; display: block;">Description</label>
+                                        <input type="text" class="form-control" id="txtdescription" placeholder="Input Description" name="description" />&nbsp;
+                                        <label for="txtorder" style="text-align: left; display: block;">Order</label>
+                                        <input type="text" class="form-control" id="txtorder" placeholder="Input Order" name="order" />&nbsp;
+                                        <label for="txtinput" style="text-align: left; display: block;">Allow Input?</label>
+                                        <select class="form-control" id="txtinput" name="input">
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
                                         </select>
-                                        <label for="name" style="text-align: left; display: block;">Description</label>
-                                        <input type="text" class="form-control" id="txtdescription" placeholder="Input Description" name="description" />
-                                        <label for="name" style="text-align: left; display: block;">Order</label>
-                                        <input type="text" class="form-control" id="txtorder" placeholder="Input Order" name="order" />
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -55,6 +60,7 @@ $counter = 0;
         </div>
     </div>
 </form>
+
 <!-- Edit Modal -->
 <form method="post" action="<?=base_url('registry/edit-indicator'); ?>">
     <div class="modal" id="editModal" tabindex="-1" role="dialog">
@@ -67,22 +73,26 @@ $counter = 0;
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label for="name" style="text-align: left; display: block;">Indicator</label>
+                    <label for="indicatorid" style="text-align: left; display: block;">Indicator</label>
                     <input type="hidden" id="txteindicatorid" name="indicatorid" class="form-control" value="txteindicatorid" />
                     <select class="form-control" id="txteperspectiveid" placeholder="Input Description" name="perspectiveid">
                         <?php  
-                          foreach ($perspectives as $perspectiveRow) 
-                            { 
-                        ?>
+                        foreach ($perspectives as $perspectiveRow) 
+                            { ?>
                         <option value="<?=$perspectiveRow['perspectiveid']?>"><?=$perspectiveRow['name']?></option>
                         <?php
                         }
                         ?>
                     </select>&nbsp;
-                    <label for="name" style="text-align: left; display: block;">Description</label>
+                    <label for="txtedescription" style="text-align: left; display: block;">Description</label>
                     <input type="text" class="form-control" id="txtedescription" name="description" />&nbsp;
-                    <label for="name" style="text-align: left; display: block;">Order</label>
+                    <label for="txteorder" style="text-align: left; display: block;">Order</label>
                     <input type="text" class="form-control" id="txteorder" name="order" />
+                    <label for="txteinput" style="text-align: left; display: block;">Allow Input?</label>
+                    <select class="form-control" id="txteinput" name="input">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -171,6 +181,7 @@ $counter = 0;
         $("#txteperspectiveid").val(indicators.perspectiveid);
         $("#txtedescription").val(indicators.description);
         $("#txteorder").val(indicators.order);
+        $("#txteinput").val(indicators.input);
     }
 </script>
 <?= $this->endSection() ?>

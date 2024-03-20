@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2024 at 04:18 AM
+-- Generation Time: Mar 20, 2024 at 07:02 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -31,21 +31,22 @@ CREATE TABLE `indicator` (
   `indicatorid` int(11) NOT NULL,
   `perspectiveid` int(11) NOT NULL,
   `description` varchar(256) NOT NULL,
-  `order` varchar(45) NOT NULL
+  `order` varchar(45) NOT NULL,
+  `input` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `indicator`
 --
 
-INSERT INTO `indicator` (`indicatorid`, `perspectiveid`, `description`, `order`) VALUES
-(4, 29, 'Customer ko', '321'),
-(5, 33, 'Internallll', '1'),
-(6, 34, 'Financiaaaaal', '2'),
-(7, 33, 'Internal ko1', '223'),
-(8, 34, 'Financial Ko', '2'),
-(10, 35, 'I want to be learning', '21'),
-(11, 29, 'hehe', '111');
+INSERT INTO `indicator` (`indicatorid`, `perspectiveid`, `description`, `order`, `input`) VALUES
+(4, 29, 'Customer ko1', '321', 1),
+(5, 33, 'Internallll', '1', 1),
+(6, 34, 'Financiaaaaal', '2', 0),
+(7, 33, 'Internal ko1', '223', 0),
+(8, 34, 'Financial Ko', '2', 0),
+(10, 35, 'I want to be learning', '21', 0),
+(11, 29, 'hehe', '111', 0);
 
 -- --------------------------------------------------------
 
@@ -154,8 +155,10 @@ CREATE TABLE `tbltarget_details` (
 --
 
 INSERT INTO `tbltarget_details` (`targetdetailsid`, `targetsummaryid`, `indicatorid`, `locationid`, `quarterid`, `value`) VALUES
-(72, 2, 4, 1, 1, 2),
-(73, 2, 4, 1, 2, 12);
+(45, 2, 4, 1, 1, 4),
+(46, 2, 4, 1, 2, 1),
+(47, 2, 4, 1, 3, 2),
+(48, 2, 4, 1, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -176,9 +179,11 @@ CREATE TABLE `tbltarget_summary` (
 --
 
 INSERT INTO `tbltarget_summary` (`targetsummaryid`, `year`, `version`, `status`, `datecreated`) VALUES
-(2, '2024', '1.12', 0, '2024-03-08 10:01:20'),
+(2, '2024', '1.121', 1, '2024-03-08 10:01:20'),
 (3, '2017', '2.12', 0, '2024-03-08 10:01:29'),
-(5, '2014', '1.23', 0, '2024-03-15 10:47:59');
+(5, '2014', '1.23', 0, '2024-03-15 10:47:59'),
+(7, '2023', '1', 0, '2024-03-20 11:09:04'),
+(8, '2018', '1.23', 0, '2024-03-20 11:18:20');
 
 -- --------------------------------------------------------
 
@@ -271,7 +276,7 @@ ALTER TABLE `tbluseraccount`
 -- AUTO_INCREMENT for table `indicator`
 --
 ALTER TABLE `indicator`
-  MODIFY `indicatorid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `indicatorid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `perspective`
@@ -295,13 +300,13 @@ ALTER TABLE `tblsemester`
 -- AUTO_INCREMENT for table `tbltarget_details`
 --
 ALTER TABLE `tbltarget_details`
-  MODIFY `targetdetailsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `targetdetailsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `tbltarget_summary`
 --
 ALTER TABLE `tbltarget_summary`
-  MODIFY `targetsummaryid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `targetsummaryid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbluseraccount`
