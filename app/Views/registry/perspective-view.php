@@ -8,7 +8,7 @@ $counter = 0;
 <h1 class="h3 mb-2 text-gray-800">Perspectives</h1>
 
 <!-- Button trigger modal -->
-<form method="post" action="<?=base_url('registry/add-perspective'); ?>">
+<form id="addPerspectiveForm" method="post" action="<?=base_url('registry/add-perspective'); ?>">
     <div class="bs-example">
         <div class="container">
             <div class="row">
@@ -29,11 +29,12 @@ $counter = 0;
                                     <div class="form-group">
                                         <label for="name" style="text-align: left; display: block;">Name</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Input Name" name="name" />
+                                        <span id="name-error" style="color: red; display: none;">Name cannot be empty</span>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Create New Perspective</button>
-                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" onclick="validateAndSubmit()">Create New Perspective</button>
                                 </div>
                             </div>
                         </div>
@@ -142,6 +143,16 @@ $counter = 0;
     function edit_name(perspective) {
         $("#txtperspectiveid").val(perspective.perspectiveid);
         $("#txtname").val(perspective.name);
+    }
+
+    function validateAndSubmit() {
+        var name = $("#exampleFormControlInput1").val();
+        if (name.trim() === "") {
+            $("#name-error").css("display", "block");
+        } else {
+            $("#name-error").css("display", "none");
+            $("#addPerspectiveForm").submit();
+        }
     }
 </script>
 <?= $this->endSection() ?>

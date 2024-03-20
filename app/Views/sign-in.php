@@ -18,7 +18,17 @@
     <link href="<?=base_url('assets/css/sb-admin-2.min.css')?>" rel="stylesheet">
 </head>
 
-<body class="bg-gradient-info">
+<style>
+    body {
+        background-image: url('assets/img/DOSTB.png');
+        background-size: cover; /* or contain, depending on how you want the image to be displayed */
+    }
+    .card {
+            border: 1px solid #ccc; /* Add a border to the card */
+            background-color: transparent; /* Make the card background transparent */
+        }
+</style>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-10 col-lg-12 col-md-9">
@@ -26,11 +36,11 @@
                     <div class="card-body p-9">
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block bg-login-image"
-                                style="background-image: url('assets/img/logo2.png');"></div>
+                                style="background-image: url('assets/img/logo5.png');"></div>
                             <div class="col-lg-5">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h3 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h3 text-gray-900 mb-4">Welcome!</h1>
                                     </div>
                                     
                                     <form class="js-validate" action="<?=base_url('sign-in')?>" method="POST">
