@@ -20,13 +20,6 @@
         background-color: #007bff;
         color: white;
     }
-
-    .post-edit-buttons {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 9999;
-    }
 </style>
 
 <h5>OPCR Target 2024 v1.0</h5>
@@ -36,117 +29,126 @@
         <div class="button-group">
             <?php $first = true; ?>
             <?php foreach ($perspectives as $perspectiveRow) { ?>
-                <button class="tab-button <?= $first ? 'active' : '' ?>" data-tab="<?= $perspectiveRow['name'] ?>">
-                    <?= $perspectiveRow['name'] ?>
-                </button>
-                <?php $first = false; ?>
+            <button class="tab-button <?= $first ? 'active' : '' ?>" data-tab="<?= $perspectiveRow['name'] ?>">
+                <?= $perspectiveRow['name'] ?>
+            </button>
+            <?php $first = false; ?>
             <?php } ?>
         </div>
 
         <div class="tab-content">
             <?php $first = true; ?>
             <?php foreach ($perspectives as $perspectiveRow) { ?>
-                <div class="tab-pane <?= $first ? 'show active' : '' ?>" id="pills-<?= $perspectiveRow['name'] ?>">
-                    <h6 class="my-4 font-weight-bold">
-                        <?= $perspectiveRow['name'] ?>
-                        <span class="font-weight-normal">
-                            <i>(<?= $perspectiveRow['name'] ?>)</i>
-                        </span>
-                    </h6>
-                    <table class="table table-sm table-bordered table-hover table-responsive table-fixed">
-                        <thead>
-                            <tr class="text-center">
-                                <th></th>
-                                <?php foreach ($locations as $locationRow) { ?>
-                                    <th colspan="5"><?= $locationRow['name'] ?></th>
-                                <?php } ?>
-                            </tr>
-                            <tr class="text-center">
-                                <th rowspan="2" class="align-middle">Indicator</th>
+            <div class="tab-pane <?= $first ? 'show active' : '' ?>" id="pills-<?= $perspectiveRow['name'] ?>">
+                <h6 class="my-4 font-weight-bold">
+                    <?= $perspectiveRow['name'] ?>
+                    <span class="font-weight-normal">
+                        <i>(<?= $perspectiveRow['name'] ?>)</i>
+                    </span>
+                </h6>
+                <table class="table table-sm table-bordered table-hover table-responsive table-fixed">
+                    <thead>
+                        <tr class="text-center">
+                            <th></th>
+                            <?php foreach ($locations as $locationRow) { ?>
+                            <th colspan="5"><?= $locationRow['name'] ?></th>
+                            <?php } ?>
+                        </tr>
+                        <tr class="text-center">
+                            <th rowspan="2" class="align-middle">Indicator</th>
 
-                                <?php foreach ($locations as $locationRow) { ?>
-                                    <?php foreach ($quarter as $quarterRow) { ?>
-                                        <th><?= $quarterRow['name'] ?></th>
-                                    <?php } ?>
-                                    <th rowspan="2" class="align-middle">Total Targets</th>
-                                <?php } ?>
-                            </tr>
+                            <?php foreach ($locations as $locationRow) { ?>
+                            <?php foreach ($quarter as $quarterRow) { ?>
+                            <th><?= $quarterRow['name'] ?></th>
+                            <?php } ?>
+                            <th rowspan="2" class="align-middle">Total Targets</th>
+                            <?php } ?>
+                        </tr>
 
+                        <tr>
+                            <?php foreach ($locations as $locationRow) { ?>
+                            <?php foreach ($quarter as $quarterRow) { ?>
+                            <th><?= $quarterRow['months'] ?></th>
+                            <?php } ?>
+                            <?php } ?>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form>
+                            <?php foreach ($indicators as $indicatorRow) {
+                                if ($perspectiveRow['perspectiveid'] == $indicatorRow['perspectiveid']) { ?>
                             <tr>
-                                <?php foreach ($locations as $locationRow) { ?>
-                                    <?php foreach ($quarter as $quarterRow) { ?>
-                                        <th><?= $quarterRow['months'] ?></th>
-                                    <?php } ?>
+                                <td><?= $indicatorRow['description'] ?></td>
+
+                                <?php foreach ($locations as $locationRow) {
+                                    foreach ($quarter as $quarterRow) { ?>
+                                <td>
+                                    <input type="number" class="form-control form-control-sm" name="<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"]?>"
+                                        id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["quarterid"] ?>-<?=$targetsummaryid?>" onchange="total_number()" />
+                                </td>
                                 <?php } ?>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <form>
-
-                                <?php foreach ($indicators as $indicatorRow) {
-                                    if ($perspectiveRow['perspectiveid'] == $indicatorRow['perspectiveid']) { ?>
-                                        <tr>
-                                            <td><?= $indicatorRow['description'] ?></td>
-
-                                            <?php foreach ($locations as $locationRow) {
-                                                foreach ($quarter as $quarterRow) { ?>
-                                                    <td>
-                                                        <input type="number" class="form-control form-control-sm" name="<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["semid"] ?>-<?= $quarterRow["quarterid"] ?>"
-                                                               id="txtval-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>-<?= $quarterRow["quarterid"] ?>-<?=$targetsummaryid?>" onchange="total_number()" />
-                                                    </td>
-                                                <?php } ?>
-                                                <td id="total-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>" class="align-middle"></td>
-                                            <?php } ?>
-                                        </tr>
-                                    <?php }
+                                <td id="total-<?= $indicatorRow['indicatorid'] ?>-<?= $locationRow['locationId'] ?>" class="align-middle"></td>
+                                <?php
                                 } ?>
-                            </form>
-                        </tbody>
-                    </table>
-                </div>
-                <?php $first = false; ?>
+                            </tr>
+                            <?php }} ?>
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+            <?php $first = false; ?>
             <?php } ?>
+        </div>
+
+        <!-- Add the buttons here -->
+        <div style="position: absolute; bottom: 10px; right: 10px;">
+            <button id="postBtn" onclick="lockPage()" class="btn btn-primary <?= (isset($_SESSION['isLocked']) && $_SESSION['isLocked'] === 'true') ? 'disabled' : '' ?>">Post</button>
+            <button id="editBtn" onclick="unlockPage()" class="btn btn-secondary <?= (isset($_SESSION['isLocked']) && $_SESSION['isLocked'] === 'true') ? '' : 'disabled' ?>" style="<?= (isset($_SESSION['isLocked']) && $_SESSION['isLocked'] === 'true') ? 'display: none;' : '' ?>">Edit</button>
         </div>
     </div>
 </div>
 
-<div class="post-edit-buttons">
-    <button id="post-button">Post</button>
-    <button id="edit-button">Edit</button>
-</div>
-
 <script>
-    let isLocked = false;
+    let isLocked = (typeof(Storage) !== "undefined" && localStorage.getItem('isLocked') === 'true');
 
-    $("#post-button").click(function () {
+    function lockPage() {
         isLocked = true;
-        disableInputs();
-    });
-
-    $("#edit-button").click(function () {
-        isLocked = false;
-        enableInputs();
-    });
-
-    function disableInputs() {
-        $("input[type='number']").attr("readonly", "readonly");
+        if (typeof(Storage) !== "undefined") {
+            localStorage.setItem('isLocked', 'true');
+        }
+        $('input[type="number"]').prop('disabled', true);
+        $('#postBtn').addClass('disabled');
+        $('#editBtn').removeClass('disabled').show();
     }
 
-    function enableInputs() {
-        $("input[type='number']").removeAttr("readonly");
+    function unlockPage() {
+        isLocked = false;
+        if (typeof(Storage) !== "undefined") {
+            localStorage.setItem('isLocked', 'false');
+        }
+        $('input[type="number"]').prop('disabled', false);
+        $('#editBtn').addClass('disabled').hide();
+        $('#postBtn').removeClass('disabled').show();
+    }
+
+    // Call unlockPage initially to ensure inputs are enabled
+    if (isLocked) {
+        lockPage();
+    } else {
+        unlockPage();
     }
 
     $(document).ready(function () {
         var data = JSON.parse('<?=$targetdetails?>');
         console.log(data);
         for (let i = 0; i < data.length; i++) {
-            var indicatorid = data[i].indicatorid;
-            var locationid = data[i].locationid;
-            var quarterid = data[i].quarterid;
-            var targetsummaryid = data[i].targetsummaryid;
+            var indicatorid  = data[i].indicatorid;
+            var locationid  = data[i].locationid;
+            var quarterid  = data[i].quarterid;
+            var targetsummaryid  = data[i].targetsummaryid;
             var value = data[i].value;
 
-            $("#txtval-" + indicatorid + "-" + locationid + "-" + quarterid + "-" + targetsummaryid).val(value);
+            $("#txtval-"+indicatorid+"-"+locationid+"-"+quarterid+"-"+targetsummaryid).val(value);
         }
 
     });
@@ -168,72 +170,68 @@
         });
     });
 
-    window.onload = function () {
+    window.onload = function(){
 
         var segments = location.pathname.split('/')[4];
         $.ajax({
-            type: "POST",
-            url: BASE_URL + "module/target/" + segments,
-            data: {segments: segments},
-            success: function (response) {
-                console.log(segments);
-            },
-            error: function (xhr, status, error) {
-                console.error("Error sending segments 1: " + error);
-            }
-        });
+        type: "POST",
+        url: BASE_URL + "module/target/" + segments,
+        data: { segments: segments},
+        success: function(response) {
+            console.log(segments);
+        },
+        error: function(xhr, status, error) {
+            console.error("Error sending segments 1: " + error);
+        }
+    });
     }
 
     function total_number() {
-        if (isLocked) {
-            return;
-        }
+    $('input[type="number"]').on("change", function (event) {
 
-        $('input[type="number"]').on("change", function (event) {
+        var indicatorid = $(this).attr("name").split("-")[0];
+        var locationid = $(this).attr("name").split("-")[1];
+        var quarterid = $(this).attr("name").split("-")[3];
+        var targetsummaryid = 2;
+        var total = 0;
 
-            var indicatorid = $(this).attr("name").split("-")[0];
-            var locationid = $(this).attr("name").split("-")[1];
-            var quarterid = $(this).attr("name").split("-")[3];
-            var targetsummaryid = $(this).attr("name").split("-")[2]; // Assuming targetsummaryid is the fifth element in the name attribute
-            var total = 0;
-
-            $(`input[name^="${indicatorid}-${locationid}"]`).each(function () {
-                var value = $(this).val();
-                if (!isNaN(value) && value != "") {
-                    total += parseInt(value);
-                }
-            });
-            $("#total-" + indicatorid + "-" + locationid).text(total);
-
-            var previousTotal = $(this).data("previousTotal") || 0;
-            if (total !== previousTotal) {
-                $(this).data("previousTotal", total);
-
-                var data = {
-                    targetsummaryid: targetsummaryid,
-                    indicatorid: indicatorid,
-                    locationid: locationid,
-                    quarterid: quarterid,
-                    value: $(this).val(),
-                };
-
-                $.ajax({
-                    type: "POST",
-                    url: BASE_URL + "module/add-edit-test",
-                    data: data,
-                    success: function (response) {
-                        console.log(data);
-                        console.log("Data saved successfully");
-                    },
-                    error: function (response) {
-                        console.log(response);
-                        console.log("Failed to save data: " + error);
-                    },
-                });
+        $(`input[name^="${indicatorid}-${locationid}"]`).each(function () {
+            var value = $(this).val();
+            if (!isNaN(value) && value != "") {
+                total += parseInt(value);
             }
         });
-    }
+        $("#total-" + indicatorid + "-" + locationid).text(total);
+
+        var previousTotal = $(this).data("previousTotal") || 0;
+        if (total !== previousTotal) {
+            $(this).data("previousTotal", total);
+
+            var data = {
+                targetsummaryid: targetsummaryid,
+                indicatorid: indicatorid,
+                locationid: locationid,
+                quarterid: quarterid,
+                value: $(this).val(),
+            };
+
+            $.ajax({    
+                type: "POST",
+                url: BASE_URL + "module/add-edit-test",
+                data: data,
+                success: function (response) {
+                    console.log(data)                    
+                    console.log("Data saved successfully");
+                },
+                error: function (response) {
+                    console.log(response);
+                    console.log("Failed to save data: " + error);
+                },
+            });
+        }
+    });
+}
+
 </script>
 
 <?= $this->endSection() ?>
-
