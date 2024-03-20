@@ -18,7 +18,7 @@ $counter = 0;
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <div div class="modal-header">
+                                <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">New Indicator</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -37,10 +37,13 @@ $counter = 0;
                                         }
                                         ?>
                                         </select>&nbsp;
+                                        <span id="perspectiveError" style="color: red; display: none;">Please select a perspective</span>
                                         <label for="txtdescription" style="text-align: left; display: block;">Description</label>
                                         <input type="text" class="form-control" id="txtdescription" placeholder="Input Description" name="description" />&nbsp;
+                                        <span id="descriptionError" style="color: red; display: none;">Please enter a description</span>
                                         <label for="txtorder" style="text-align: left; display: block;">Order</label>
                                         <input type="text" class="form-control" id="txtorder" placeholder="Input Order" name="order" />&nbsp;
+                                        <span id="orderError" style="color: red; display: none;">Please enter an order</span>
                                         <label for="txtinput" style="text-align: left; display: block;">Allow Input?</label>
                                         <select class="form-control" id="txtinput" name="input">
                                         <option value="1">Yes</option>
@@ -49,7 +52,7 @@ $counter = 0;
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Create New Indicator</button>
+                                        <button type="submit" class="btn btn-primary" onclick="return validateForm()">Create New Indicator</button>
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +108,6 @@ $counter = 0;
 
 
 <!-- Delete Modal -->
-
 <div class="modal" id="deleteModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -125,6 +127,7 @@ $counter = 0;
         </div>
     </div>
 </div>
+
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -142,8 +145,7 @@ $counter = 0;
                                     <th>Description</th>
                                     <th>Order</th>
                                     <th>Actions</th>
-                                </tr>
-                            </thead>
+                                </                            </thead>
                             <tbody>
                                 <?php
                                 foreach ($indicator as $indicatorRow) {
@@ -171,11 +173,45 @@ $counter = 0;
         </div>
     </div>
 </div>
+</div>
+</div>
+</div>
+</form>
+<!-- JavaScript for form validation -->
 <script>
-    function delete_confirmation(indicatorid) {
-        $("#delete-confirmation-link").attr("href", BASE_URL + "registry/delete-indicator/" + indicatorid);
-    }
+    function validateForm() {
+        var perspectiveid = document.getElementById("txtperspectiveid").value;
+        var description = document.getElementById("txtdescription").value;
+        var order = document.getElementById("txtorder").value;
+        var valid = true;
 
+        if (perspectiveid.trim() === "") {
+            document.getElementById("perspectiveError").style.display = "inline";
+            valid = false;
+        } else {
+            document.getElementById("perspectiveError").style.display = "none";
+        }
+
+        if (description.trim() === "") {
+            document.getElementById("descriptionError").style.display = "inline";
+            valid = false;
+        } else {
+            document.getElementById("descriptionError").style.display = "none";
+        }
+
+        if (order.trim() === "") {
+            document.getElementById("orderError").style.display = "inline";
+            valid = false;
+        } else {
+            document.getElementById("orderError").style.display = "none";
+        }
+
+        return valid;
+    }
+</script>
+
+<!-- Edit Modal JavaScript -->
+<script>
     function edit_indicator(indicators) {
         $("#txteindicatorid").val(indicators.indicatorid);
         $("#txteperspectiveid").val(indicators.perspectiveid);
@@ -184,4 +220,12 @@ $counter = 0;
         $("#txteinput").val(indicators.input);
     }
 </script>
+
+<!-- Delete Modal JavaScript -->
+<script>
+    function delete_confirmation(indicatorid) {
+        $("#delete-confirmation-link").attr("href", BASE_URL + "registry/delete-indicator/" + indicatorid);
+    }
+</script>
 <?= $this->endSection() ?>
+
